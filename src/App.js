@@ -6,14 +6,24 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Login from './pages/login'
 
 import Register from './pages/register'
-
+import DashBoard from './pages/dashboard'
+import { MDBNav } from 'mdbreact'
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
 function App() {
   return (
     <Router>
       <div className="App">
-        <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+      <Navbar bg="light" variant="light">
+        <Container>
+          <Navbar.Brand href="/">WellFargo</Navbar.Brand>
+        </Container>
+      </Navbar>
+{/* 
+        <MDBNav className="navbar navbar-expand-sm navbar- fixed-top">
           <div className="container">
             <Link className="navbar-brand" to={'/login'}>
+            
               WellFargo
             </Link>
             <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
@@ -31,14 +41,15 @@ function App() {
               </ul>
             </div>
           </div>
-        </nav>
-
+        </MDBNav> */}
+        <br/>
         <div className="outer">
           <div className="inner">
             <Routes>
               <Route exact path="/" element={<Login />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/dashboard" element={<DashBoard />} />
             </Routes>
           </div>
         </div>
