@@ -5,10 +5,10 @@ import org.springframework.data.jpa.repository.support.JpaRepositoryImplementati
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import com.project.onlinebankingservices.model.Users;
+import com.project.onlinebankingservices.model.Transactions;
 
 
 @Repository
-public interface  UsersRepository extends JpaRepository<Users, Integer> {
+public interface  Transactionsdtls extends JpaRepository<Transactions, Integer> {
 
 }
