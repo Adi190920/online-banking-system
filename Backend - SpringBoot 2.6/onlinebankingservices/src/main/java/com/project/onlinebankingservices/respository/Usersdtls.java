@@ -9,7 +9,7 @@ import com.project.onlinebankingservices.model.User;
 
 
 @Repository
-public interface Usersdtls extends JpaRepository<User, Integer> {
+public interface Usersdtls extends JpaRepository<User, Long> {
 
 
 

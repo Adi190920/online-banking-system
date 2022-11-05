@@ -17,26 +17,21 @@ import lombok.NoArgsConstructor;
 public class User {
 	
 	@Id
-	private long accountNumber;
+	private long accountnumber;
 	private String name;
-	private String middleName;
-	private String lastName;
-	private String userName;
+	private String middlename;
+	private String lastname;
+	private String username;
 	private String password;
-	private String securityQuestions;
-	private String securityAnswers;
-	private String accountTypeID;
-	
-	@Column(name = "mobileNumber")
-	private long mobileNumber;
-	public User() {
-		super();
+	private String securityquestions;
+	private String securityanswers;
+	private String acctypeid;
+	private long mobilenumber;
+	public long getAccountnumber() {
+		return accountnumber;
 	}
-	public long getAccountNumber() {
-		return accountNumber;
-	}
-	public void setAccountNumber(long accountNumber) {
-		this.accountNumber = accountNumber;
+	public void setAccountnumber(long accountnumber) {
+		this.accountnumber = accountnumber;
 	}
 	public String getName() {
 		return name;
@@ -44,23 +39,34 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getMiddleName() {
-		return middleName;
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
-	public void setMiddleName(String middleName) {
-		this.middleName = middleName;
+	public String getMiddlename() {
+		return middlename;
 	}
-	public String getLastName() {
-		return lastName;
+	@Override
+	public String toString() {
+		return "User [accountnumber=" + accountnumber + ", name=" + name + ", middlename=" + middlename + ", lastname="
+				+ lastname + ", username=" + username + ", password=" + password + ", securityquestions="
+				+ securityquestions + ", securityanswers=" + securityanswers + ", acctypeid=" + acctypeid
+				+ ", mobilenumber=" + mobilenumber + "]";
 	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setMiddlename(String middlename) {
+		this.middlename = middlename;
 	}
-	public String getUserName() {
-		return userName;
+	public String getLastname() {
+		return lastname;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public String getPassword() {
 		return password;
@@ -68,29 +74,31 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getSecurityQuestions() {
-		return securityQuestions;
+	public String getSecurityquestions() {
+		return securityquestions;
 	}
-	public void setSecurityQuestions(String securityQuestions) {
-		this.securityQuestions = securityQuestions;
+	public void setSecurityquestions(String securityquestions) {
+		this.securityquestions = securityquestions;
 	}
-	public String getSecurityAnswers() {
-		return securityAnswers;
+	public String getSecurityanswers() {
+		return securityanswers;
 	}
-	public void setSecurityAnswers(String securityAnswers) {
-		this.securityAnswers = securityAnswers;
+	public void setSecurityanswers(String securityanswers) {
+		this.securityanswers = securityanswers;
 	}
-	public String getAccountTypeID() {
-		return accountTypeID;
+	public String getAcctypeid() {
+		return acctypeid;
 	}
-	public void setAccountTypeID(String accountTypeID) {
-		this.accountTypeID = accountTypeID;
+	public void setAcctypeid(String acctypeid) {
+		this.acctypeid = acctypeid;
 	}
-	public long getMobileNumber() {
-		return mobileNumber;
+	public long getMobilenumber() {
+		return mobilenumber;
 	}
-	public void setMobileNumber(long mobileNumber) {
-		this.mobileNumber = mobileNumber;
+	public void setMobilenumber(long mobilenumber) {
+		this.mobilenumber = mobilenumber;
 	}
+	
+	
 	
 }

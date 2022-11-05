@@ -16,43 +16,48 @@ import lombok.NoArgsConstructor;
 public class FundTransfer {
 	
 	@Id
-	private int transferId;
-	private long soureAccNumber;
-	private long  destAccNumber;
-	private int DestAccTypeId; 
-	private double transferAmount;
-	public int getTransferId() {
-		return transferId;
+	private int transferid;
+	private long soureaccnumber;
+	private long  destaccnumber;
+	private int destacctypeid; 
+	private double transferamount;
+	public int getTransferid() {
+		return transferid;
 	}
-	public void setTransferId(int transferId) {
-		this.transferId = transferId;
+	public void setTransferid(int transferid) {
+		this.transferid = transferid;
 	}
-	public long getSoureAccNumber() {
-		return soureAccNumber;
+	public long getSoureaccnumber() {
+		return soureaccnumber;
 	}
-	public void setSoureAccNumber(long soureAccNumber) {
-		this.soureAccNumber = soureAccNumber;
+	public void setSoureaccnumber(long soureaccnumber) {
+		this.soureaccnumber = soureaccnumber;
 	}
-	public long getDestAccNumber() {
-		return destAccNumber;
+	public long getDestaccnumber() {
+		return destaccnumber;
 	}
-	public void setDestAccNumber(long destAccNumber) {
-		this.destAccNumber = destAccNumber;
+	public void setDestaccnumber(long destaccnumber) {
+		this.destaccnumber = destaccnumber;
 	}
-	public int getDestAccTypeId() {
-		return DestAccTypeId;
+	public int getDestacctypeid() {
+		return destacctypeid;
 	}
-	public void setDestAccTypeId(int destAccTypeId) {
-		DestAccTypeId = destAccTypeId;
+	public void setDestacctypeid(int destacctypeid) {
+		this.destacctypeid = destacctypeid;
 	}
-	public double getTransferAmount() {
-		return transferAmount;
+	public double getTransferamount() {
+		return transferamount;
 	}
-	public void setTransferAmount(double transferAmount) {
-		this.transferAmount = transferAmount;
+	public void setTransferamount(double transferamount) {
+		this.transferamount = transferamount;
 	}
 	public FundTransfer() {
 		super();
 		// TODO Auto-generated constructor stub
-	} 
+	}
+	
+	
+	
+	
+	
 }

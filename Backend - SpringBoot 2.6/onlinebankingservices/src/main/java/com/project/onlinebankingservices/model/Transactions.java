@@ -10,60 +10,62 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//@Data
-//@AllArgsConstructor
-//@NoArgsConstructor
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name="Transactions")
 public class Transactions {
 	
 	@Id
-	private int TransactionID;
-	private long AccountNumber;
-	private int AccountTypeID; 
-	private String TransactionType;
-	private Date TransDate;
-	private int Amount;
+	private int transactionid;
+	private long accountnumber;
+	private int acctypeid; 
+	private String transactiontype;
+	private Date transactiondate;
+	private int amount;
 	public Transactions() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public int getTransactionID() {
-		return TransactionID;
+	public int getTransactionid() {
+		return transactionid;
 	}
-	public void setTransactionID(int transactionID) {
-		TransactionID = transactionID;
+	public void setTransactionid(int transactionid) {
+		this.transactionid = transactionid;
 	}
-	public long getAccountNumber() {
-		return AccountNumber;
+	public long getAccountnumber() {
+		return accountnumber;
 	}
-	public void setAccountNumber(long accountNumber) {
-		AccountNumber = accountNumber;
+	public void setAccountnumber(long accountnumber) {
+		this.accountnumber = accountnumber;
 	}
-	public int getAccountTypeID() {
-		return AccountTypeID;
+	public int getAcctypeid() {
+		return acctypeid;
 	}
-	public void setAccountTypeID(int accountTypeID) {
-		AccountTypeID = accountTypeID;
+	public void setAcctypeid(int acctypeid) {
+		this.acctypeid = acctypeid;
 	}
-	public String getTransactionType() {
-		return TransactionType;
+	public String getTransactiontype() {
+		return transactiontype;
 	}
-	public void setTransactionType(String transactionType) {
-		TransactionType = transactionType;
+	public void setTransactiontype(String transactiontype) {
+		this.transactiontype = transactiontype;
 	}
-	public Date getTransDate() {
-		return TransDate;
+	public Date getTransactiondate() {
+		return transactiondate;
 	}
-	public void setTransDate(Date transDate) {
-		TransDate = transDate;
+	public void setTransactiondate(Date transactiondate) {
+		this.transactiondate = transactiondate;
 	}
 	public int getAmount() {
-		return Amount;
+		return amount;
 	}
 	public void setAmount(int amount) {
-		Amount = amount;
+		this.amount = amount;
 	}
+	
+	
 
 }
 

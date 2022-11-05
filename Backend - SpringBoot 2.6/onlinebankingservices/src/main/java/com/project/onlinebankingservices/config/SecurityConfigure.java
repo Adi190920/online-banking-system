@@ -32,11 +32,12 @@ public class SecurityConfigure extends WebSecurityConfigurerAdapter{
 	@Autowired
 	private UserDetailsService myuserDetailsService;
 	
-	
+
 	@Override
 	protected void configure(final HttpSecurity http) throws Exception
 	{
 		http
+		    .csrf().disable()
 			.authorizeRequests()
 			.antMatchers("/login").permitAll()
 			.anyRequest()
@@ -49,17 +50,37 @@ public class SecurityConfigure extends WebSecurityConfigurerAdapter{
 			.logout() 
 			.logoutSuccessUrl("/")
 //			.logoutRequestMatcher(new AntPathRequestMatcher("/perform_logout" ,"GET" ) )
-			.invalidateHttpSession(true)
+			.invalidateHttpSession(true);
 //			.deleteCookies ( "JSESSIONID" )
-			.permitAll();
+//			.permitAll();
 //			.logoutUrl("/login");
 		
 			
-			/*.addLogoutHandler(logoutHandler)                                         
-			.deleteCookies(cookieNamesToClear)                                       
-			.and()
-			 * .logoutSuccessHandler(logoutSuccessHandler)  */
+//			.addLogoutHandler(logoutHandler)                                         
+//			.deleteCookies(cookieNamesToClear)                                       
+//			.and()
+//			 * .logoutSuccessHandler(logoutSuccessHandler)  
 	}
+
+//	
+//	@Override
+//	protected void configure(final HttpSecurity http) throws Exception
+//	{
+//		http
+//			.csrf().disable()
+//			.authorizeRequests()
+//			.antMatchers("/register/").permitAll()
+//			.anyRequest()
+//			.permitAll();
+//			
+////			.logoutUrl("/login");
+//		
+//			
+//			/*.addLogoutHandler(logoutHandler)                                         
+//			.deleteCookies(cookieNamesToClear)                                       
+//			.and()
+//			 * .logoutSuccessHandler(logoutSuccessHandler)  */
+//	}
 	
 
 	@Override
@@ -67,11 +88,11 @@ public class SecurityConfigure extends WebSecurityConfigurerAdapter{
 			
 //		auth.userDetailsService(myuserDetailsService);
 		
-		auth.inMemoryAuthentication()
-		.withUser( "admin" ).password(passwordEncoder().encode("admin")).roles("USER");
+//		auth.inMemoryAuthentication()
+//		.withUser( "admin" ).password(passwordEncoder().encode("admin")).roles("USER");
+//		
 		
-		
-//		auth.jdbcAuthentication().dataSource(mydataSource) ;
+		auth.jdbcAuthentication().dataSource(mydataSource);
 		
 	}
 	

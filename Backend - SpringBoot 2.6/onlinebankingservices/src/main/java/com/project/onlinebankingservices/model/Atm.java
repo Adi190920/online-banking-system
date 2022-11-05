@@ -17,29 +17,30 @@ import lombok.NoArgsConstructor;
 public class Atm {
 	@Id
 	private int id;
-	private long accountNumber;
-	private int atmPin;
-	public Atm() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	private long accountnumber;
+	private int atmpin;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public long getAccountNumber() {
-		return accountNumber;
+	public long getAccountnumber() {
+		return accountnumber;
 	}
-	public void setAccountNumber(long accountNumber) {
-		this.accountNumber = accountNumber;
+	public void setAccountnumber(long accountnumber) {
+		this.accountnumber = accountnumber;
 	}
-	public int getAtmPin() {
-		return atmPin;
+	public int getAtmpin() {
+		return atmpin;
 	}
-	public void setAtmPin(int atmPin) {
-		this.atmPin = atmPin;
+	public void setAtmpin(int atmpin) {
+		this.atmpin = atmpin;
 	}
+	public Atm() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
 	
 }

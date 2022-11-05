@@ -14,23 +14,25 @@ import lombok.NoArgsConstructor;
 @Table(name="Accounts")
 public class Accounts {
     @Id
-	private int AccountTypeID;
-	private String AccountType;
-	public int getAccountTypeID() {
-		return AccountTypeID;
-	}
-	public void setAccountTypeID(int accountTypeID) {
-		AccountTypeID = accountTypeID;
-	}
-	public String getAccountType() {
-		return AccountType;
-	}
-	public void setAccountType(String accountType) {
-		AccountType = accountType;
-	}
+	private int acctypeid;
+	private String acctype;
 	public Accounts() {
+		super();
 		// TODO Auto-generated constructor stub
 	}
-	
+	public int getAcctypeid() {
+		return acctypeid;
+	}
+	public void setAcctypeid(int acctypeid) {
+		this.acctypeid = acctypeid;
+	}
+	public String getAcctype() {
+		return acctype;
+	}
+	public void setAcctype(String acctype) {
+		this.acctype = acctype;
+	}
+
+
 	
 }

@@ -14,24 +14,25 @@ import lombok.NoArgsConstructor;
 @Table(name="Checkbook")
 public class Checkbook {
     @Id
-    private int CheckbookID;
-    private long AccountNumber;
+    private int checkbookid;
+    private long accountnumber;
 	public Checkbook() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public int getCheckbookID() {
-		return CheckbookID;
+	public int getCheckbookid() {
+		return checkbookid;
 	}
-	public void setCheckbookID(int checkbookID) {
-		CheckbookID = checkbookID;
+	public void setCheckbookid(int checkbookid) {
+		this.checkbookid = checkbookid;
 	}
-	public long getAccountNumber() {
-		return AccountNumber;
+	public long getAccountnumber() {
+		return accountnumber;
 	}
-	public void setAccountNumber(long accountNumber) {
-		AccountNumber = accountNumber;
+	public void setAccountnumber(long accountnumber) {
+		this.accountnumber = accountnumber;
 	}
+	
 
 
 }

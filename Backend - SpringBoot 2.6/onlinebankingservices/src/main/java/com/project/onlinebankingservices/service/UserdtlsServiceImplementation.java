@@ -1,6 +1,7 @@
 package com.project.onlinebankingservices.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,6 +24,11 @@ public class UserdtlsServiceImplementation implements UserdtlsService {
 	public List<User> getUsers()
 	{
 		return respository.findAll();
+	}
+	
+	public Optional<User> findUser(long accountNumber)
+	{
+		return respository.findById(accountNumber);
 	}
 	
 }
