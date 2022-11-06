@@ -9,7 +9,7 @@ import com.project.onlinebankingservices.model.User;
 import com.project.onlinebankingservices.respository.Usersdtls;
 
 @org.springframework.stereotype.Service
-public class UserdtlsServiceImplementation implements UserdtlsService {
+public class UserdtlsServiceImpl implements UserdtlsService {
 
 	@Autowired
 	private Usersdtls respository;
@@ -29,6 +29,11 @@ public class UserdtlsServiceImplementation implements UserdtlsService {
 	public Optional<User> findUser(long accountNumber)
 	{
 		return respository.findById(accountNumber);
+	}
+	
+	public void deleteUser(long accountNumber)
+	{
+		respository.deleteById(accountNumber);
 	}
 	
 }

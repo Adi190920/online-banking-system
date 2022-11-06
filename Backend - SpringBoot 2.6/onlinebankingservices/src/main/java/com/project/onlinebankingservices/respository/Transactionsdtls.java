@@ -7,8 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.project.onlinebankingservices.model.Transactions;
 
-
 @Repository
-public interface  Transactionsdtls extends JpaRepository<Transactions, Integer> {
+public interface Transactionsdtls extends JpaRepository<Transactions, Integer> {
 
 }

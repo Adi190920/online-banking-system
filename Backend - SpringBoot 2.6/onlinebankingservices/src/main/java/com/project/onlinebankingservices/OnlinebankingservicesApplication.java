@@ -9,9 +9,10 @@ import com.project.onlinebankingservices.respository.Usersdtls;
 @SpringBootApplication
 public class OnlinebankingservicesApplication {
 
+// intial config
 	@Autowired
 	private Usersdtls repository;
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(OnlinebankingservicesApplication.class, args);
 	}

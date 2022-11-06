@@ -7,10 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.project.onlinebankingservices.model.User;
 
-
 @Repository
 public interface Usersdtls extends JpaRepository<User, Long> {
-
-
 
 }

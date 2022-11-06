@@ -13,9 +13,13 @@ class OnlinebankingservicesApplicationTests {
 		return new BCryptPasswordEncoder();
 	}
 	
+	public PasswordEncoder pEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 	@Test
 	void contextLoads() {
-		System.out.println(passwordEncoder().encode("password123"));
+		System.out.println(passwordEncoder().encode("admin"));
+		System.out.println(passwordEncoder().encode("admin"));
 		}
 	
 	
