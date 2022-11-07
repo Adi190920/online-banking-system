@@ -9,7 +9,9 @@ import Register from './pages/register'
 import DashBoard from './pages/dashboard'
 import useAuth from './hooks/auth'
 import NotAuthAppbar from './pages/NotAuthAppbar'
-import Appbar from './pages/Appbar'
+import Appbar from './pages/AppBar'
+import Changepin from './pages/changePin'
+
 function App() {
   const auth = useAuth();
   return (
@@ -23,7 +25,8 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/dashboard" element={<DashBoard />} />
-            </Routes>
+              <Route path="/changePin" element={<Changepin />} />
+              </Routes>
           </div>
         </div>
       </div>

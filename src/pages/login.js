@@ -67,7 +67,6 @@ function App() {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder='Password' id='formControlLg'
                 type='password' size="lg"/>
-
               
 
               <MDBBtn size='lg'
