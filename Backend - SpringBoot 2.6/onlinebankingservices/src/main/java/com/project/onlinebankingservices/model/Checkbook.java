@@ -8,11 +8,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+//@Data
+//@AllArgsConstructor
+//@NoArgsConstructor
 @Entity
-@Table(name = "Checkbook")
+@Table(name = "checkbookdetails")
 public class Checkbook {
 	@Id
 	private int checkbookid;
