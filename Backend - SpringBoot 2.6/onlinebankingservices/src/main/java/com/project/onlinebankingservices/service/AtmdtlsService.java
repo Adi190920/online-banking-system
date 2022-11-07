@@ -3,15 +3,15 @@ package com.project.onlinebankingservices.service;
 import java.util.List;
 import java.util.Optional;
 
-import com.project.onlinebankingservices.model.Atmdetails;
+import com.project.onlinebankingservices.model.Atm;
 
 public interface AtmdtlsService {
 
-	Optional<Atmdetails> findAtmdtls(long accountnumber);
+	Optional<Atm> findAtmdtls(long accountnumber);
 
 	int updatedtls(long accountnumber, int atmpin);
 
-	Atmdetails createPinDetails(Atmdetails atm);
+	Atm createPinDetails(Atm atm);
 
-	Optional<Atmdetails> AtmDetailsByAcc(long accountnumber);
+	Optional<Atm> AtmDetailsByAcc(long accountnumber);
 }

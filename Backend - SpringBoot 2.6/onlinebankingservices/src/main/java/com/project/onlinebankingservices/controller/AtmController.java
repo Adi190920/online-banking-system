@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.onlinebankingservices.model.Atmdetails;
+import com.project.onlinebankingservices.model.Atm;
 import com.project.onlinebankingservices.model.AtmPinChange;
 import com.project.onlinebankingservices.model.LoginUser;
 import com.project.onlinebankingservices.model.User;
@@ -49,7 +49,7 @@ public class AtmController {
 		}
 
 		else {
-			Atmdetails atm = new Atmdetails();
+			Atm atm = new Atm();
 			atm.setAccountnumber(user.getAccountnumber());
 			atm.setAtmpin(customer.getNewpin());
 			aservice.createPinDetails(atm);

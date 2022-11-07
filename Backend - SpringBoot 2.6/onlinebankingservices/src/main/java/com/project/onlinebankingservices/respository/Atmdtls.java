@@ -10,13 +10,13 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.project.onlinebankingservices.model.Atmdetails;
+import com.project.onlinebankingservices.model.Atm;
 
 @Transactional
 @Repository
-public interface Atmdtls extends JpaRepository<Atmdetails, Integer> {
+public interface Atmdtls extends JpaRepository<Atm, Integer> {
 
-	Optional<Atmdetails> findByAccountnumber(long accountnumber);
+	Optional<Atm> findByAccountnumber(long accountnumber);
 
 	
 	@Modifying
@@ -26,6 +26,6 @@ public interface Atmdtls extends JpaRepository<Atmdetails, Integer> {
 	
 
 	@Query(value = "select * from atmdetails  where accountnumber = :acc", nativeQuery = true)
-	Optional<Atmdetails> getAtmDetailsByAccNum(@Param("acc") Long accountnumber);
+	Optional<Atm> getAtmDetailsByAccNum(@Param("acc") Long accountnumber);
 	
 }

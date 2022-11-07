@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.onlinebankingservices.model.Atmdetails;
+import com.project.onlinebankingservices.model.Atm;
 import com.project.onlinebankingservices.respository.Atmdtls;
 
 @Service
@@ -16,7 +16,7 @@ public class AtmdtlsServiceImpl implements AtmdtlsService {
 	private Atmdtls repository;
 	
 	@Override
-	public Optional<Atmdetails> findAtmdtls(long accountnumber)
+	public Optional<Atm> findAtmdtls(long accountnumber)
 	{
 		return repository.findByAccountnumber(accountnumber);
 	}
@@ -28,14 +28,14 @@ public class AtmdtlsServiceImpl implements AtmdtlsService {
 	}
 	
 	@Override
-	public Atmdetails createPinDetails(Atmdetails atm)
+	public Atm createPinDetails(Atm atm)
 	{
 		
 		return repository.save(atm);
 	}
 	
 	@Override
-	public Optional<Atmdetails> AtmDetailsByAcc(long accountnumber)
+	public Optional<Atm> AtmDetailsByAcc(long accountnumber)
 	{
 		return repository.getAtmDetailsByAccNum(accountnumber);
 	}

@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Table(name = "atmdetails")
 @Entity
-public class Atmdetails {
+public class Atm {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -46,7 +46,7 @@ public class Atmdetails {
 		return "Atmdetails [id=" + id + ", accountnumber=" + accountnumber + ", atmpin=" + atmpin + "]";
 	}
 
-	public Atmdetails() {
+	public Atm() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
