@@ -9,12 +9,17 @@ import org.springframework.web.bind.annotation.RestController;
 import com.project.onlinebankingservices.model.LoginUser;
 import com.project.onlinebankingservices.model.User;
 import com.project.onlinebankingservices.service.UserdtlsService;
+import com.project.onlinebankingservices.service.FundTransferdtlsService;
+
 
 @RestController
 public class Controller {
 
 	@Autowired
 	private UserdtlsService uservice;
+	
+	@Autowired
+	private FundTransferdtlsService ftservice;
 
 	// Cross Origin
 //	@Bean
@@ -49,5 +54,9 @@ public class Controller {
 	public String loggedout() {
 		return "Successfully Logout";
 	}
+	
+	
+	
+
 
 }

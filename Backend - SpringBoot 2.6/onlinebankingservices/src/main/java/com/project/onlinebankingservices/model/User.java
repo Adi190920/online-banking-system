@@ -26,6 +26,7 @@ public class User {
 	private String securityquestions;
 	private String securityanswers;
 	private String acctypeid;
+	private int balanceId;
 	private long mobilenumber;
 
 	public long getAccountnumber() {
@@ -115,6 +116,14 @@ public class User {
 
 	public long getMobilenumber() {
 		return mobilenumber;
+	}
+	
+	public int getBalanceId() {
+		return balanceId;
+	}
+
+	public void setBalanceId(int balanceId) {
+		this.balanceId = balanceId;
 	}
 
 	public void setMobilenumber(long mobilenumber) {
