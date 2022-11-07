@@ -15,4 +15,6 @@ public interface UserdtlsService {
 
 	public void deleteUser(long accountNumber);
 
+	public User findUserByUsername(String username);
+
 }
