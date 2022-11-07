@@ -23,23 +23,19 @@ const Appbar = () => {
         // })
         
     }
-    
-    const pinchange = async() =>{
-      navigate('/changePin');
-     
-  }
+  
     
 
     return(
       <Navbar bg="light" variant="light">
       <Container>
         <Navbar.Brand href="/">{auth.user.username}</Navbar.Brand>
-        {/* to add onclick */}
-        <Button variant="outline-dark">Check Balance</Button>
-        <Button variant="outline-dark">Fund Transfer</Button>
-        <Button variant="outline-dark">Open New FD</Button>
-        <Button variant="outline-dark">Events</Button>
-        <Button variant="outline-dark" onClick={pinchange}>Change Pin</Button>
+        <Navbar.Brand href="/openNewFD">Open New FD</Navbar.Brand>
+        <Navbar.Brand href="/fundTransfer">Fund Transfer</Navbar.Brand>
+        <Navbar.Brand href="/checkBalance">Check Balance</Navbar.Brand>
+        <Navbar.Brand href="/eventsAvailable">Events</Navbar.Brand>
+        <Navbar.Brand href="/changePin">Change Pin</Navbar.Brand>
+
         <Button variant="dark" onClick={logout}>Logout</Button>
       </Container>
     </Navbar>

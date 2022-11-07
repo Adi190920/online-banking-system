@@ -11,7 +11,10 @@ import useAuth from './hooks/auth'
 import NotAuthAppbar from './pages/NotAuthAppbar'
 import Appbar from './pages/AppBar'
 import Changepin from './pages/changePin'
-
+import EventsAvailable from './pages/event'
+import FundTransfer from './pages/fundTransfer'
+import OpenNewFD from './pages/openNewFD'
+import CheckBalance from './pages/checkBalance'
 function App() {
   const auth = useAuth();
   return (
@@ -26,6 +29,10 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/dashboard" element={<DashBoard />} />
               <Route path="/changePin" element={<Changepin />} />
+              <Route path="/checkBalance" element={<CheckBalance />} />
+              <Route path="/fundTransfer" element={<FundTransfer />} />
+              <Route path="/openNewFD" element={<OpenNewFD />} />
+              <Route path="/EventsAvailable" element={<EventsAvailable />} />
               </Routes>
           </div>
         </div>
