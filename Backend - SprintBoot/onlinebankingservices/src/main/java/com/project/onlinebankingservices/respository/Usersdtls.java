@@ -5,10 +5,12 @@ import org.springframework.data.jpa.repository.support.JpaRepositoryImplementati
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import com.project.onlinebankingservices.model.Users;
+import com.project.onlinebankingservices.model.User;
 
 
 @Repository
-public interface  UsersRepository extends JpaRepository<Users, Integer> {
+public interface Usersdtls extends JpaRepository<User, Integer> {
+
+//	User findbyUserName(String username);
 
 }
