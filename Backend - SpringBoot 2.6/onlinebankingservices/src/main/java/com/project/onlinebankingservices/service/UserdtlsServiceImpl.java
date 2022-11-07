@@ -15,6 +15,7 @@ public class UserdtlsServiceImpl implements UserdtlsService {
 	private Usersdtls respository;
 	
 	
+	@Override
 	public User registerUser(User user)
 	{
 		return respository.save(user);
@@ -33,10 +34,6 @@ public class UserdtlsServiceImpl implements UserdtlsService {
 	public void deleteUser(long accountNumber)
 	{
 		respository.deleteById(accountNumber);
-	}
-	public User findUserByUsername(String username)
-	{
-		return respository.findByUsername(username);
 	}
 	
 }

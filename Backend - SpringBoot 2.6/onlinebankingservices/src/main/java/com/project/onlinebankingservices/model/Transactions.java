@@ -2,10 +2,7 @@ package com.project.onlinebankingservices.model;
 
 import java.sql.Date;
 
-import javax.annotation.Generated;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -21,7 +18,6 @@ import lombok.NoArgsConstructor;
 public class Transactions {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int transactionid;
 	private long accountnumber;
 	private int acctypeid;
@@ -80,13 +76,6 @@ public class Transactions {
 
 	public void setAmount(int amount) {
 		this.amount = amount;
-	}
-
-	@Override
-	public String toString() {
-		return "Transactions [transactionid=" + transactionid + ", accountnumber=" + accountnumber + ", acctypeid="
-				+ acctypeid + ", transactiontype=" + transactiontype + ", transactiondate=" + transactiondate
-				+ ", amount=" + amount + "]";
 	}
 
 }
