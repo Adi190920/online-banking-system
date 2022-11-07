@@ -10,13 +10,14 @@ import DashBoard from './pages/dashboard'
 import { MDBNav } from 'mdbreact'
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
+import Changepin from './pages/Changepin'
 function App() {
   return (
     <Router>
       <div className="App">
       <Navbar bg="light" variant="light">
         <Container>
-          <Navbar.Brand href="/">WellFargo</Navbar.Brand>
+          <Navbar.Brand href="/">WellsFargo</Navbar.Brand>
         </Container>
       </Navbar>
 {/* 
@@ -50,6 +51,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/dashboard" element={<DashBoard />} />
+              <Route path="/changepin" element={<Changepin/>}/>
             </Routes>
           </div>
         </div>
