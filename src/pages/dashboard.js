@@ -6,8 +6,8 @@ export default function DashBoard(){
             <MDBNavbar>
                 <MDBContainer>
                     <MDBNavbarBrand href="#">CheckBalance</MDBNavbarBrand>
-                    <MDBNavbarBrand href="#">Fund Transfer</MDBNavbarBrand>
-                    <MDBNavbarBrand href="#">Open New FD</MDBNavbarBrand>
+                    <MDBNavbarBrand href="fundtransfer">Fund Transfer</MDBNavbarBrand>
+                    <MDBNavbarBrand href="newfd">Open New FD</MDBNavbarBrand>
                     <MDBNavbarBrand href="#">Events</MDBNavbarBrand>
                     <MDBNavbarBrand href="changepin">Change ATM Pin</MDBNavbarBrand>
                 </MDBContainer>

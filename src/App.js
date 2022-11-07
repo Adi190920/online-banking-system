@@ -11,6 +11,10 @@ import useAuth from './hooks/auth'
 import NotAuthAppbar from './pages/NotAuthAppbar'
 import Appbar from './pages/AppBar'
 import Changepin from './pages/Changepin'
+import Fundtransfer from './pages/Fundtransfer'
+import NewFD from './pages/NewFD'
+
+
 function App() {
   const auth = useAuth();
   return (
@@ -25,6 +29,8 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/dashboard" element={<DashBoard />} />
               <Route path="/changepin" element={<Changepin/>}/>
+              <Route path="/newfd" element={<NewFD/>}/>
+              <Route path="/fundtransfer" element={<Fundtransfer/>}/>
             </Routes>
           </div>
         </div>
