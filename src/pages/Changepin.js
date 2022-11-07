@@ -30,13 +30,13 @@ export function Changepin() {
             <MDBCardBody className='p-5 w-100 d-flex flex-column'>
             <h2 className="fw-bold mb-2 text-center">Change ATM Pin</h2>
             <MDBInput wrapperClass='mb-4 w-100'
-                label='oldpin' id='formControlLg' 
+                placeholder='oldpin' id='formControlLg' 
                 type='password' size="sm"/>
               <MDBInput wrapperClass='mb-4 w-100'
-                label='newpin' id='formControlLg'
+                placeholder='newpin' id='formControlLg'
                 type='password' size="sm"/>
                 <MDBInput wrapperClass='mb-4 w-100'
-                label='confirmpin' id='formControlLg'
+                placeholder='confirmpin' id='formControlLg'
                 type='password' size="sm"/>
                 <MDBBtn size='sm' onClick={handleSubmit}
                 >Changepin </MDBBtn>

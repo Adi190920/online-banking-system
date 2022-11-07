@@ -7,43 +7,16 @@ import Login from './pages/login'
 
 import Register from './pages/register'
 import DashBoard from './pages/dashboard'
-import { MDBNav } from 'mdbreact'
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
+import useAuth from './hooks/auth'
+import NotAuthAppbar from './pages/NotAuthAppbar'
+import Appbar from './pages/AppBar'
 import Changepin from './pages/Changepin'
 function App() {
+  const auth = useAuth();
   return (
     <Router>
       <div className="App">
-      <Navbar bg="light" variant="light">
-        <Container>
-          <Navbar.Brand href="/">WellsFargo</Navbar.Brand>
-        </Container>
-      </Navbar>
-{/* 
-        <MDBNav className="navbar navbar-expand-sm navbar- fixed-top">
-          <div className="container">
-            <Link className="navbar-brand" to={'/login'}>
-            
-              WellFargo
-            </Link>
-            <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-              <ul className="navbar-nav ml-auto">
-                <li className="nav-item">
-                  <Link className="nav-link" to={'/login'}>
-                    Login
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to={'/register'}>
-                    Register
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </MDBNav> */}
-        <br/>
+      {auth.auth ? <Appbar/> : <NotAuthAppbar/>}
         <div className="outer">
           <div className="inner">
             <Routes>

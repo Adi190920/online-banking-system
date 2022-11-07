@@ -10,7 +10,6 @@ export default function DashBoard(){
                     <MDBNavbarBrand href="#">Open New FD</MDBNavbarBrand>
                     <MDBNavbarBrand href="#">Events</MDBNavbarBrand>
                     <MDBNavbarBrand href="changepin">Change ATM Pin</MDBNavbarBrand>
-                    <MDBNavbarBrand href="login">Logout</MDBNavbarBrand>
                 </MDBContainer>
             </MDBNavbar>
         </div>
