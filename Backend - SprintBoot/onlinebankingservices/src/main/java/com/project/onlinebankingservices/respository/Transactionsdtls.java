@@ -9,6 +9,6 @@ import com.project.onlinebankingservices.model.Transactions;
 
 
 @Repository
-public interface  TransactionsRepository extends JpaRepository<Transactions, Integer> {
+public interface  Transactionsdtls extends JpaRepository<Transactions, Integer> {
 
 }
