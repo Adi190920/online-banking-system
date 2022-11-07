@@ -25,6 +25,8 @@ function App() {
   function handleSubmit(event){
     event.preventDefault();
     if(username === "hari" && password === "om"){
+      localStorage.setItem("username", username);
+      localStorage.setItem("password", password);
       setMessage("Login successful");
       navigate("/dashboard");
     }
@@ -54,22 +56,21 @@ function App() {
             <MDBCardBody className='p-5 w-100 d-flex flex-column'>
             <div className="text-danger">{message ? <p>{message}</p> : null}</div>
               <h2 className="fw-bold mb-2 text-center">Login</h2>
-              <p className="text-white-50 mb-3">Please enter your login and password!</p>
-
+              <br/>
               <MDBInput wrapperClass='mb-4 w-100'
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                label='Username' id='formControlLg' 
-                type='text' size="sm"/>
+                placeholder='Username' id='formControlLg' 
+                type='text' size="lg"/>
               <MDBInput wrapperClass='mb-4 w-100'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                label='Password' id='formControlLg'
-                type='password' size="sm"/>
+                placeholder='Password' id='formControlLg'
+                type='password' size="lg"/>
 
               
 
-              <MDBBtn size='sm'
+              <MDBBtn size='lg'
                 onClick={handleSubmit}
                 >Login </MDBBtn>
               

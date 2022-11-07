@@ -7,12 +7,13 @@ import {
   MDBCard,
   MDBCardBody,
   MDBInput,
-  // MDBSelect,
+  MDBCheckbox,
   
-}
-from 'mdb-react-ui-kit';
+} from 'mdb-react-ui-kit';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
 import {  useNavigate } from "react-router-dom";
-// import {MDBSelect} from 'mdbreact';
+
 function App() {
   const [name, setName] = useState("");
   const [middleName, setMiddlename] = useState("");
@@ -46,33 +47,32 @@ function App() {
   }
 
   return (
-    <MDBContainer fluid >
-
+        <MDBContainer fluid >
         <MDBRow className='d-flex justify-content-center align-items-center h-80'>
         <MDBCol md='6'>
 
           <MDBCard className='my-5'>
             <MDBCardBody className='p-5'>
             <h2 className="fw-bold mb-2 text-center">Register</h2>
-            
+            <br/>
               <MDBRow>
                 <MDBCol col='4'>
                   <MDBInput wrapperClass='mb-4' 
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    label='First name' id='form1' type='text'/>
+                    Placeholder='First name' id='form1' type='text'/>
                 </MDBCol>
                 <MDBCol col='4'>
                   <MDBInput wrapperClass='mb-4' 
                     value={middleName}
                     onChange={(e) => setMiddlename(e.target.value)}
-                    label='Middle name' id='form1' type='text'/>
+                    Placeholder='Middle name' id='form1' type='text'/>
                 </MDBCol>
                 <MDBCol col='4'>
                   <MDBInput wrapperClass='mb-4' 
                     value={lastName}
                     onChange={(e) => setLastname(e.target.value)}
-                    label='Last name' id='form1' type='text'/>
+                    Placeholder='Last name' id='form1' type='text'/>
                 </MDBCol>
               </MDBRow>
 
@@ -81,35 +81,44 @@ function App() {
                   <MDBInput wrapperClass='mb-4' 
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    label='Username' id='form1' type='text'/>
+                    Placeholder='Username' id='form1' type='text'/>
                 </MDBCol>
                 <MDBCol col='4'>
                   <MDBInput wrapperClass='mb-4' 
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    label='Password' id='form1' type='password'/>
+                    Placeholder='Password' id='form1' type='password'/>
                 </MDBCol>
               </MDBRow>
               <MDBRow>
                 <MDBCol col='4'>
-                  <p className="text-black-50 mb-">What is your pet name?</p>
+                    <MDBInput wrapperClass='mb-4' 
+                      value={answer}
+                      onChange={(e) => setAnswer(e.target.value)}
+                      Placeholder='What is your pet name?' id='form1' type='text'/>
+                </MDBCol>
+                  <Form.Group as={Col} controlId="formGridState">
+                    <Form.Select defaultValue="Select Account Type...">
+                      <option>Select Account Type...</option>
+                      <option>...</option>
+                    </Form.Select>
+                  </Form.Group>
+              </MDBRow>
+              <MDBRow>
+                <MDBCol col='4'>
+                    <MDBInput wrapperClass='mb-4' 
+                      value={answer}
+                      onChange={(e) => setAnswer(e.target.value)}
+                      Placeholder='Account Number' id='form1' type='text'/>
                 </MDBCol>
                 <MDBCol col="4">
                     <MDBInput wrapperClass='mb-4' 
                       value={answer}
                       onChange={(e) => setAnswer(e.target.value)}
-                      label='Answer' id='form1' type='text'/>
+                      Placeholder='Mobile Number' id='form1' type='text'/>
                 </MDBCol>
               </MDBRow>
-                  {/* <MDBSelect
-                    data={[
-                      { text: 'Gender', value: 1, disabled: true },
-                      { text: 'Female', value: 2 },
-                      { text: 'Male', value: 3 }
-                    ]}
-                    /> */}
-                
-
+              <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Agree Terms & Conditions' />
                 <MDBBtn size='lg'
                 onClick={handleSubmit}
                 >Register</MDBBtn>
