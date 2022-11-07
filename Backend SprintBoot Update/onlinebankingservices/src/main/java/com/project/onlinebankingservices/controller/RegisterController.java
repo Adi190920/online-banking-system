@@ -1,14 +1,19 @@
 package com.project.onlinebankingservices.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.onlinebankingservices.model.Authorities;
+import com.project.onlinebankingservices.model.Balance;
 import com.project.onlinebankingservices.model.User;
-import com.project.onlinebankingservices.service.AuthoritiesdtlsService;
+import com.project.onlinebankingservices.service.AccountsdtlsService;
+import com.project.onlinebankingservices.service.BalancedtlsService;
 import com.project.onlinebankingservices.service.UserdtlsService;
 
 @RestController
@@ -16,32 +21,36 @@ import com.project.onlinebankingservices.service.UserdtlsService;
 
 public class RegisterController {
 
-	@Autowired
-	private AuthoritiesdtlsService aservice;
 	
 	@Autowired
-	private UserdtlsService uservice;
+	private UserdtlsService userService;
+	
+	@Autowired
+	private BalancedtlsService balanceService;
+	
+	@Autowired
+	private AccountsdtlsService accountService;
 	
 	@PostMapping("/register")
-	public String register(@RequestBody User user) {
+	public ResponseEntity<User> register(@RequestBody User user) {
 		
+	if(accountService.findById(user.getAcctypeid()).isEmpty())
+		return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
 		
-		 if (uservice.findUser(user.getAccountnumber()).isPresent())
-		 {
-			 return "user already exits";
-		 }
+	 if (userService.findUser(user.getAccountnumber()).isPresent())
+	 {
+		 return new ResponseEntity<User>(HttpStatus.ALREADY_REPORTED);
+	 }
 		
-
-		user.setPassword(user.getPassword());
-		
-		Authorities auth = new Authorities();
-		auth.setAuthority("user");
-		auth.setUsername(user.getUsername());
-		
-
-		aservice.registerAuth(auth);
-		uservice.registerUser(user);
-		return "Sucess";
+	 	Balance balance = new Balance();
+	 	balance.setAccountnumber(user.getAccountnumber());
+	 	balance.setBalance(0);
+	 	balanceService.createBalanceDetails(balance);
+	 	Optional<Balance> b = balanceService.findByAccountnumber(user.getAccountnumber());
+		user.setBalanceid(b.get().getBalanceid());
+		System.out.println(user);
+	 	userService.createUser(user);
+		return new ResponseEntity<User>(user, HttpStatus.OK);
 		
 	}
 	

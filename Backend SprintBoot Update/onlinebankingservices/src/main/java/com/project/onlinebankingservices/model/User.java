@@ -1,7 +1,9 @@
 package com.project.onlinebankingservices.model;
 
+import javax.annotation.processing.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -25,7 +27,17 @@ public class User {
 	private String password;
 	private String securityquestions;
 	private String securityanswers;
-	private String acctypeid;
+	private int acctypeid;
+	
+	private int balanceid; 
+	public int getBalanceid() {
+		return balanceid;
+	}
+
+	public void setBalanceid(int balanceid) {
+		this.balanceid = balanceid;
+	}
+
 	private long mobilenumber;
 
 	public long getAccountnumber() {
@@ -105,11 +117,11 @@ public class User {
 		this.securityanswers = securityanswers;
 	}
 
-	public String getAcctypeid() {
+	public int getAcctypeid() {
 		return acctypeid;
 	}
 
-	public void setAcctypeid(String acctypeid) {
+	public void setAcctypeid(int acctypeid) {
 		this.acctypeid = acctypeid;
 	}
 

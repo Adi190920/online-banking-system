@@ -16,13 +16,13 @@ public class AtmdtlsServiceImpl implements AtmdtlsService {
 	private Atmdtls repository;
 	
 	@Override
-	public Optional<Atm> findAtmdtls(long accountnumber)
+	public Optional<Atm> findAtmDetails(long accountnumber)
 	{
 		return repository.findByAccountnumber(accountnumber);
 	}
 	
 	@Override
-	public int updatedtls(long accountnumber, int atmpin)
+	public int updateDetails(long accountnumber, int atmpin)
 	{
 		return repository.updateNewPin(atmpin,accountnumber);
 	}

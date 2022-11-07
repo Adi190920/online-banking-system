@@ -13,30 +13,29 @@ public class UserdtlsServiceImpl implements UserdtlsService {
 
 	@Autowired
 	private Usersdtls respository;
-	
-	
-	public User registerUser(User user)
-	{
+
+	public User createUser(User user) {
 		return respository.save(user);
 	}
-	
-	public List<User> getUsers()
-	{
+
+	public List<User> getUsers() {
 		return respository.findAll();
 	}
-	
-	public Optional<User> findUser(long accountNumber)
-	{
+
+	public Optional<User> findUser(long accountNumber) {
 		return respository.findById(accountNumber);
 	}
-	
-	public void deleteUser(long accountNumber)
-	{
+
+	public void deleteUser(long accountNumber) {
 		respository.deleteById(accountNumber);
 	}
-	public User findUserByUsername(String username)
-	{
+
+	public Optional<User> findUserByUsername(String username) {
 		return respository.findByUsername(username);
 	}
-	
+
+	public int updateUserPassword(String password, Long accountNumber) {
+		return respository.updateUserPassword(password,accountNumber);
+	}
+
 }

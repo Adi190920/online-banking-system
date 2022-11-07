@@ -7,7 +7,7 @@ import com.project.onlinebankingservices.model.User;
 
 public interface UserdtlsService {
 
-	public User registerUser(User user);
+	public User createUser(User user);
 
 	public List<User> getUsers();
 
@@ -15,6 +15,8 @@ public interface UserdtlsService {
 
 	public void deleteUser(long accountNumber);
 
-	public User findUserByUsername(String username);
+	public Optional<User> findUserByUsername(String username);
+	
+	public int updateUserPassword(String password, Long accountNumber);
 
 }

@@ -7,9 +7,9 @@ import com.project.onlinebankingservices.model.Atm;
 
 public interface AtmdtlsService {
 
-	Optional<Atm> findAtmdtls(long accountnumber);
+	Optional<Atm> findAtmDetails(long accountnumber);
 
-	int updatedtls(long accountnumber, int atmpin);
+	int updateDetails(long accountnumber, int atmpin);
 
 	Atm createPinDetails(Atm atm);
 

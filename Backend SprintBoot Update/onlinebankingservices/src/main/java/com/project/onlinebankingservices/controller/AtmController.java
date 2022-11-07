@@ -1,6 +1,10 @@
 package com.project.onlinebankingservices.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,23 +28,25 @@ public class AtmController {
 	private UserdtlsService uservice;
 
 	@PostMapping("/changepin")
-	public String changePin(@RequestBody AtmPinChange customer) {
+	public ResponseEntity<AtmPinChange> changePin(@RequestBody AtmPinChange customer) {
 
 		LoginUser loginuser = new LoginUser();
-		User user = uservice.findUserByUsername(loginuser.getLoginUsername());
-		System.out.println(user.getAccountnumber());
-		System.out.println(customer.getNewpin());
-
+		Optional<User> userOp = uservice.findUserByUsername(loginuser.getLoginUsername());
+		
+		if(userOp.isEmpty())
+			return new ResponseEntity<AtmPinChange> (HttpStatus.NOT_FOUND);
+		
 //		System.out.println(aservice.AtmDetailsByAcc(user.getAccountnumber()));
 
 		if (!(customer.getNewpin() == customer.getConformpin())) {
-			return "New Pin and Conformpin are not matched";
+			return new ResponseEntity<AtmPinChange> (HttpStatus.CONFLICT);
 		}
+		
+		User user = userOp.get();
+		if (aservice.findAtmDetails(user.getAccountnumber()).isPresent()) {
 
-		if (aservice.findAtmdtls(user.getAccountnumber()).isPresent()) {
-
-			if ((aservice.updatedtls(user.getAccountnumber(), customer.getNewpin())) == 0) {
-				return "Failed to Update";
+			if ((aservice.updateDetails(user.getAccountnumber(), customer.getNewpin())) == 0) {
+				return new ResponseEntity<AtmPinChange> (HttpStatus.CONFLICT);
 			}
 
 		}
@@ -51,7 +57,7 @@ public class AtmController {
 			atm.setAtmpin(customer.getNewpin());
 			aservice.createPinDetails(atm);
 		}
-		return "Sucess";
+		return new ResponseEntity<AtmPinChange> (HttpStatus.OK);
 	}
 
 }

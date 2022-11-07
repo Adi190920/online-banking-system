@@ -1,6 +1,7 @@
 package com.project.onlinebankingservices.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -64,7 +65,9 @@ public class Controller {
 	@PostMapping("/login")
 	public ResponseEntity<User> loginApi(@RequestBody Logindata data){
 		
-		User user = uservice.findUserByUsername(data.getUsername());
+		Optional<User> userOp = uservice.findUserByUsername(data.getUsername());
+		
+		User user = userOp.get();
 		
 		if (user.getPassword().equals(data.getPassword())) {
 			return new ResponseEntity<User>(user, HttpStatus.OK);

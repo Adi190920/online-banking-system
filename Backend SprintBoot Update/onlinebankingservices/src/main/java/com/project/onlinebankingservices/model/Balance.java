@@ -1,6 +1,8 @@
 package com.project.onlinebankingservices.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -9,47 +11,39 @@ import javax.persistence.Table;
 public class Balance {
 
 	@Id
-	private int id;
-	private long accountNumber;
-	private int accTypeId;
-	private int amount;
-
-	public int getId() {
-		return id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int balanceid;
+	
+	private long accountnumber;
+	private double balance;
+	public Balance() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
-
-	public void setId(int id) {
-		this.id = id;
+	public int getBalanceid() {
+		return balanceid;
 	}
-
-	public long getAccountNumber() {
-		return accountNumber;
+	public void setBalanceid(int balanceid) {
+		this.balanceid = balanceid;
 	}
-
-	public void setAccountNumber(long accountNumber) {
-		this.accountNumber = accountNumber;
+	public long getAccountnumber() {
+		return accountnumber;
 	}
-
-	public int getAccTypeId() {
-		return accTypeId;
+	public void setAccountnumber(long accountnumber) {
+		this.accountnumber = accountnumber;
 	}
-
-	public void setAccTypeId(int accTypeId) {
-		this.accTypeId = accTypeId;
+	public double getBalance() {
+		return balance;
 	}
-
-	public int getAmount() {
-		return amount;
+	public void setBalance(double balance) {
+		this.balance = balance;
 	}
-
-	public void setAmount(int amount) {
-		this.amount = amount;
-	}
-
 	@Override
 	public String toString() {
-		return "Balancedetails [id=" + id + ", accountNumber=" + accountNumber + ", accTypeId=" + accTypeId
-				+ ", amount=" + amount + "]";
+		return "Balance [balanceid=" + balanceid + ", accountnumber=" + accountnumber + ", balance=" + balance + "]";
 	}
+	
+	
 
+	
 }
