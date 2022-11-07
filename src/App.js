@@ -6,23 +6,39 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Login from './pages/login'
 
 import Register from './pages/register'
-import DashBoard from './pages/dashboard'
-import useAuth from './hooks/auth'
-import NotAuthAppbar from './pages/NotAuthAppbar'
-import Appbar from './pages/Appbar'
+
 function App() {
-  const auth = useAuth();
   return (
     <Router>
       <div className="App">
-      {auth.auth ? <Appbar/> : <NotAuthAppbar/>}
+        <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+          <div className="container">
+            <Link className="navbar-brand" to={'/login'}>
+              WellFargo
+            </Link>
+            <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+              <ul className="navbar-nav ml-auto">
+                <li className="nav-item">
+                  <Link className="nav-link" to={'/login'}>
+                    Login
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to={'/register'}>
+                    Register
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
         <div className="outer">
           <div className="inner">
             <Routes>
               <Route exact path="/" element={<Login />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/dashboard" element={<DashBoard />} />
             </Routes>
           </div>
         </div>
