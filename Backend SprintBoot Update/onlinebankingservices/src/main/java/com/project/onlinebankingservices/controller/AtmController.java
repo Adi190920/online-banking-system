@@ -56,8 +56,9 @@ public class AtmController {
 			atm.setAccountnumber(user.getAccountnumber());
 			atm.setAtmpin(customer.getNewpin());
 			aservice.createPinDetails(atm);
+			return new ResponseEntity<AtmPinChange> (customer,HttpStatus.OK);
 		}
-		return new ResponseEntity<AtmPinChange> (HttpStatus.OK);
+		return new ResponseEntity<AtmPinChange> (HttpStatus.CONFLICT);
 	}
 
 }
