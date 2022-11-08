@@ -2,16 +2,16 @@ package com.project.onlinebankingservices.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.onlinebankingservices.model.LoginUser;
 import com.project.onlinebankingservices.model.Transactions;
-import com.project.onlinebankingservices.model.User;
 import com.project.onlinebankingservices.service.TransactionsdtlsService;
 import com.project.onlinebankingservices.service.UserdtlsService;
 
@@ -23,25 +23,13 @@ public class TransactionsController {
 	@Autowired
 	private TransactionsdtlsService tservice;
 
-	@Autowired
-	private UserdtlsService uservice;
 
-	@GetMapping("/transcations")
-	public List<Transactions> transactionsDisplay() {
+	@GetMapping("/transactions")
+	public List<Transactions> transactionsDisplay(@RequestBody Map<String,String> accountNumber) {
 		// Fetch by Limit
+		List<Transactions> transactionslist = tservice.findByAccountnumber(Long.valueOf(accountNumber.get("accountNumber")));
+		// System.out.println(transactionslist);
 
-		LoginUser loginuser = new LoginUser();
-		Optional<User> userOp = uservice.findUserByUsername(loginuser.getLoginUsername());
-		if (userOp.isPresent()) {
-			User user = userOp.get();
-			System.out.println(user.getAccountnumber());
-			List<Transactions> transactionslist = tservice.findByAccountnumber(user.getAccountnumber());
-			// System.out.println(transactionslist);
-
-			return transactionslist;
-		} else {
-			return new ArrayList<>();
-		}
-
+		return transactionslist;
 	}
 }
