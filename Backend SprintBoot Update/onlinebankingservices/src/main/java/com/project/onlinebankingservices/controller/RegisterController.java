@@ -31,6 +31,8 @@ public class RegisterController {
 	@Autowired
 	private AccountsdtlsService accountService;
 
+
+	
 	@PostMapping("/register")
 	public ResponseEntity<User> register(@RequestBody User user) {
 
@@ -42,14 +44,18 @@ public class RegisterController {
 		}
 		System.out.println(user);
 		Balance balance = new Balance();
-
 		balance.setAccountnumber(user.getAccountnumber());
+
 
 //	 	Creating for Minimum account balance of Rs 10,000
 		balance.setBalance(10000);
 		balanceService.createBalanceDetails(balance);
 
-		user.setBalanceid(balance.getBalanceid());
+		Optional<Balance> bOps = balanceService.findByAccountnumber(user.getAccountnumber());
+		Balance b = bOps.get();
+		
+
+		user.setBalanceid(b.getBalanceid());
 		System.out.println(user);
 		userService.createUser(user);
 		return new ResponseEntity<User>(user, HttpStatus.OK);

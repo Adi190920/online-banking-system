@@ -21,7 +21,7 @@ create table checkBookDetails( checkBookId int AUTO_INCREMENT, accountNumber big
 >>>>>>> Stashed changes
 								priority int, primary key (checkBookId),
                                 foreign key (accountNumber) references users(accountNumber));
-create table fundTransfer(transferId int AUTO_INCREMENT, soureAccNumber bigint, destAccNumber bigint, destAccTypeId int, 
+create table fundTransfer(transferId int AUTO_INCREMENT, sourceAccNumber bigint, destAccNumber bigint, destAccTypeId int, 
 							transferAmount double, primary key (transferId) );
 
 create table transactions(transactionId int AUTO_INCREMENT, accountNumber bigint, accTypeId int, 
