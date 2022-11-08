@@ -17,7 +17,7 @@ public class FundTransfer {
 
 	@Id
 	private int transferid;
-	private long soureaccnumber;
+	private long sourceaccnumber;
 	private long destaccnumber;
 	private int destacctypeid;
 	private double transferamount;
@@ -30,12 +30,12 @@ public class FundTransfer {
 		this.transferid = transferid;
 	}
 
-	public long getSoureaccnumber() {
-		return soureaccnumber;
+	public long getSourceaccnumber() {
+		return sourceaccnumber;
 	}
 
-	public void setSoureaccnumber(long soureaccnumber) {
-		this.soureaccnumber = soureaccnumber;
+	public void setSourceaccnumber(long sourceaccnumber) {
+		this.sourceaccnumber = sourceaccnumber;
 	}
 
 	public long getDestaccnumber() {

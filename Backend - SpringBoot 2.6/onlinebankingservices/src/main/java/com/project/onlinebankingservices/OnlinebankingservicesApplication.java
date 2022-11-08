@@ -9,7 +9,7 @@ import com.project.onlinebankingservices.respository.Usersdtls;
 @SpringBootApplication
 public class OnlinebankingservicesApplication {
 
-// intial config
+// initial config
 	@Autowired
 	private Usersdtls repository;
 

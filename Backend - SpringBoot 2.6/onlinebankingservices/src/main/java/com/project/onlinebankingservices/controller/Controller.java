@@ -24,6 +24,7 @@ public class Controller {
 	@Autowired
 	private UserdtlsService uservice;
 
+
 	// Cross Origin
 //	@Bean
 //	public WebMvcConfigurer configure() {
@@ -57,6 +58,7 @@ public class Controller {
 	public String loggedout() {
 		return "Successfully Logout";
 	}
+
 	@PostMapping("/login")
 	public ResponseEntity<User> loginApi(@RequestBody loginData data){
 		User user = uservice.findUserByUsername(data.getUsername());

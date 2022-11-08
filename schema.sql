@@ -10,7 +10,6 @@ create table users(accountNumber int, name varchar(30), middleName varchar(30), 
                     foreign key (balanceId) references balancedetails(balanceId));
 create table atmDetails (id int, accountNumber int, atmPin int, primary key (id), 
 						foreign key (accountNumber) references users(accountNumber));
-
 create table checkBookDetails( checkBookId int, accountNumber int, requestedDate date, issueDate date, 
 								priority int, primary key (checkBookId),
                                 foreign key (accountNumber) references users(accountNumber));

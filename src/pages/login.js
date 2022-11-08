@@ -24,6 +24,7 @@ function App() {
 
   function handleSubmit(event){
     event.preventDefault();
+
     var data = JSON.stringify({"username": username,"password": password});
 
     var config = {
@@ -49,6 +50,7 @@ function App() {
       console.log(error);
       setMessage("Invalid Username and Password");
     });
+
 
 
 

@@ -55,14 +55,14 @@ return(
   <h2 className="fw-bold mb-2 text-center">Account Details</h2>
     <div className="float-left">
       <label> Name </label>
-    <MDBInput wrapperClass='mb-4 w-100' value = {auth.user.username}
+    <MDBInput wrapperclassName='mb-4 w-100' value = {auth.user.username}
                 placeholder='Name' id='formControlLg' 
                 type='text' size="lg" disabled/>
       </div>
       <div className="float-right">
       <label> Balance </label>
       {/* Add balance component to user */}
-      <MDBInput wrapperClass='mb-4 w-100' value = '10000'
+      <MDBInput wrapperclassName='mb-4 w-100' value = '10000'
                 placeholder='Current Balance' id='formControlLg' 
                 type='text' size="lg" disabled/>
                 </div>

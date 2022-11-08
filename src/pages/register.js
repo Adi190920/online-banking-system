@@ -41,27 +41,6 @@ function App() {
     // }
     return true;
   }
-  useEffect(() => {
-    var config = {
-      method: 'get',
-      url: 'http://localhost:8081/acctype',
-      headers: { 
-        'Content-Type': 'application/json', 
-      // 'Cookie': 'JSESSIONID=BD47BA85535C131A6AE0A5A78DA1B3D4'
-      }
-    };
-  
-    axios(config)
-    .then(function (res) {
-      console.log(JSON.stringify(res.data));
-      // localStorage.setItem("user", res.data);
-      // navigate("/login");
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-
-  },[])
 
   function handleSubmit(event){
     event.preventDefault();
