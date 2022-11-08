@@ -14,13 +14,13 @@ import {
 
 export default function event() {
   return (
-    <section className="vh-110" style={{ backgroundColor: '#D41C2C' }}>
+    <section className="vh-110" style={{ backgroundColor: '#021946' }}>
               <br/><br/>
-        <h2 className="fw-bold mb-2 text-center">Event Details</h2>
+        <h2 style={{ color: 'white' }} className="fw-bold mb-2 text-center-">Event Details</h2>
       <MDBContainer className="py-5 h-100">
         <MDBRow className="justify-content-center align-items-center h-100">
           <MDBCol xl="10">
-            <MDBCard className="mb-5" style={{ borderRadius: '15px',backgroundColor: '#FCCC44' }}>
+            <MDBCard className="mb-5" style={{ borderRadius: '15px' }}>
               <MDBCardBody className="p-4 ">
                 <MDBTypography tag='h3'>How to achieve financial independence?</MDBTypography>
                 <MDBCardText className="small text-black">
@@ -36,7 +36,7 @@ export default function event() {
                     <MDBIcon fas icon="link ms-4 me-2" /> <span className="text-black small"><a href='https://support.microsoft.com/en-us/office/join-a-meeting-in-teams-1613bb53-f3fa-431e-85a9-d6a91e3468c9'>Event Link</a></span>
                   </MDBCardText>
                   <span className="ms-3 me-4">|</span>
-                  <div className="p-4 text-black" style={{ backgroundColor: '#FCCC44' }}>
+                  <div className="p-4 text-black" >
                 <div className="d-flex justify-content-end text-center py-1">
                   <div>
                     <MDBCardText className="mb-1 h5 text-black">Date</MDBCardText>
@@ -71,7 +71,7 @@ export default function event() {
                 </div>
               </MDBCardBody>
             </MDBCard>
-            <MDBCard className="mb-5" style={{ borderRadius: '15px',backgroundColor: '#FCCC44' }}>
+            <MDBCard className="mb-5" style={{ borderRadius: '15px'}}>
               <MDBCardBody className="p-4 ">
                 <MDBTypography tag='h3'>Diversification of Portfolio</MDBTypography>
                 <MDBCardText className="small text-black">
@@ -87,7 +87,7 @@ export default function event() {
                   <MDBIcon fas icon="link ms-4 me-2" /> <span className="text-black small"><a href='https://support.microsoft.com/en-us/office/join-a-meeting-in-teams-1613bb53-f3fa-431e-85a9-d6a91e3468c9'>Event Link</a></span>
                   </MDBCardText>
                   <span className="ms-3 me-4">|</span>
-                  <div className="p-4 text-black" style={{ backgroundColor: '#FCCC44' }}>
+                  <div className="p-4 text-black" >
                 <div className="d-flex justify-content-end text-center py-1">
                   <div>
                     <MDBCardText className="mb-1 h5 text-black">Date</MDBCardText>

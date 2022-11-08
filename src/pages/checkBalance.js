@@ -11,7 +11,6 @@ import {
   import useAuth from '../hooks/auth';
   import axios from "axios";
   import {  useNavigate } from "react-router-dom";
-    
 function checkBalance() {
   const auth = useAuth();
   const [resp,setResponse] = useState("");
@@ -86,8 +85,13 @@ return(
                 type='text' size="lg" disabled/>
                 </div>
   </div>
+<<<<<<< Updated upstream
   <h5 className="card-title">Transaction Details</h5>
   <table className="table table-hover table-bordered">
+=======
+  <h5 class="card-title">Transaction Details</h5>
+  <table class="table table-hover table-bordered">
+>>>>>>> Stashed changes
   <thead>
     <tr>
       <th scope="col">Transaction ID</th>
@@ -96,6 +100,7 @@ return(
       <th scope="col">Amount</th>
     </tr>
   </thead>
+<<<<<<< Updated upstream
   <tbody >
   {/* {resp.map((item,index)=>(
       <tr key={index}>
@@ -105,9 +110,45 @@ return(
         <td>{item.amount}</td>
       </tr>
     ))} */}
+=======
+  <tbody>
+
+    <tr>
+      <th scope="row">1</th>
+      <td>23/05/2022</td>
+      <td>Savings</td>
+      <td>1000</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>23/12/2022</td>
+      <td>Savings</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>24/08/2022</td>
+      <td>Savings</td>
+      <td>2698</td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>24/08/2022</td>
+      <td>Savings</td>
+      <td>218</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>24/08/2022</td>
+      <td>Savings</td>
+      <td>378</td>
+    </tr>
+>>>>>>> Stashed changes
   </tbody>
 </table>
+
 </div>
+
 
 );
 }
