@@ -72,8 +72,9 @@ function App() {
   //   });
   }
   return (
+    <div style={{ backgroundColor: '#D41C2C' }}>
     <MDBContainer fluid>
-      
+      {/* <script src="https://apis.google.com/js/platform.js" async defer> */}
       <MDBRow className='d-flex justify-content-center align-items-center h-80'>
       
         <MDBCol col='8'>
@@ -95,7 +96,13 @@ function App() {
                 type='password' size="lg"/>
               
 
+<<<<<<< Updated upstream
               <Button size="lg" onClick={handleSubmit} >Login</Button>
+=======
+              <MDBBtn size='lg' color='warning'
+                onClick={handleSubmit}
+                >Login </MDBBtn>
+>>>>>>> Stashed changes
               
               <hr className="my-4" />
               <div className="text-center">
@@ -105,7 +112,7 @@ function App() {
               <div className="text-center">
 
                 <p>or login with:</p>
-
+                <div class="g-signin2" data-onsuccess="onSignIn">hi</div>
                 <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
                   <MDBIcon fab icon='facebook-f' size="sm"/>
                 </MDBBtn>
@@ -129,8 +136,8 @@ function App() {
 
         </MDBCol>
       </MDBRow>
-
     </MDBContainer>
+    </div>
   );
 }
 

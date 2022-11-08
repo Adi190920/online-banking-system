@@ -32,12 +32,12 @@ function openNewFD() {
           }
     }
     return (
+      <div style={{ backgroundColor: '#D41C2C' }}>
         <MDBContainer fluid>
       
         <MDBRow className='d-flex justify-content-center align-items-center h-80'>
         
         <MDBCol col='8'>
-  
             <MDBCard className='bg-white my-5 mx-auto' style={{borderRadius: '1rem', maxWidth: '450px'}}>
               <MDBCardBody className='p-5 w-100 d-flex flex-column'>
               <h2 className="fw-bold mb-2 text-center">New Fixed Deposit</h2>
@@ -66,13 +66,19 @@ function openNewFD() {
             <input type="checkbox" className="custom-control-input" id="defaultContactFormCopy" checked/ >
             <label className="custom-control-label" for="defaultContactFormCopy" >I have read and accepted the terms and conditions</label>
         </div>
+<<<<<<< Updated upstream
         <button className="btn btn-info btn-block" type="submit" onClick={handleSubmit}>Transfer</button>
+=======
+        <MDBBtn size='lg'color='warning'onClick={handleSubmit}>Change Pin </MDBBtn>  
+        {/* <button class="btn btn-warning btn-lg" type="submit" onClick={handleSubmit}>Transfer</button> */}
+>>>>>>> Stashed changes
         </form>
         </MDBCardBody>
         </MDBCard>
         </MDBCol>
         </MDBRow>
     </MDBContainer>
+    </div>
     );
 }
 export default openNewFD;

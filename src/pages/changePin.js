@@ -41,13 +41,14 @@ function changePin() {
 
       }
     return(
+        <div style={{ backgroundColor: '#D41C2C' }}>
         <MDBContainer fluid>
-      
         <MDBRow className='d-flex justify-content-center align-items-center h-80'>
         
         <MDBCol col='8'>
   
-            <MDBCard className='bg-white my-5 mx-auto' style={{borderRadius: '1rem', maxWidth: '400px'}}>
+            <MDBCard className='bg-white my-5 mx-auto' style={{borderRadius: '1rem', maxWidth: '450px'}}>
+            
               <MDBCardBody className='p-5 w-100 d-flex flex-column'>
               <div className="text-danger">{message ? <p>{message}</p> : null}</div>
               <div className="text-success">{success ? <p>{success}</p> : null}</div>
@@ -62,16 +63,23 @@ function changePin() {
                     <MDBInputGroup className='mb-4 w-100' value={confirmnewpin} onChange={(e) => setConfirmPin(e.target.value)}>
                     <input className='form-control' type='number' placeholder="Confirm New Pin" required/>
                     </MDBInputGroup>         
+<<<<<<< Updated upstream
                 <Button size="lg" onClick={handleSubmit}> Change Pin</Button>
                 {/*  Misbehaving due to MDB Template bugs
                <MDBBtn size='lg'
                 onClick={handleSubmit}
     >Change Pin </MDBBtn>   */}
+=======
+                {/* <button onClick={handleSubmit}> Change Pin</button>
+                Misbehaving due to MDB Template bugs */}
+               <MDBBtn size='lg'color='warning'onClick={handleSubmit}>Change Pin </MDBBtn>  
+>>>>>>> Stashed changes
         </MDBCardBody>
         </MDBCard>
         </MDBCol>
         </MDBRow>
     </MDBContainer>
+    </div>   
     );
     
 }

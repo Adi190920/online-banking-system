@@ -18,9 +18,14 @@ function checkBalance() {
 
 return(
 
+<<<<<<< Updated upstream
 <div className="card">
 
   <div className="card-body">
+=======
+<div class="card" >
+  <div class="card-body">
+>>>>>>> Stashed changes
   <h2 className="fw-bold mb-2 text-center">Account Details</h2>
     <div className="float-left">
       <label> Name </label>
@@ -36,9 +41,15 @@ return(
                 type='text' size="lg" disabled/>
                 </div>
   </div>
+<<<<<<< Updated upstream
   <h5 className="card-title">Transaction Details</h5>
   <table className="table table-hover table-bordered">
   <thead>
+=======
+  <h5 class="card-title">Transaction Details</h5>
+  <table class="table table-hover table-bordered">
+  <thead style={{ backgroundColor: '#D41C2C' }}>
+>>>>>>> Stashed changes
     <tr>
       <th scope="col">Transaction ID</th>
       <th scope="col">Transaction Date</th>
@@ -46,7 +57,7 @@ return(
       <th scope="col">Amount</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody style={{ backgroundColor: '#FCCC44' }}>
     <tr>
       <th scope="row">1</th>
       <td>23/05/2022</td>
@@ -80,7 +91,6 @@ return(
   </tbody>
 </table>
 </div>
-
 
 );
 }

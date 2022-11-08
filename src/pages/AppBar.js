@@ -27,7 +27,7 @@ const Appbar = () => {
     
 
     return(
-      <Navbar bg="light" variant="light">
+      <Navbar bg="dark" variant="dark">
       <Container>
         <Navbar.Brand href="/checkBalance">Wells Fargo</Navbar.Brand>
         <Navbar.Brand href="/openNewFD">Open New FD</Navbar.Brand>
