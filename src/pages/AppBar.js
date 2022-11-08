@@ -29,7 +29,7 @@ const Appbar = () => {
     return(
       <Navbar bg="light" variant="light">
       <Container>
-        <Navbar.Brand href="/">{auth.user.username}</Navbar.Brand>
+        <Navbar.Brand href="/checkBalance">Wells Fargo</Navbar.Brand>
         <Navbar.Brand href="/openNewFD">Open New FD</Navbar.Brand>
         <Navbar.Brand href="/fundTransfer">Fund Transfer</Navbar.Brand>
         <Navbar.Brand href="/checkBalance">Check Balance</Navbar.Brand>

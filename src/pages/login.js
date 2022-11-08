@@ -11,7 +11,7 @@ import {
   
 }
 from 'mdb-react-ui-kit';
-
+import { Button } from 'react-bootstrap';
 import axios from "axios";
 import {  useNavigate } from "react-router-dom";
 
@@ -24,26 +24,52 @@ function App() {
 
   function handleSubmit(event){
     event.preventDefault();
-    if(username === "hari" && password === "om"){
-      localStorage.setItem("username", username);
-      localStorage.setItem("password", password);
+    if(username.length != 0 && password != 0){
+      setMessage("Invalid Username and Password");
+      
+    }
+    
+    var data = JSON.stringify({"username": username,"password": password});
+
+    var config = {
+      method: 'post',
+      url: 'http://localhost:8081/login',
+      headers: { 
+        'Content-Type': 'application/json', 
+      // 'Cookie': 'JSESSIONID=BD47BA85535C131A6AE0A5A78DA1B3D4'
+      },
+      data : data
+    };
+
+    axios(config)
+    .then(function (res) {
+      // console.log(res.data);
+      localStorage.setItem("user", res.data);
+      console.log(localStorage.getItem("user"));
       setMessage("Login successful");
-      navigate("/dashboard");
-    }
-    else{
-      setMessage("Please try again");
-      navigate("/");
-    }
-    // axios
-    // .post(`http://localhost:8080/user/login`, { username, password })
-    // .then((res) => {
-    //   localStorage.setItem("username", res.data.user.username);
-    //   setMessage("Login successful");
-    //   his.replace("/dashboard");
-    // })
-    // .catch((err) => {
-    //   console.log(err);
-    // });
+      navigate("/checkBalance");
+    })
+    .catch(function (error) {
+      console.log(error);
+      setMessage("Invalid Username and Password");
+    });
+
+
+
+  //   axios({
+  //     method : "post",
+  //     url : "http://localhost:8081/login",
+  //     body : JSON.stringify({"username" : username, "password" : password}),
+  //     headers : {
+  //       "Content-Type" : "application/json"
+  //     }
+  //   }).then((res)=> {
+  //     localStorage.setItem("username", res.data.user.username);
+  //     setMessage("Login successful");
+  //     navigate("/dashboard");
+  //   }).catch((err) => {
+  //     console.log(err);
+  //   });
   }
   return (
     <MDBContainer fluid>
@@ -69,9 +95,7 @@ function App() {
                 type='password' size="lg"/>
               
 
-              <MDBBtn size='lg'
-                onClick={handleSubmit}
-                >Login </MDBBtn>
+              <Button size="lg" onClick={handleSubmit} >Login</Button>
               
               <hr className="my-4" />
               <div className="text-center">

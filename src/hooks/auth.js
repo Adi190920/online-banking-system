@@ -6,16 +6,22 @@ const useAuth = () => {
     const [user,setUser] = useState({});
 
     const isAuth = async() => {
-        if(localStorage.getItem("username") === "hari" && localStorage.getItem("password") === "om" ){
-            setUser({"username" : localStorage.getItem("username"), "password" : localStorage.getItem("password") });
+        // if(localStorage.getItem("username") === "hari" && localStorage.getItem("password") === "om" ){
+        //     setUser({"username" : localStorage.getItem("username"), "password" : localStorage.getItem("password") });
+        //     setAuth(true);
+        //     console.log(user);
+        // }
+        // else{
+        //     setAuth(false);
+        //     setUser({"username" : "", "password" : "" });
+        // }
+        if(localStorage.getItem("user") != null){
+            setUser(localStorage.getItem("user"));
             setAuth(true);
-            console.log(user);
-        }
-        else{
+        }else{
             setAuth(false);
-            setUser({"username" : "", "password" : "" });
         }
-        // await axios.get('http://localhost:8080/api/logged-user/',{withCredentials:true})
+        // await axios.get('http://localhost:8081/logged-user/',{withCredentials:true})
         // .then(res => {
         //     setUser(res.data);
         //     setAuth(true);

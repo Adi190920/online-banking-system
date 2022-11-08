@@ -29,18 +29,18 @@ public class Controller {
 	private UserdtlsService uservice;
 
 	
-	@Bean
-	public WebMvcConfigurer configure() {
-	
-		return new WebMvcConfigurer() {
-	
-			@Override
-			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/*").allowedOrigins("*") ;
-	
-			}
-		};
-	}
+//	@Bean
+//	public WebMvcConfigurer configure() {
+//	
+//		return new WebMvcConfigurer() {
+//	
+//			@Override
+//			public void addCorsMappings(CorsRegistry registry) {
+//				registry.addMapping("/*").allowedOrigins("*") ;
+//	
+//			}
+//		};
+//	}
 
 	@GetMapping("/")
 	public String Hello() {	
@@ -62,18 +62,5 @@ public class Controller {
 		return "Successfully Logout";
 	}
 
-	@PostMapping("/login")
-	public ResponseEntity<User> loginApi(@RequestBody Logindata data){
-		
-		Optional<User> userOp = uservice.findUserByUsername(data.getUsername());
-		
-		User user = userOp.get();
-		
-		if (user.getPassword().equals(data.getPassword())) {
-			return new ResponseEntity<User>(user, HttpStatus.OK);
-		}
-		else {
-			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
-		}
-	}
+	
 }

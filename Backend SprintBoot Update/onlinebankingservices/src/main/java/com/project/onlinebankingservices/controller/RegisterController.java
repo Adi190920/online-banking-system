@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.onlinebankingservices.dto.UsersDto;
 import com.project.onlinebankingservices.model.Balance;
 import com.project.onlinebankingservices.model.User;
 import com.project.onlinebankingservices.service.AccountsdtlsService;
@@ -41,13 +42,16 @@ public class RegisterController {
 	 {
 		 return new ResponseEntity<User>(HttpStatus.ALREADY_REPORTED);
 	 }
-		
+		System.out.println(user);
 	 	Balance balance = new Balance();
+	 	
+//	 	System.out.println(balance.getBalanceid());
 	 	balance.setAccountnumber(user.getAccountnumber());
 	 	balance.setBalance(0);
 	 	balanceService.createBalanceDetails(balance);
-	 	Optional<Balance> b = balanceService.findByAccountnumber(user.getAccountnumber());
-		user.setBalanceid(b.get().getBalanceid());
+//	 	balanceService.createBalanceDetails(balance);
+//	 	Optional<Balance> b = balanceService.findByAccountnumber(user.getAccountnumber());
+		user.setBalanceid(balance.getBalanceid());
 		System.out.println(user);
 	 	userService.createUser(user);
 		return new ResponseEntity<User>(user, HttpStatus.OK);

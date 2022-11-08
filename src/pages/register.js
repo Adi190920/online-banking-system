@@ -10,8 +10,10 @@ import {
   MDBCheckbox,
   
 } from 'mdb-react-ui-kit';
+import { Button } from 'react-bootstrap';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
+import axios from "axios";
 import {  useNavigate } from "react-router-dom";
 
 function App() {
@@ -21,29 +23,66 @@ function App() {
   const [answer, setAnswer] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [accnumber, setAccnumber] = useState("");
+  const [mobno, setMmobno] = useState("");
+  const [acctype, setAcctype] = useState("");
   const [message, setMessage] = useState("");
 
   const navigate = useNavigate();
+
+  function validateForm(){
+    if(mobno.length != 10 ){
+      setMessage("Invalid Mobile Number");
+      return false;
+    }
+    // else if(accnumber.length != 11){
+    //   setMessage("Invalid Account Number");
+    //   return false;
+    // }
+    return true;
+  }
+  
+
   function handleSubmit(event){
     event.preventDefault();
-    if(username === "hari" && password === "om"){
-      setMessage("Login successful");
-      navigate("/dashboard");
+    if(!validateForm()){
+      return;
     }
-    else{
-      setMessage("Please try again");
-      navigate("/");
-    }
-    // axios
-    // .post(`http://localhost:8080/user/login`, { username, password })
-    // .then((res) => {
-    //   localStorage.setItem("username", res.data.user.username);
-    //   setMessage("Login successful");
-    //   his.replace("/dashboard");
-    // })
-    // .catch((err) => {
-    //   console.log(err);
-    // });
+    
+    var data = JSON.stringify({
+      "name" : name, 
+      "middlename" : middleName, 
+      "lastname" : lastName, 
+      "username" : username, 
+      "password" : password, 
+      "securityanswers" : answer, 
+      "mobilenumber" : mobno, 
+      "accountnumber" : accnumber,
+      "acctypeid" : 1,
+    });
+    
+    var config = {
+      method: 'post',
+      url: 'http://localhost:8081/register',
+      headers: { 
+        'Content-Type': 'application/json', 
+      // 'Cookie': 'JSESSIONID=BD47BA85535C131A6AE0A5A78DA1B3D4'
+      },
+      data : data
+    };
+  
+    axios(config)
+    .then(function (res) {
+      console.log(JSON.stringify(res.data));
+      localStorage.setItem("user", res.data);
+      // console.log(localStorage.getItem("user"));
+      setMessage("Registration successful");
+      navigate("/login");
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  
   }
 
   return (
@@ -107,23 +146,21 @@ function App() {
               <MDBRow>
                 <MDBCol col='4'>
                     <MDBInput wrapperClass='mb-4' 
-                      value={answer}
-                      onChange={(e) => setAnswer(e.target.value)}
+                      value={accnumber}
+                      onChange={(e) => setAccnumber(e.target.value)}
                       Placeholder='Account Number' id='form1' type='text'/>
                 </MDBCol>
                 <MDBCol col="4">
                     <MDBInput wrapperClass='mb-4' 
-                      value={answer}
-                      onChange={(e) => setAnswer(e.target.value)}
+                      value={mobno}
+                      onChange={(e) => setMmobno(e.target.value)}
                       Placeholder='Mobile Number' id='form1' type='text'/>
                 </MDBCol>
               </MDBRow>
               
               <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Agree Terms & Conditions' />
                
-                <MDBBtn size='lg'
-                onClick={handleSubmit}
-                >Register</MDBBtn>
+              <Button size="lg" onClick={handleSubmit} >Register</Button>
 
             </MDBCardBody>
           </MDBCard>

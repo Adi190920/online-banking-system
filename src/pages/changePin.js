@@ -9,7 +9,7 @@ import {
     MDBInputGroup
   } from 'mdb-react-ui-kit';
   import {  useNavigate } from "react-router-dom";
-    
+import { Button } from 'react-bootstrap';
 function changePin() {
         const [oldpin, setOldPin] = useState("")
         const [newpin, setNewPin] = useState("")
@@ -62,7 +62,7 @@ function changePin() {
                     <MDBInputGroup className='mb-4 w-100' value={confirmnewpin} onChange={(e) => setConfirmPin(e.target.value)}>
                     <input className='form-control' type='number' placeholder="Confirm New Pin" required/>
                     </MDBInputGroup>         
-                <button onClick={handleSubmit}> Change Pin</button>
+                <Button size="lg" onClick={handleSubmit}> Change Pin</Button>
                 {/*  Misbehaving due to MDB Template bugs
                <MDBBtn size='lg'
                 onClick={handleSubmit}
