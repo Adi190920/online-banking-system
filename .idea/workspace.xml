@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8189aa16-31a4-4817-b4cb-3a3676c90049" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Backend - SpringBoot 2.6/onlinebankingservices/src/main/java/com/project/onlinebankingservices/model/loginData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend SprintBoot Update/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend SprintBoot Update/onlinebankingservices/src/main/java/com/project/onlinebankingservices/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend SprintBoot Update/onlinebankingservices/src/main/java/com/project/onlinebankingservices/dto/UsersDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend - SpringBoot 2.6/onlinebankingservices/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Backend - SpringBoot 2.6/onlinebankingservices/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend - SpringBoot 2.6/onlinebankingservices/src/main/java/com/project/onlinebankingservices/config/SecurityConfigure.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend - SpringBoot 2.6/onlinebankingservices/src/main/java/com/project/onlinebankingservices/config/SecurityConfigure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend - SpringBoot 2.6/onlinebankingservices/src/main/java/com/project/onlinebankingservices/controller/AtmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend - SpringBoot 2.6/onlinebankingservices/src/main/java/com/project/onlinebankingservices/controller/AtmController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend - SpringBoot 2.6/onlinebankingservices/src/main/java/com/project/onlinebankingservices/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend - SpringBoot 2.6/onlinebankingservices/src/main/java/com/project/onlinebankingservices/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend - SpringBoot 2.6/onlinebankingservices/src/main/java/com/project/onlinebankingservices/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend - SpringBoot 2.6/onlinebankingservices/src/main/java/com/project/onlinebankingservices/controller/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend - SpringBoot 2.6/onlinebankingservices/src/main/java/com/project/onlinebankingservices/controller/ResetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend - SpringBoot 2.6/onlinebankingservices/src/main/java/com/project/onlinebankingservices/controller/ResetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend - SpringBoot 2.6/onlinebankingservices/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Backend - SpringBoot 2.6/onlinebankingservices/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend SprintBoot Update/onlinebankingservices/src/main/java/com/project/onlinebankingservices/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend SprintBoot Update/onlinebankingservices/src/main/java/com/project/onlinebankingservices/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend SprintBoot Update/onlinebankingservices/src/main/java/com/project/onlinebankingservices/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend SprintBoot Update/onlinebankingservices/src/main/java/com/project/onlinebankingservices/controller/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend SprintBoot Update/onlinebankingservices/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Backend SprintBoot Update/onlinebankingservices/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend SprintBoot Update/onlinebankingservices/src/test/java/com/project/onlinebankingservices/OnlinebankingservicesApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend SprintBoot Update/onlinebankingservices/src/test/java/com/project/onlinebankingservices/OnlinebankingservicesApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AppBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AppBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/changePin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/changePin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/checkBalance.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/checkBalance.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/fundTransfer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/fundTransfer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/openNewFD.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/openNewFD.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/register.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2HEWcyPeSyhDw8b3ExTkE1Q5bBz" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/aiswa/Desktop/OnlineBankingManagementSystem/online-banking-system&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8189aa16-31a4-4817-b4cb-3a3676c90049" name="Changes" comment="" />
+      <created>1667850806192</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1667850806192</updated>
+    </task>
+    <servers />
+  </component>
+</project>
