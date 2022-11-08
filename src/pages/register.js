@@ -85,7 +85,11 @@ function App() {
   }
 
   return (
+<<<<<<< Updated upstream
     
+=======
+    <div style={{ backgroundColor: ' #021946 ' }}>
+>>>>>>> Stashed changes
         <MDBContainer fluid >
         <MDBRow className='d-flex justify-content-center align-items-center h-80'>
         <MDBCol md='6'>
@@ -139,7 +143,9 @@ function App() {
                   <Form.Group as={Col} controlId="formGridState">
                     <Form.Select defaultValue="Select Account Type...">
                       <option>Select Account Type...</option>
-                      <option>...</option>
+                      <option value="1">Savings</option>
+                  <option value="2">Current</option>
+                  <option value="3">Retirement</option>
                     </Form.Select>
                   </Form.Group>
               </MDBRow>
@@ -160,7 +166,13 @@ function App() {
               
               <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Agree Terms & Conditions' />
                
+<<<<<<< Updated upstream
               <Button size="lg" onClick={handleSubmit} >Register</Button>
+=======
+                <MDBBtn size='lg'
+                onClick={handleSubmit} 
+                >Register</MDBBtn>
+>>>>>>> Stashed changes
 
             </MDBCardBody>
           </MDBCard>
