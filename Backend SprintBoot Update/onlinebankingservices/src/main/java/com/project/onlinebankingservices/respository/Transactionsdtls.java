@@ -19,7 +19,7 @@ public interface Transactionsdtls extends JpaRepository<Transactions, Integer> {
 //	@Query(value="Select * from transactions where accountnumber = ?1 limit 5", nativeQuery = true)
 //	List<Transactions> findByAccountnumber(Long accountnumber);
 	
-	@Query(value="Select * from transactions where accountnumber = ?1 order by transactiondate desc", nativeQuery = true)
+	@Query(value="Select * from transactions where accountnumber = ?1 order by transactiondate asc", nativeQuery = true)
 	List<Transactions> findByAccountnumber(Long accountnumber);
 
 }
