@@ -25,14 +25,20 @@ public class LoginController {
 		
 		Optional<User> userOp = uservice.findUserByUsername(data.getUsername());
 		
-		User user = userOp.get();
 		
-		if (user.getPassword().equals(data.getPassword())) {
-			return new ResponseEntity<User>(user, HttpStatus.OK);
+		if (userOp.isPresent()) {
+			User user = userOp.get();
+
+			if (user.getPassword().equals(data.getPassword())) {
+				return new ResponseEntity<User>(user, HttpStatus.OK);
+			} else {
+				return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+			}
 		}
-		else {
-			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
-		}
+		return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+
 	}
 	
+
 }
+

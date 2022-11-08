@@ -26,9 +26,9 @@ public class TransactionsController {
 
 	@GetMapping("/transactions")
 	public List<Transactions> transactionsDisplay(@RequestBody Map<String,String> accountNumber) {
-		// Fetch by Limit
+
 		List<Transactions> transactionslist = tservice.findByAccountnumber(Long.valueOf(accountNumber.get("accountNumber")));
-		// System.out.println(transactionslist);
+
 
 		return transactionslist;
 	}

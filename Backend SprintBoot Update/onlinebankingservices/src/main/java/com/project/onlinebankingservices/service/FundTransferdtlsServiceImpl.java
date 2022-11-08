@@ -47,6 +47,7 @@ public class FundTransferdtlsServiceImpl implements FundTransferdtlsService{
 			final Double srcBalanceInner = srcBalance;
 			if(srcBalance >= transferAmt) {
 				//Valid balance
+				
 				Optional <User> optionalUserDest = userdtls.findUser(destAcc);
 				if(optionalUserDest.isPresent()){
 					User destUser = optionalUserDest.get();
@@ -64,6 +65,7 @@ public class FundTransferdtlsServiceImpl implements FundTransferdtlsService{
 					balanceRepo.save(destBalanceObj);
 					
 					//Saving fund transfer obj
+//					fundTransferRepo.save(ft);
 					fundTransferRepo.save(ft);
 					return "Fund Transfer Successful!";
 				}
