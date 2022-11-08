@@ -24,11 +24,6 @@ function App() {
 
   function handleSubmit(event){
     event.preventDefault();
-    if(username.length != 0 && password != 0){
-      setMessage("Invalid Username and Password");
-      
-    }
-    
     var data = JSON.stringify({"username": username,"password": password});
 
     var config = {
@@ -44,7 +39,8 @@ function App() {
     axios(config)
     .then(function (res) {
       // console.log(res.data);
-      localStorage.setItem("user", res.data);
+      localStorage.setItem("username", res.data.username);
+      localStorage.setItem("username", res.data.accountnumber);
       console.log(localStorage.getItem("user"));
       setMessage("Login successful");
       navigate("/checkBalance");
@@ -56,20 +52,6 @@ function App() {
 
 
 
-  //   axios({
-  //     method : "post",
-  //     url : "http://localhost:8081/login",
-  //     body : JSON.stringify({"username" : username, "password" : password}),
-  //     headers : {
-  //       "Content-Type" : "application/json"
-  //     }
-  //   }).then((res)=> {
-  //     localStorage.setItem("username", res.data.user.username);
-  //     setMessage("Login successful");
-  //     navigate("/dashboard");
-  //   }).catch((err) => {
-  //     console.log(err);
-  //   });
   }
   return (
     <MDBContainer fluid>

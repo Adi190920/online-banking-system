@@ -7,7 +7,7 @@ const NotAuthAppbar = () => {
     return(
         <Navbar bg="light" variant="light">
         <Container>
-          <Navbar.Brand href="/">Login First</Navbar.Brand>
+          <Navbar.Brand href="/">Wells Fargo</Navbar.Brand>
         </Container>
       </Navbar>
         )

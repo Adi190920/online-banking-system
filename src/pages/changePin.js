@@ -10,6 +10,7 @@ import {
   } from 'mdb-react-ui-kit';
   import {  useNavigate } from "react-router-dom";
 import { Button } from 'react-bootstrap';
+import axios from 'axios';
 function changePin() {
         const [oldpin, setOldPin] = useState("")
         const [newpin, setNewPin] = useState("")
@@ -18,9 +19,7 @@ function changePin() {
         const [success, setSuccess] = useState("");    
         const navigate = useNavigate()
         
-
-    function handleSubmit(event){
-        event.preventDefault();
+    function validate(){
         if(newpin.length !== 4 || confirmnewpin.length !== 4 || oldpin.length!== 4){
             setMessage("Size of pin should be 4");
             setTimeout(() => setMessage("   "), 4000);
@@ -35,10 +34,49 @@ function changePin() {
         //   navigate("/");
         }
         else{
-            setSuccess("Pin is Changed")
-            alert("Pin is Changed")
+            
+            return true;
           }
-
+          return false;
+    }
+    function handleSubmit(event){
+        event.preventDefault();
+        if(!validate()){
+            return;
+        }
+        var data = JSON.stringify({
+            "username": localStorage.getItem("username"),
+            "oldpin" : oldpin,
+            "newpin" : newpin,
+            "conformpin" : confirmnewpin,
+          });
+      
+          var config = {
+            method: 'post',
+            url: 'http://localhost:8081/changepin',
+            headers: { 
+              'Content-Type': 'application/json', 
+            // 'Cookie': 'JSESSIONID=BD47BA85535C131A6AE0A5A78DA1B3D4'
+            },
+            data : data
+          };
+      
+          axios(config)
+          .then(function (res) {
+            console.log(res.data);
+            setSuccess("Pin is Changed");
+            setNewPin("");
+            setOldPin("");
+            setConfirmPin("");
+            // alert("Pin is Changed");
+           
+          })
+          .catch(function (error) {
+            console.log(error);
+            setMessage("Something went wrong");
+          });
+      
+      
       }
     return(
         <MDBContainer fluid>

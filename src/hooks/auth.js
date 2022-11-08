@@ -15,8 +15,8 @@ const useAuth = () => {
         //     setAuth(false);
         //     setUser({"username" : "", "password" : "" });
         // }
-        if(localStorage.getItem("user") != null){
-            setUser(localStorage.getItem("user"));
+        if(localStorage.getItem("username") != null){
+            setUser(localStorage.getItem("username"));
             setAuth(true);
         }else{
             setAuth(false);
@@ -34,7 +34,7 @@ const useAuth = () => {
 
     useEffect(() => {
         isAuth();
-    },[auth])
+    },[localStorage.getItem("username")])
 
     return{
         auth:auth,
