@@ -49,17 +49,17 @@ function checkBalance() {
 
 return(
 
-<div class="card">
+<div className="card">
 
-  <div class="card-body">
+  <div className="card-body">
   <h2 className="fw-bold mb-2 text-center">Account Details</h2>
-    <div class="float-left">
+    <div className="float-left">
       <label> Name </label>
     <MDBInput wrapperClass='mb-4 w-100' value = {auth.user.username}
                 placeholder='Name' id='formControlLg' 
                 type='text' size="lg" disabled/>
       </div>
-      <div class="float-right">
+      <div className="float-right">
       <label> Balance </label>
       {/* Add balance component to user */}
       <MDBInput wrapperClass='mb-4 w-100' value = '10000'
@@ -67,8 +67,8 @@ return(
                 type='text' size="lg" disabled/>
                 </div>
   </div>
-  <h5 class="card-title">Transaction Details</h5>
-  <table class="table table-hover table-bordered">
+  <h5 className="card-title">Transaction Details</h5>
+  <table className="table table-hover table-bordered">
   <thead>
     <tr>
       <th scope="col">Transaction ID</th>
@@ -77,7 +77,7 @@ return(
       <th scope="col">Amount</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody >
     <tr>
       <th scope="row">1</th>
       <td>23/05/2022</td>
@@ -111,7 +111,6 @@ return(
   </tbody>
 </table>
 </div>
-
 
 );
 }

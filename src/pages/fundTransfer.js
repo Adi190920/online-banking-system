@@ -54,12 +54,12 @@ function fundTransfer() {
     }
 
 return(
+  <div style={{ backgroundColor: '#D41C2C' }}>
   <MDBContainer fluid>
       
   <MDBRow className='d-flex justify-content-center align-items-center h-80'>
   
   <MDBCol col='8'>
-
       <MDBCard className='bg-white my-5 mx-auto' style={{borderRadius: '1rem', maxWidth: '600px'}}>
         <MDBCardBody className='p-5 w-100 d-flex flex-column'>
         <h2 className="fw-bold mb-2 text-center">Fund Transfer</h2>
@@ -111,6 +111,7 @@ return(
         </MDBCol>
         </MDBRow>
     </MDBContainer>
+    </div>
   ); 
 }
 

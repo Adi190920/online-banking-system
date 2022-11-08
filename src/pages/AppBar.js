@@ -22,6 +22,7 @@ const Appbar = () => {
         //     return;
         // })
         localStorage.removeItem("username");
+        localStorage.removeItem("accountnumber");
         
         
     }
@@ -29,7 +30,7 @@ const Appbar = () => {
     
 
     return(
-      <Navbar bg="light" variant="light">
+      <Navbar bg="dark" variant="dark">
       <Container>
         <Navbar.Brand href="/checkBalance">{localStorage.getItem("username")}</Navbar.Brand>
         <Navbar.Brand href="/openNewFD">Open New FD</Navbar.Brand>

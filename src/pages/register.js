@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   MDBBtn,
   MDBContainer,
@@ -41,7 +41,27 @@ function App() {
     // }
     return true;
   }
+  useEffect(() => {
+    var config = {
+      method: 'get',
+      url: 'http://localhost:8081/acctype',
+      headers: { 
+        'Content-Type': 'application/json', 
+      // 'Cookie': 'JSESSIONID=BD47BA85535C131A6AE0A5A78DA1B3D4'
+      }
+    };
   
+    axios(config)
+    .then(function (res) {
+      console.log(JSON.stringify(res.data));
+      // localStorage.setItem("user", res.data);
+      // navigate("/login");
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+  },[])
 
   function handleSubmit(event){
     event.preventDefault();
@@ -86,6 +106,7 @@ function App() {
   }
 
   return (
+    
         <MDBContainer fluid >
         <MDBRow className='d-flex justify-content-center align-items-center h-80'>
         <MDBCol md='6'>
@@ -170,6 +191,7 @@ function App() {
     </MDBRow>
 
     </MDBContainer>
+    
   );
 }
 

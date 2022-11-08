@@ -79,13 +79,14 @@ function changePin() {
       
       }
     return(
+        // <div style={{ backgroundColor: '#D41C2C' }}>
         <MDBContainer fluid>
-      
         <MDBRow className='d-flex justify-content-center align-items-center h-80'>
         
         <MDBCol col='8'>
   
-            <MDBCard className='bg-white my-5 mx-auto' style={{borderRadius: '1rem', maxWidth: '400px'}}>
+            <MDBCard className='bg-white my-5 mx-auto' style={{borderRadius: '1rem', maxWidth: '450px'}}>
+            
               <MDBCardBody className='p-5 w-100 d-flex flex-column'>
               <div className="text-danger">{message ? <p>{message}</p> : null}</div>
               <div className="text-success">{success ? <p>{success}</p> : null}</div>
@@ -110,6 +111,7 @@ function changePin() {
         </MDBCol>
         </MDBRow>
     </MDBContainer>
+    // </div>   
     );
     
 }

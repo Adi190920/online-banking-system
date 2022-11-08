@@ -32,12 +32,12 @@ function openNewFD() {
           }
     }
     return (
+      <div style={{ backgroundColor: '#D41C2C' }}>
         <MDBContainer fluid>
       
         <MDBRow className='d-flex justify-content-center align-items-center h-80'>
         
         <MDBCol col='8'>
-  
             <MDBCard className='bg-white my-5 mx-auto' style={{borderRadius: '1rem', maxWidth: '450px'}}>
               <MDBCardBody className='p-5 w-100 d-flex flex-column'>
               <h2 className="fw-bold mb-2 text-center">New Fixed Deposit</h2>
@@ -73,6 +73,7 @@ function openNewFD() {
         </MDBCol>
         </MDBRow>
     </MDBContainer>
+    </div>
     );
 }
 export default openNewFD;

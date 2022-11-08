@@ -40,7 +40,7 @@ function App() {
     .then(function (res) {
       // console.log(res.data);
       localStorage.setItem("username", res.data.username);
-      localStorage.setItem("username", res.data.accountnumber);
+      localStorage.setItem("accountnumber", res.data.accountnumber);
       console.log(localStorage.getItem("user"));
       setMessage("Login successful");
       navigate("/checkBalance");
@@ -54,8 +54,9 @@ function App() {
 
   }
   return (
+  
     <MDBContainer fluid>
-      
+      {/* <script src="https://apis.google.com/js/platform.js" async defer> */}
       <MDBRow className='d-flex justify-content-center align-items-center h-80'>
       
         <MDBCol col='8'>
@@ -87,7 +88,7 @@ function App() {
               <div className="text-center">
 
                 <p>or login with:</p>
-
+                <div class="g-signin2" data-onsuccess="onSignIn">hi</div>
                 <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
                   <MDBIcon fab icon='facebook-f' size="sm"/>
                 </MDBBtn>
@@ -111,8 +112,8 @@ function App() {
 
         </MDBCol>
       </MDBRow>
-
     </MDBContainer>
+    
   );
 }
 
