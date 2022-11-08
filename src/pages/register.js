@@ -85,11 +85,7 @@ function App() {
   }
 
   return (
-<<<<<<< Updated upstream
-    
-=======
     <div style={{ backgroundColor: ' #021946 ' }}>
->>>>>>> Stashed changes
         <MDBContainer fluid >
         <MDBRow className='d-flex justify-content-center align-items-center h-80'>
         <MDBCol md='6'>
@@ -166,13 +162,7 @@ function App() {
               
               <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Agree Terms & Conditions' />
                
-<<<<<<< Updated upstream
-              <Button size="lg" onClick={handleSubmit} >Register</Button>
-=======
-                <MDBBtn size='lg'
-                onClick={handleSubmit} 
-                >Register</MDBBtn>
->>>>>>> Stashed changes
+                <MDBBtn size='lg'onClick={handleSubmit}>Register</MDBBtn>
 
             </MDBCardBody>
           </MDBCard>
@@ -182,7 +172,7 @@ function App() {
     </MDBRow>
 
     </MDBContainer>
-    
+    </div>
   );
 }
 

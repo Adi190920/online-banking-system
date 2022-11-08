@@ -21,9 +21,6 @@ const Appbar = () => {
         //     navigate('/login');
         //     return;
         // })
-        localStorage.removeItem("username");
-        localStorage.removeItem("accountnumber");
-        
         
     }
   
@@ -32,11 +29,8 @@ const Appbar = () => {
     return(
       <Navbar bg="dark" variant="dark">
       <Container>
-<<<<<<< Updated upstream
         <Navbar.Brand href="/checkBalance">{localStorage.getItem("username")}</Navbar.Brand>
-=======
         <Navbar.Brand href="/checkBalance">Online Banking Application</Navbar.Brand>
->>>>>>> Stashed changes
         <Navbar.Brand href="/openNewFD">Open New FD</Navbar.Brand>
         <Navbar.Brand href="/fundTransfer">Fund Transfer</Navbar.Brand>
         <Navbar.Brand href="/checkBalance">Check Balance</Navbar.Brand>

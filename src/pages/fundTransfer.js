@@ -196,12 +196,6 @@ function FundTransfer() {
                   </label>
                 </div>
 
-<<<<<<< Updated upstream
-        <button className="btn btn-info btn-block" type="submit" onClick={handleSubmit}>Transfer</button>
-    </form>
-    </MDBCardBody>
-        </MDBCard>
-=======
                 <button
                   class="btn btn-info btn-block"
                   type="submit"
@@ -212,7 +206,6 @@ function FundTransfer() {
               </form>
             </MDBCardBody>
           </MDBCard>
->>>>>>> Stashed changes
         </MDBCol>
       </MDBRow>
     </MDBContainer>

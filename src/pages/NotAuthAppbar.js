@@ -9,16 +9,10 @@ const NotAuthAppbar = () => {
 
 
     return(
-<<<<<<< Updated upstream
-      <Navbar bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand href="/">Wells Fargo</Navbar.Brand>
-=======
         <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="/">Online Banking Application</Navbar.Brand>
           <Navbar.Brand href="/eventsAvailable">Events </Navbar.Brand>
->>>>>>> Stashed changes
         </Container>
       </Navbar>
         )

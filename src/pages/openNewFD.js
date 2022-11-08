@@ -102,18 +102,6 @@ function OpenNewFD() {
                   <option value="5 years">5 years</option>
                 </select>
 
-<<<<<<< Updated upstream
-        <input type="number" id="defaultContactFormName" className="form-control mb-4" placeholder="Amount"value={Amount}
-                onChange={(e) => setAmount(e.target.value)} required /> 
-        <div className="custom-control custom-checkbox mb-4">
-            <input type="checkbox" className="custom-control-input" id="defaultContactFormCopy" checked/ >
-            <label className="custom-control-label" for="defaultContactFormCopy" >I have read and accepted the terms and conditions</label>
-        </div>
-        <button className="btn btn-info btn-block" type="submit" onClick={handleSubmit}>Transfer</button>
-        </form>
-        </MDBCardBody>
-        </MDBCard>
-=======
                 <input
                   type="number"
                   id="defaultContactFormName"
@@ -147,7 +135,6 @@ function OpenNewFD() {
               </form>
             </MDBCardBody>
           </MDBCard>
->>>>>>> Stashed changes
         </MDBCol>
       </MDBRow>
     </MDBContainer>

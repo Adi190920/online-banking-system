@@ -56,11 +56,7 @@ function App() {
 
   }
   return (
-<<<<<<< Updated upstream
-  
-=======
     <div style={{ backgroundColor: ' #021946 ' }}>
->>>>>>> Stashed changes
     <MDBContainer fluid>
       {/* <script src="https://apis.google.com/js/platform.js" async defer> */}
       <MDBRow className='d-flex justify-content-center align-items-center h-80'>
@@ -118,7 +114,7 @@ function App() {
         </MDBCol>
       </MDBRow>
     </MDBContainer>
-    
+    </div>
   );
 }
 

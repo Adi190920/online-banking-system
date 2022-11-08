@@ -85,13 +85,8 @@ return(
                 type='text' size="lg" disabled/>
                 </div>
   </div>
-<<<<<<< Updated upstream
-  <h5 className="card-title">Transaction Details</h5>
-  <table className="table table-hover table-bordered">
-=======
   <h5 class="card-title">Transaction Details</h5>
   <table class="table table-hover table-bordered">
->>>>>>> Stashed changes
   <thead>
     <tr>
       <th scope="col">Transaction ID</th>
@@ -100,17 +95,6 @@ return(
       <th scope="col">Amount</th>
     </tr>
   </thead>
-<<<<<<< Updated upstream
-  <tbody >
-  {/* {resp.map((item,index)=>(
-      <tr key={index}>
-        <td>{item.transactionid}</td>
-        <td>{item.transactiondate}</td>
-        <td>{item.transactiontype}</td>
-        <td>{item.amount}</td>
-      </tr>
-    ))} */}
-=======
   <tbody>
 
     <tr>
@@ -143,7 +127,6 @@ return(
       <td>Savings</td>
       <td>378</td>
     </tr>
->>>>>>> Stashed changes
   </tbody>
 </table>
 
