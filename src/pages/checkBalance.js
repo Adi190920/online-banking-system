@@ -11,51 +11,39 @@ import {
   import useAuth from '../hooks/auth';
   import axios from "axios";
   import {  useNavigate } from "react-router-dom";
+    
 function checkBalance() {
   const auth = useAuth();
-  const [resp,setResponse] = useState("");
+  const [transactions,setTransactions] = useState({
+    "transactionid": "",
+    "accountnumber": "",
+        "acctypeid": "",
+        "transactiontype": "",
+        "transactiondate": "",
+        "amount": ""
+  });
   const [balance,setBalance] = useState("");
   const [name,setUsername] = useState("");
   useEffect(() => {
     setUsername(localStorage.getItem("username"));
     var data = {};
 
-    var config = {
-      method: 'get',
-      url: 'http://localhost:8081/transactions',
-      headers: { 
-        'Content-Type': 'application/json', 
-      },
-      data : [{
-        "accountNumber": localStorage.getItem("accountnumber")
-      }]
-    };
-
-    console.log(config);
-    axios(config)
-    .then(function (res) {
-      setResponse(res.data);
-      console.log(res);
+    axios.post(`http://localhost:8081/transactions`,{"accountNumber":localStorage.getItem("accountnumber")})
+    .then(function (transaction) {
+      setTransactions(transaction.data);
+      console.log(transaction.data);
+      console.log("###############");
+      console.log(transactions);
     })
     .catch(function (error) {
       console.log(error);
     });
 
-    var configBalance = {
-      method: 'get',
-      url: 'http://localhost:8081/balance',
-      headers: { 
-        'Content-Type': 'application/json', 
-      },
-      data : {
-        "accountnumber": localStorage.getItem("accountnumber")
-      }
-    };
-    console.log(configBalance)
-    axios(configBalance)
+    
+    
+    axios.post(`http://localhost:8081/balance`,{"accountNumber":localStorage.getItem("accountnumber")})
     .then(function (balanceres) {
       setBalance(balanceres.data);
-      console.log(balanceres);
     })
     .catch(function (error) {
       console.log(error);
@@ -85,8 +73,8 @@ return(
                 type='text' size="lg" disabled/>
                 </div>
   </div>
-  <h5 class="card-title">Transaction Details</h5>
-  <table class="table table-hover table-bordered">
+  <h5 className="card-title">Transaction Details</h5>
+  <table className="table table-hover table-bordered">
   <thead>
     <tr>
       <th scope="col">Transaction ID</th>
@@ -95,43 +83,18 @@ return(
       <th scope="col">Amount</th>
     </tr>
   </thead>
-  <tbody>
-
-    <tr>
-      <th scope="row">1</th>
-      <td>23/05/2022</td>
-      <td>Savings</td>
-      <td>1000</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>23/12/2022</td>
-      <td>Savings</td>
-      <td>2000</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>24/08/2022</td>
-      <td>Savings</td>
-      <td>2698</td>
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td>24/08/2022</td>
-      <td>Savings</td>
-      <td>218</td>
-    </tr>
-    <tr>
-      <th scope="row">5</th>
-      <td>24/08/2022</td>
-      <td>Savings</td>
-      <td>378</td>
-    </tr>
+  <tbody >
+  {/* {transactions.map((item,index)=>(
+      <tr key={index}>
+        <td>{item.transactionid}</td>
+        <td>{item.transactiondate}</td>
+        <td>{item.transactiontype}</td>
+        <td>{item.amount}</td>
+      </tr>
+    ))} */}
   </tbody>
 </table>
-
 </div>
-
 
 );
 }

@@ -8,9 +8,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.onlinebankingservices.model.ReqquestBody;
 import com.project.onlinebankingservices.model.Transactions;
 import com.project.onlinebankingservices.service.TransactionsdtlsService;
 import com.project.onlinebankingservices.service.UserdtlsService;
@@ -24,10 +26,10 @@ public class TransactionsController {
 	private TransactionsdtlsService tservice;
 
 
-	@GetMapping("/transactions")
-	public List<Transactions> transactionsDisplay(@RequestBody Map<String,String> accountNumber) {
+	@PostMapping("/transactions")
+	public List<Transactions> transactionsDisplay(@RequestBody ReqquestBody requestBody) {
 
-		List<Transactions> transactionslist = tservice.findByAccountnumber(Long.valueOf(accountNumber.get("accountNumber")));
+		List<Transactions> transactionslist = tservice.findByAccountnumber(Long.valueOf(requestBody.getAccountNumber()));
 
 
 		return transactionslist;

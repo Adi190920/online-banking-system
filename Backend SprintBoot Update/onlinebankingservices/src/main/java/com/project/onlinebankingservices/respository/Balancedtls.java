@@ -19,5 +19,6 @@ public interface Balancedtls extends JpaRepository<Balance, Integer> {
 	@Query(value = "UPDATE balancedetails SET amount = :am WHERE accountnumber = :acc", nativeQuery = true)
 	int updateBalance(@Param("am") Integer amount, @Param("acc") Long accountnumber);
 	
+	@Query(value="Select * from balanceDetails where accountnumber = ?1", nativeQuery = true)
 	Optional<Balance> findByAccountnumber(Long Accountnumber);
 }
