@@ -11,7 +11,6 @@ import javax.persistence.Table;
 public class Balance {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int balanceid;
 	
 	private long accountnumber;

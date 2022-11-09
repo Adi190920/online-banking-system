@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.project.onlinebankingservices.exceptions.NotFoundException;
 import com.project.onlinebankingservices.model.User;
 import com.project.onlinebankingservices.respository.Usersdtls;
 
@@ -23,7 +24,9 @@ public class UserdtlsServiceImpl implements UserdtlsService {
 	}
 
 	public Optional<User> findUser(long accountNumber) {
+
 		return respository.findById(accountNumber);
+
 	}
 
 	public void deleteUser(long accountNumber) {
@@ -31,11 +34,13 @@ public class UserdtlsServiceImpl implements UserdtlsService {
 	}
 
 	public Optional<User> findUserByUsername(String username) {
+
 		return respository.findByUsername(username);
+
 	}
 
 	public int updateUserPassword(String password, Long accountNumber) {
-		return respository.updateUserPassword(password,accountNumber);
+		return respository.updateUserPassword(password, accountNumber);
 	}
 
 }

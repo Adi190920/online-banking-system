@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.onlinebankingservices.dto.UsersDto;
+import com.project.onlinebankingservices.exceptions.AlreadyFoundException;
+import com.project.onlinebankingservices.exceptions.NotFoundException;
 import com.project.onlinebankingservices.model.Balance;
 import com.project.onlinebankingservices.model.User;
 import com.project.onlinebankingservices.service.AccountsdtlsService;
@@ -31,29 +32,28 @@ public class RegisterController {
 	@Autowired
 	private AccountsdtlsService accountService;
 
-
-	
 	@PostMapping("/register")
-	public ResponseEntity<User> register(@RequestBody User user) {
+	public ResponseEntity<User> register(@RequestBody User user) throws NotFoundException, AlreadyFoundException {
 
 		if (accountService.findById(user.getAcctypeid()).isEmpty())
-			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+			throw new NotFoundException("Not found Account Id :" + user.getAcctypeid());
 
 		if (userService.findUser(user.getAccountnumber()).isPresent()) {
-			return new ResponseEntity<User>(HttpStatus.ALREADY_REPORTED);
+			throw new AlreadyFoundException("Can't Create User. (Already exists)  Account Id :" + user.getAcctypeid());
 		}
+		if (userService.findUserByUsername(user.getUsername()).isPresent()) {
+			throw new AlreadyFoundException("Can't Create User. (Already exists)  UserName :" + user.getUsername());
+		}
+
 		System.out.println(user);
 		Balance balance = new Balance();
 		balance.setAccountnumber(user.getAccountnumber());
 
-
-//	 	Creating for Minimum account balance of Rs 10,000
 		balance.setBalance(10000);
 		balanceService.createBalanceDetails(balance);
 
 		Optional<Balance> bOps = balanceService.findByAccountnumber(user.getAccountnumber());
 		Balance b = bOps.get();
-		
 
 		user.setBalanceid(b.getBalanceid());
 		System.out.println(user);
