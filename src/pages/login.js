@@ -110,13 +110,15 @@ function App() {
                     <MDBIcon fab icon="facebook-f" size="sm" />
                   </MDBBtn>
 
+                  <p>or login with:</p>
+                  {/* <div class="g-signin2" data-onsuccess="onSignIn">hi</div> */}
                   <MDBBtn
                     tag="a"
                     color="none"
                     className="mx-3"
                     style={{ color: "#1266f1" }}
                   >
-                    <MDBIcon fab icon="twitter" size="sm" />
+                    <MDBIcon fab icon="facebook-f" size="sm" />
                   </MDBBtn>
 
                   <MDBBtn

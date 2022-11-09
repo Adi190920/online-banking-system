@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import {
-  MDBBtn,
   MDBContainer,
   MDBRow,
   MDBCol,
@@ -13,6 +12,7 @@ import { Button } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
+import Select from "react-select";
 import { useNavigate } from "react-router-dom";
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
   const [mobno, setMmobno] = useState("");
   const [acctype, setAcctype] = useState("");
   const [message, setMessage] = useState("");
-
+  const [acctypelist, setAcctypelist] = useState([]);
   const navigate = useNavigate();
 
   function validateForm() {
@@ -34,12 +34,34 @@ function App() {
       setMessage("Invalid Mobile Number");
       return false;
     }
-    // else if(accnumber.length != 11){
-    //   setMessage("Invalid Account Number");
-    //   return false;
-    // }
     return true;
   }
+  useEffect(() => {
+    var config = {
+      method: "get",
+      url: "http://localhost:8081/acctype",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    axios(config)
+      .then(function (res) {
+        console.log(JSON.stringify(res.data[0].acctypeid));
+        // setAcctypelist(res.data);
+        const data = res.data;
+        for (let i = 0; i < data.length; i++) {
+          data[i].value = data[i].acctypeid;
+          data[i].label = data[i].acctype;
+          delete data[i].acctypeid;
+          delete data[i].acctype;
+        }
+        setAcctypelist(data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -74,7 +96,6 @@ function App() {
       .then(function (res) {
         console.log(JSON.stringify(res.data));
         localStorage.setItem("user", res.data);
-        // console.log(localStorage.getItem("user"));
         setMessage("Registration successful");
         navigate("/login");
       })
@@ -159,12 +180,14 @@ function App() {
                     />
                   </MDBCol>
                   <Form.Group as={Col} controlId="formGridState">
-                    <Form.Select defaultValue="Select Account Type...">
-                      <option>Select Account Type...</option>
-                      <option value="1">Savings</option>
-                      <option value="2">Current</option>
-                      <option value="3">Retirement</option>
-                    </Form.Select>
+                    <Select
+                      options={acctypelist}
+                      // value={acctype}
+                      onChange={(e) => {
+                        setAcctype(e.value);
+                        console.log(acctype);
+                      }}
+                    />
                   </Form.Group>
                 </MDBRow>
                 <MDBRow>
@@ -189,6 +212,17 @@ function App() {
                     />
                   </MDBCol>
                 </MDBRow>
+
+                <MDBCheckbox
+                  name="flexCheck"
+                  value=""
+                  id="flexCheckDefault"
+                  label="Agree Terms & Conditions"
+                />
+
+                <Button size="lg" onClick={handleSubmit}>
+                  Register
+                </Button>
 
                 <MDBCheckbox
                   name="flexCheck"
