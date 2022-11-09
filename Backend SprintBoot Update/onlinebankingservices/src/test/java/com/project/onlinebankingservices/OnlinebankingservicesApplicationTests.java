@@ -1,103 +1,158 @@
-//package com.project.onlinebankingservices;
-//
-//import org.junit.runner.RunWith;
-//import org.junit.jupiter.api.AfterEach;
-//import org.junit.jupiter.api.BeforeEach;
-//import org.junit.jupiter.api.Test;
-//import org.mockito.InjectMocks;
-//import org.mockito.Mock;
-//import org.mockito.junit.MockitoJUnitRunner;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.boot.test.context.SpringBootTest;
-//import org.springframework.boot.test.mock.mockito.MockBean;
-//import org.springframework.test.context.junit4.SpringRunner;
-//
-//import com.project.onlinebankingservices.model.User;
-//import com.project.onlinebankingservices.respository.Usersdtls;
-//import com.project.onlinebankingservices.service.AccountsdtlsService;
-//
-//@RunWith(SpringRunner.class)
-//@SpringBootTest
-//class OnlinebankingservicesApplicationTests {
-//
-//
-//
-//    @MockBean
-//    Usersdtls repository;
-//    
-//    @Autowired
-//    AccountsdtlsService accountService;
-//
-//  
-//
-//    @Test
-//    public void testGetAccount(){
-//
-//        User user = new User();
-//        user.setAccountnumber(12312312312);
-//        user.setUsername("admin");
-//        user.setPassword("admin");
-//        user.setBalanceid(1);
-//       
-//
-//
-//        Account newAcc = new Account();
-//        newAcc.setUsername("jai");
-//        newAcc.setPassword("1234");
-//
-//        when(bankRepository.findByUsernameAndPassword(anyString(),anyString())).thenReturn(acc);
-//        Account tk = accountService.getAccount(newAcc);
-//
-//        assert(tk.getAccountNumber().equals("1234"));
-//        assert(tk.getUsername().equals("amar"));
-//        assert(tk.getPassword().equals("!@#$"));
-//        assert(Objects.equals(tk.getBalance(), 1000));
-//        assert(Objects.equals(tk.getAtmPin(), 8271));
-//        assert(tk.getFirstName().equals("Amarnaath"));
-//        assert(tk.getLastName().equals("M"));
-//        assert(tk.getMiddleName().equals("Am"));
-//        assert(Objects.equals(tk.getFdBalance(),10000));
-//    }
-//
-//    @Test
-//    public void testCreateHappyFlow(){
-//        Account acc = new Account();
-//        acc.setUsername("Amarnaath");
-//        when(bankRepository.findByUsername(anyString())).thenReturn(null);
-//        accountService.create(acc);
-//    }
-//
-//    @Test
-//    public void testCreateAccountAlreadyExists(){
-//
-//        Account acc = new Account();
-//        acc.setAccountNumber("1234");
-//        acc.setUsername("amar");
-//        acc.setPassword("!@#$");
-//        acc.setBalance(1000);
-//        acc.setAtmPin(8271);
-//        acc.setFirstName("Amarnaath");
-//        acc.setLastName("M");
-//        acc.setMiddleName("Am");
-//        acc.setFdBalance(10000);
-//
-//        Account acc2 = new Account();
-//        acc2.setUsername("amar");
-//        when(bankRepository.findByUsername(anyString())).thenReturn(acc);
-//
-//        accountService.create(acc2);
-//    }
-//
-//    @Test
-//    public void testUpdate(){
-//        Account newAcc = new Account();
-//        newAcc.setUsername("jai");
-//        newAcc.setPassword("1234");
-//        accountService.update(newAcc);
-//    }
-//}
-//	
-//	
-//	
-//
-//}
+package com.project.onlinebankingservices;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
+
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.project.onlinebankingservices.model.User;
+import com.project.onlinebankingservices.respository.Usersdtls;
+import com.project.onlinebankingservices.service.UserdtlsService;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+class OnlinebankingservicesApplicationTests {
+
+	@MockBean
+	Usersdtls repository;
+
+	@Autowired
+	UserdtlsService uService;
+
+	@Test
+	public void getUsersTest() {
+
+		User user1 = new User();
+		user1.setAccountnumber(1231231231);
+		user1.setUsername("admin");
+		user1.setPassword("admin");
+		user1.setBalanceid(1);
+		user1.setAcctypeid(1);
+		user1.setLastname("Joseph");
+		user1.setName("Prem");
+		user1.setMiddlename("Kumar");
+		user1.setSecurityquestions("fav color");
+		user1.setSecurityanswers("blue");
+		
+		User user2 = new User();
+		user2.setAccountnumber(123456789);
+		user2.setUsername("pass");
+		user2.setPassword("pass");
+		user2.setBalanceid(0);
+		user2.setAcctypeid(1);
+		user2.setLastname("Charlie");
+		user2.setName("P");
+		user2.setMiddlename("Kumar");
+		user2.setSecurityquestions("fav color");
+		user2.setSecurityanswers("blue");
+		
+		when(repository.findAll()).thenReturn(Stream.of(user1,user2).collect(Collectors.toList()));
+		assertEquals(2, uService.getUsers().size());
+	}
+
+	@Test
+	public void getUsersByUsername()
+	{
+		User user1 = new User();
+		user1.setAccountnumber(1231231231);
+		user1.setUsername("admin");
+		user1.setPassword("admin");
+		user1.setBalanceid(1);
+		user1.setAcctypeid(1);
+		user1.setLastname("Joseph");
+		user1.setName("Prem");
+		user1.setMiddlename("Kumar");
+		user1.setSecurityquestions("fav color");
+		user1.setSecurityanswers("blue");
+		
+		User user2 = new User();
+		user2.setAccountnumber(123456789);
+		user2.setUsername("pass");
+		user2.setPassword("pass");
+		user2.setBalanceid(0);
+		user2.setAcctypeid(1);
+		user2.setLastname("Charlie");
+		user2.setName("P");
+		user2.setMiddlename("Kumar");
+		user2.setSecurityquestions("fav color");
+		user2.setSecurityanswers("blue");
+		
+		when(repository.findByUsername("admin")).thenReturn(Optional.of(user2));
+		assertEquals(Optional.of(user2),uService.findUserByUsername("admin"));
+	}
+	
+	
+	@Test
+	public void CreateUser()
+	{
+		User user1 = new User();
+		user1.setAccountnumber(1231231231);
+		user1.setUsername("admin");
+		user1.setPassword("admin");
+		user1.setBalanceid(1);
+		user1.setAcctypeid(1);
+		user1.setLastname("Joseph");
+		user1.setName("Prem");
+		user1.setMiddlename("Kumar");
+		user1.setSecurityquestions("fav color");
+		user1.setSecurityanswers("blue");
+		
+		
+		when(repository.save(user1)).thenReturn(user1);
+		assertEquals(user1,uService.createUser(user1));
+		
+	}
+	
+	@Test
+	public void findUserbyAccNum()
+	{
+		User user1 = new User();
+		user1.setAccountnumber(1231231231);
+		user1.setUsername("admin");
+		user1.setPassword("admin");
+		user1.setBalanceid(1);
+		user1.setAcctypeid(1);
+		user1.setLastname("Joseph");
+		user1.setName("Prem");
+		user1.setMiddlename("Kumar");
+		user1.setSecurityquestions("fav color");
+		user1.setSecurityanswers("blue");
+		
+		
+		when(repository.findById(user1.getAccountnumber())).thenReturn(Optional.of(user1));
+		assertEquals(Optional.of(user1),uService.findUser(user1.getAccountnumber()));
+		
+	}
+	
+	@Test
+	public void updateUserpassword()
+	{
+		User user1 = new User();
+		user1.setAccountnumber(1231231231);
+		user1.setUsername("admin");
+		user1.setPassword("admin");
+		user1.setBalanceid(1);
+		user1.setAcctypeid(1);
+		user1.setLastname("Joseph");
+		user1.setName("Prem");
+		user1.setMiddlename("Kumar");
+		user1.setSecurityquestions("fav color");
+		user1.setSecurityanswers("blue");
+		
+		String pass="newpassword";
+		
+		when(repository.updateUserPassword(pass,user1.getAccountnumber())).thenReturn(1);
+		assertEquals(1,uService.updateUserPassword(pass,user1.getAccountnumber()));
+		
+	}
+	
+}

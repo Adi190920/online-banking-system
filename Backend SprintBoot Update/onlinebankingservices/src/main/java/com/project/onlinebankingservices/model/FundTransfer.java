@@ -14,7 +14,6 @@ import javax.persistence.Table;
 public class FundTransfer {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int transferid;
 	private long sourceaccnumber;
 	private long destaccnumber;
