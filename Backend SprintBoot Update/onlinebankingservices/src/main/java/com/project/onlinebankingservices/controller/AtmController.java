@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.onlinebankingservices.exceptions.NotFoundException;
 import com.project.onlinebankingservices.model.Atm;
 import com.project.onlinebankingservices.model.AtmPinChange;
-import com.project.onlinebankingservices.model.LoginUser;
 import com.project.onlinebankingservices.model.User;
 import com.project.onlinebankingservices.service.AtmdtlsService;
 import com.project.onlinebankingservices.service.UserdtlsService;
@@ -28,24 +28,22 @@ public class AtmController {
 	private UserdtlsService uservice;
 
 	@PostMapping("/changepin")
-	public ResponseEntity<AtmPinChange> changePin(@RequestBody AtmPinChange customer) {
+	public ResponseEntity<AtmPinChange> changePin(@RequestBody AtmPinChange customer) throws NotFoundException {
 
 		Optional<User> userOp = uservice.findUserByUsername(customer.getUsername());
 		
 		if(userOp.isEmpty())
-			return new ResponseEntity<AtmPinChange> (HttpStatus.NOT_FOUND);
+			throw new NotFoundException("Not found Username :" + customer.getUsername());
 		
 		if (!(customer.getNewpin() == customer.getConformpin())) {
-			return new ResponseEntity<AtmPinChange> (HttpStatus.CONFLICT);
+			throw new NotFoundException("Incorrect Security Answers");
 		}
 		
 		User user = userOp.get();
 		if (aservice.findAtmDetails(user.getAccountnumber()).isPresent()) {
 
-			if ((aservice.updateDetails(user.getAccountnumber(), customer.getNewpin())) == 0) {
-				return new ResponseEntity<AtmPinChange> (HttpStatus.CONFLICT);
-			}
-
+			aservice.updateDetails(user.getAccountnumber(), customer.getNewpin());
+			return new ResponseEntity<AtmPinChange> (customer,HttpStatus.OK);
 		}
 
 		else {
@@ -55,7 +53,7 @@ public class AtmController {
 			aservice.createPinDetails(atm);
 			return new ResponseEntity<AtmPinChange> (customer,HttpStatus.OK);
 		}
-		return new ResponseEntity<AtmPinChange> (HttpStatus.CONFLICT);
+		
 	}
 
 }
