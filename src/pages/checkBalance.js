@@ -1,52 +1,52 @@
 import React, {useEffect, useState }from 'react';
 import {
-    MDBBtn,
-    MDBContainer,
-    MDBRow,
-    MDBCol,
-    MDBCard,
-    MDBCardBody,
+    // MDBBtn,
+    // MDBContainer,
+    // MDBRow,
+    // MDBCol,
+    // MDBCard,
+    // MDBCardBody,
     MDBInput
   } from 'mdb-react-ui-kit';
   import useAuth from '../hooks/auth';
   import axios from "axios";
-  import {  useNavigate } from "react-router-dom";
+  // import {  json, useNavigate } from "react-router-dom";
     
 function checkBalance() {
   const auth = useAuth();
+  const [balance,setBalance] = useState("");
+  const [name,setUsername] = useState("");
+  const [transactions,setTransactions] = useState([]);
   useEffect(() => {
-    console.log(localStorage.getItem("username"));
-    var data = JSON.stringify({
-      "username": localStorage.getItem("username")
+    setUsername(localStorage.getItem("username"));
+
+    axios.post(`http://localhost:8081/transactions`,{"accountNumber":localStorage.getItem("accountnumber")},{responseType:"json"})
+    
+    .then(function(transaction){
+      console.log(JSON.stringify(transaction.data))
+      setTransactions(transaction.data)
+      console.log(transactions)
+      
+    }
+    )
+    .catch(function (error) {
+      console.log(error);
     });
 
-    var config = {
-      method: 'get',
-      url: 'http://localhost:8081/transaction',
-      headers: { 
-        'Content-Type': 'application/json', 
-      // 'Cookie': 'JSESSIONID=BD47BA85535C131A6AE0A5A78DA1B3D4'
-      },
-      data : data
-    };
-
-    axios(config)
-    .then(function (res) {
-      console.log(res.data);
-      // localStorage.setItem("user", JSON.stringify(res.data));
-      // console.log(localStorage.getItem("user"));
-      // setMessage("Login successful");
-      // navigate("/checkBalance");
+    
+    
+    axios.post(`http://localhost:8081/balance`,
+      {"accountNumber":localStorage.getItem("accountnumber")})
+    .then(function (balanceres) {
+      setBalance(balanceres.data.balance);
+      console.log(balanceres.data);
     })
     .catch(function (error) {
       console.log(error);
-      // setMessage("Invalid Username and Password");
     });
-
+    
 
   }, [])
-
-
 return(
 
 <div className="card">
@@ -55,15 +55,15 @@ return(
   <h2 className="fw-bold mb-2 text-center">Account Details</h2>
     <div className="float-left">
       <label> Name </label>
-    <MDBInput wrapperclassName='mb-4 w-100' value = {auth.user.username}
+    <MDBInput wrapperclassName='mb-4 w-100' value = {name}
                 placeholder='Name' id='formControlLg' 
                 type='text' size="lg" disabled/>
       </div>
       <div className="float-right">
       <label> Balance </label>
       {/* Add balance component to user */}
-      <MDBInput wrapperclassName='mb-4 w-100' value = '10000'
-                placeholder='Current Balance' id='formControlLg' 
+      <MDBInput wrapperclassName='mb-4 w-100' value = {balance}
+                 id='formControlLg' 
                 type='text' size="lg" disabled/>
                 </div>
   </div>
@@ -78,36 +78,14 @@ return(
     </tr>
   </thead>
   <tbody >
-    <tr>
-      <th scope="row">1</th>
-      <td>23/05/2022</td>
-      <td>Savings</td>
-      <td>1000</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>23/12/2022</td>
-      <td>Savings</td>
-      <td>2000</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>24/08/2022</td>
-      <td>Savings</td>
-      <td>2698</td>
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td>24/08/2022</td>
-      <td>Savings</td>
-      <td>218</td>
-    </tr>
-    <tr>
-      <th scope="row">5</th>
-      <td>24/08/2022</td>
-      <td>Savings</td>
-      <td>378</td>
-    </tr>
+  {transactions.map((item,index)=>(
+      <tr key={index}>
+        <td>{item.transactionid}</td>
+        <td>{item.transactiondate}</td>
+        <td>{item.transactiontype}</td>
+        <td>{item.amount}</td>
+      </tr>
+    ))}
   </tbody>
 </table>
 </div>

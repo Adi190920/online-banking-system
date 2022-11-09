@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.onlinebankingservices.exceptions.NotFoundException;
 import com.project.onlinebankingservices.model.ResetPassword;
 import com.project.onlinebankingservices.model.User;
 import com.project.onlinebankingservices.service.UserdtlsService;
@@ -25,23 +26,26 @@ public class ResetController {
 	// optional to check old password equal to new password
 	
 	@PostMapping("/reset")
-	public ResponseEntity<ResetPassword> reset(@RequestBody ResetPassword rp) {
+	public ResponseEntity<ResetPassword> reset(@RequestBody ResetPassword rp) throws NotFoundException {
 
 		Optional<User> user = uservice.findUser(rp.getAccountnumber());
 
-		if (user.isPresent()) {
-			User customer = user.get();
-//			System.out.println(rp);
-//			System.out.println(customer);
-			if (customer.getSecurityquestions().equals(rp.getSecurityquestions())
-					&& customer.getSecurityanswers().equals(rp.getSecurityanswers())) {
+		if (user.isEmpty())
+			throw new NotFoundException("Not found User with Account Number :" + rp.getAccountnumber());
+			
+			
+		User customer = user.get();
 
-				uservice.updateUserPassword(rp.getNewpassword(), customer.getAccountnumber());
+		if (customer.getSecurityquestions().equals(rp.getSecurityquestions())
+				&& customer.getSecurityanswers().equals(rp.getSecurityanswers())) {
 
-				return new ResponseEntity<ResetPassword>(HttpStatus.OK);
-			}
+			uservice.updateUserPassword(rp.getNewpassword(), customer.getAccountnumber());
+			
+			return new ResponseEntity<ResetPassword>(HttpStatus.OK);
 		}
+		else
+			throw new NotFoundException("Incorrect Security Answers");
+	
 
-		return new ResponseEntity<ResetPassword>(HttpStatus.EXPECTATION_FAILED);
 	}
 }

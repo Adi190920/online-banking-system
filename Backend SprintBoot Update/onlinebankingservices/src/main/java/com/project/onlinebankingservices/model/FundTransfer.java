@@ -1,12 +1,10 @@
 package com.project.onlinebankingservices.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 //@Data
 //@AllArgsConstructor
@@ -65,6 +63,12 @@ public class FundTransfer {
 	public FundTransfer() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String toString() {
+		return "FundTransfer [transferid=" + transferid + ", sourceaccnumber=" + sourceaccnumber + ", destaccnumber="
+				+ destaccnumber + ", destacctypeid=" + destacctypeid + ", transferamount=" + transferamount + "]";
 	}
 
 }
