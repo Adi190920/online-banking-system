@@ -10,31 +10,25 @@ import {
   } from 'mdb-react-ui-kit';
   import useAuth from '../hooks/auth';
   import axios from "axios";
-  import {  useNavigate } from "react-router-dom";
+  import {  json, useNavigate } from "react-router-dom";
     
 function checkBalance() {
   const auth = useAuth();
-  const [transactions,setTransactions] = useState({
-    "transactionid": "",
-    "accountnumber": "",
-        "acctypeid": "",
-        "transactiontype": "",
-        "transactiondate": "",
-        "amount": ""
-  });
+  const [transactions,setTransactions] = useState([]);
   const [balance,setBalance] = useState("");
   const [name,setUsername] = useState("");
   useEffect(() => {
     setUsername(localStorage.getItem("username"));
-    var data = {};
 
-    axios.post(`http://localhost:8081/transactions`,{"accountNumber":localStorage.getItem("accountnumber")})
-    .then(function (transaction) {
-      setTransactions(transaction.data);
-      console.log(transaction.data);
-      console.log("###############");
-      console.log(transactions);
-    })
+    axios.post(`http://localhost:8081/transactions`,{"accountNumber":localStorage.getItem("accountnumber")},{responseType:"json"})
+    
+    .then(function(transaction){
+      console.log(JSON.stringify(transaction.data))
+      setTransactions(JSON.stringify(transaction.data))
+      console.log(transactions)
+      
+    }
+    )
     .catch(function (error) {
       console.log(error);
     });
