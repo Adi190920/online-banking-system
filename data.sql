@@ -55,13 +55,13 @@ INSERT INTO fundtransfer values(19,1212598810,1212598807,2,2300);
 INSERT INTO fundtransfer values(20,1212598810,1212598807,2,1000);
 
 
-INSERT INTO transactions values(1,1212598807,2,"savings",23/05/2022,1500);
-INSERT INTO transactions values(2,1212598807,2,"savings",24/05/2022,2500);
-INSERT INTO transactions values(3,1212598807,2,"savings",25/05/2022,500);
-INSERT INTO transactions values(4,1212598807,2,"savings",26/05/2022,100);
-INSERT INTO transactions values(5,1212598807,2,"savings",27/05/2022,1800);
-INSERT INTO transactions values(6,1212598808,1,"savings",23/06/2022,1300);
-INSERT INTO transactions values(7,1212598808,1,"savings",24/07/2022,2700);
-INSERT INTO transactions values(8,1212598808,1,"savings",25/08/2022,5030);
-INSERT INTO transactions values(9,1212598808,1,"savings",26/08/2022,1400);
-INSERT INTO transactions values(10,1212598808,1,"savings",27/08/2022,5800);
+INSERT INTO transactions values(1,1212598807,2,"savings","2022-05-23",1500);
+INSERT INTO transactions values(2,1212598807,2,"savings","2022-05-24",2500);
+INSERT INTO transactions values(3,1212598807,2,"savings","2022-05-25",500);
+INSERT INTO transactions values(4,1212598807,2,"savings","2022-05-26",100);
+INSERT INTO transactions values(5,1212598807,2,"savings","2022-05-27",1800);
+INSERT INTO transactions values(6,1212598808,1,"savings","2022-06-23",1300);
+INSERT INTO transactions values(7,1212598808,1,"savings","2022-07-24",2700);
+INSERT INTO transactions values(8,1212598808,1,"savings","2022-08-25",5030);
+INSERT INTO transactions values(9,1212598808,1,"savings","2022-08-26",1400);
+INSERT INTO transactions values(10,1212598808,1,"savings","2022-08-27",5800);

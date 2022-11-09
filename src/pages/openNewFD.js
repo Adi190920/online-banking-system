@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  MDBBtn,
   MDBContainer,
   MDBRow,
   MDBInput,
   MDBCol,
   MDBCard,
   MDBCardBody,
-  MDBInputGroup,
 } from "mdb-react-ui-kit";
 import axios from "axios";
 import Form from 'react-bootstrap/Form';
@@ -39,7 +37,7 @@ function OpenNewFD() {
         })
         .then((res) => {
           console.log(res);
-          setMessage("Login successful");
+          setMessage("Fixed Deposit Created");
           // navigate("/dashboard");
           setSuccess("Fixed Deposit Created");
           setTimeout(() => setSuccess("   "), 2000);
