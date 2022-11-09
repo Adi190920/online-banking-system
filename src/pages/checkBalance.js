@@ -14,21 +14,18 @@ import {
     
 function checkBalance() {
   const auth = useAuth();
-  const [transactions,setTransactions] = useState([]);
   const [balance,setBalance] = useState("");
   const [name,setUsername] = useState("");
+  const [transaction,setTransaction] = useState([]);
   useEffect(() => {
     setUsername(localStorage.getItem("username"));
 
     axios.post(`http://localhost:8081/transactions`,{"accountNumber":localStorage.getItem("accountnumber")},{responseType:"json"})
     
-    .then(function(transaction){
-      console.log(JSON.stringify(transaction.data))
-      setTransactions(JSON.stringify(transaction.data))
-      console.log(transactions)
-      
-    }
-    )
+    
+    .then((actualData)=>{
+      setTransaction(actualData.data)
+    })
     .catch(function (error) {
       console.log(error);
     });
@@ -45,8 +42,6 @@ function checkBalance() {
     
 
   }, [])
-
-
 return(
 
 <div className="card">
@@ -78,14 +73,14 @@ return(
     </tr>
   </thead>
   <tbody >
-  {/* {transactions.map((item,index)=>(
+  {transaction.map((item,index)=>(
       <tr key={index}>
         <td>{item.transactionid}</td>
         <td>{item.transactiondate}</td>
         <td>{item.transactiontype}</td>
         <td>{item.amount}</td>
       </tr>
-    ))} */}
+    ))}
   </tbody>
 </table>
 </div>
