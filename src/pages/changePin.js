@@ -1,6 +1,5 @@
 import React, {useState }from 'react';
 import {
-    // MDBBtn,
     MDBContainer,
     MDBRow,
     MDBCol,
@@ -8,7 +7,7 @@ import {
     MDBCardBody,
     MDBInputGroup
   } from 'mdb-react-ui-kit';
-  import {  useNavigate } from "react-router-dom";
+  
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
 function changePin() {
@@ -16,8 +15,7 @@ function changePin() {
         const [newpin, setNewPin] = useState("")
         const [confirmnewpin, setConfirmPin] = useState("")
         const [message, setMessage] = useState("")  
-        const [success, setSuccess] = useState("");    
-        const navigate = useNavigate()
+        const [success, setSuccess] = useState("");
         
     function validate(){
         if(newpin.length !== 4 || confirmnewpin.length !== 4 || oldpin.length!== 4){
@@ -31,7 +29,6 @@ function changePin() {
         else if(newpin !== confirmnewpin){
            setMessage("Pins do not match. Type again");
            setTimeout(() => setMessage("   "), 2000);
-        //   navigate("/");
         }
         else{
             
@@ -107,7 +104,7 @@ function changePin() {
         </MDBCol>
         </MDBRow>
     </MDBContainer>
-    // </div>   
+    </div>   
     );
     
 }

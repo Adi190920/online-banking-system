@@ -6,8 +6,6 @@ import {
   MDBCard,
   MDBCardText,
   MDBCardBody,
-  MDBCardImage,
-  MDBBtn,
   MDBTypography,
   MDBIcon
 } from 'mdb-react-ui-kit';

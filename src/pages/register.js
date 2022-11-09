@@ -6,8 +6,7 @@ import {
   MDBCard,
   MDBCardBody,
   MDBInput,
-  MDBCheckbox,
-  // MDBBtn,
+  MDBCheckbox
 } from "mdb-react-ui-kit";
 import { Button } from "react-bootstrap";
 import Col from "react-bootstrap/Col";

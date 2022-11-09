@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import {
   MDBContainer,
   MDBRow,
@@ -19,7 +18,6 @@ function OpenNewFD() {
   const [period, setperiod] = useState("");
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState("");
-  const navigate = useNavigate();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -38,7 +36,6 @@ function OpenNewFD() {
         .then((res) => {
           console.log(res);
           setMessage("Fixed Deposit Created");
-          // navigate("/dashboard");
           setSuccess("Fixed Deposit Created");
           setTimeout(() => setSuccess("   "), 2000);
           alert("Fixed Deposit Created");

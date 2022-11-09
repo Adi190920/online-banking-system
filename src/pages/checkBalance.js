@@ -1,19 +1,10 @@
 import React, {useEffect, useState }from 'react';
 import {
-    // MDBBtn,
-    // MDBContainer,
-    // MDBRow,
-    // MDBCol,
-    // MDBCard,
-    // MDBCardBody,
     MDBInput
   } from 'mdb-react-ui-kit';
-  import useAuth from '../hooks/auth';
   import axios from "axios";
-  // import {  json, useNavigate } from "react-router-dom";
     
 function checkBalance() {
-  const auth = useAuth();
   const [balance,setBalance] = useState("");
   const [name,setUsername] = useState("");
   const [transactions,setTransactions] = useState([]);

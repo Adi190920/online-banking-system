@@ -1,16 +1,13 @@
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-// import axios from "axios";
-import useAuth from '../hooks/auth'
 import React from 'react';
-import { useNavigate,Route} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
 
 
 const Appbar = () => {
 
-    const auth = useAuth();
     const navigate = useNavigate();
 
     const logout = async() =>{

@@ -1,30 +1,22 @@
 import Select from 'react-select';
 import React, { useState, useEffect } from "react";
 import {
-  
   MDBContainer,
   MDBRow,
   MDBCol,
   MDBCard,
   MDBCardBody,
-  MDBInput,
 } from "mdb-react-ui-kit";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function FundTransfer() {
   const [sourceaccnumber, setsourceaccnumber] = useState(localStorage.getItem("accountnumber"));
-  const [beneficiary, setBeneficiary] = useState("");
   const [destaccnumber, setdestaccnumber] = useState("");
-  const [beneficiaryIFSC, setBeneficiaryIFSC] = useState("");
   const [destacctypeid, setdestacctypeid] = useState("");
   const [transferamount, settransferamount] = useState("");
-  // const [Remarks, setRemarks] = useState("");
-  // const [Check, setCheck] = useState("");
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState("");
   const [acctypelist, setAcctypelist] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     var config = {
@@ -38,7 +30,6 @@ function FundTransfer() {
     axios(config)
     .then(function (res) {
       console.log(JSON.stringify(res.data[0].acctypeid));
-      // setAcctypelist(res.data);
       const data = res.data;
       for(let i = 0; i < data.length; i++){
         data[i].value  = data[i].acctypeid ;
@@ -85,7 +76,6 @@ function FundTransfer() {
         })
         .then((res) => {
           console.log(res);
-          // navigate("/dashboard");
           
       setSuccess("Fund Transfer Completed Successfully");
       setTimeout(() => setSuccess("   "), 4000);
