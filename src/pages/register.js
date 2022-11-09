@@ -7,6 +7,7 @@ import {
   MDBCardBody,
   MDBInput,
   MDBCheckbox,
+  // MDBBtn,
 } from "mdb-react-ui-kit";
 import { Button } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
@@ -30,7 +31,7 @@ function App() {
   const navigate = useNavigate();
 
   function validateForm() {
-    if (mobno.length != 10) {
+    if (mobno.length !== 10) {
       setMessage("Invalid Mobile Number");
       return false;
     }
@@ -93,31 +94,19 @@ function App() {
     };
 
     axios(config)
-<<<<<<< HEAD
     .then(function (res) {
       console.log(JSON.stringify(res.data));
       localStorage.setItem("user", res.data);
-      setMessage("Registration successful");
-      setTimeout(() => setMessage("   "), 4000);
+      alert("Registration Sucessful");
       navigate("/login");
     })
     .catch(function (error) {
       console.log(error);
       setMessage("Something went wrong");
-      setTimeout(() => setMessage("   "), 4000);
+      // setMessage(error.response.data[" errorMessage "]);
+      setTimeout(() => setMessage("   "), 2000);
     });
   
-=======
-      .then(function (res) {
-        console.log(JSON.stringify(res.data));
-        localStorage.setItem("user", res.data);
-        setMessage("Registration successful");
-        navigate("/login");
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
->>>>>>> 367e84396a135eff02f72e6271982218606c7993
   }
 
   return (
@@ -127,6 +116,9 @@ function App() {
           <MDBCol md="6">
             <MDBCard className="my-5">
               <MDBCardBody className="p-5">
+              <div className="text-danger">
+                  {message ? <p>{message}</p> : null}
+                </div>
                 <h2 className="fw-bold mb-2 text-center">Register</h2>
                 <br />
                 <MDBRow>
@@ -240,16 +232,7 @@ function App() {
                   Register
                 </Button>
 
-                <MDBCheckbox
-                  name="flexCheck"
-                  value=""
-                  id="flexCheckDefault"
-                  label="Agree Terms & Conditions"
-                />
-
-                <MDBBtn size="lg" onClick={handleSubmit}>
-                  Register
-                </MDBBtn>
+                
               </MDBCardBody>
             </MDBCard>
           </MDBCol>

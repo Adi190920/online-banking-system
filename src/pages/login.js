@@ -36,38 +36,20 @@ function App() {
     };
 
     axios(config)
-<<<<<<< HEAD
-    .then(function (res) {
-      // console.log(res.data);
-      localStorage.setItem("username", res.data.username);
-      localStorage.setItem("accountnumber", res.data.accountnumber);
-      console.log(localStorage.getItem("user"));
-      setMessage("Login successful");
-      navigate("/checkBalance");
-    })
-    .catch(function (error) {
-      console.log(error);
-      setMessage("Invalid Username and Password");
-      setTimeout(() => setMessage("   "), 4000);
-    });
-
-
-=======
       .then(function (res) {
         // console.log(res.data);
         localStorage.setItem("username", res.data.username);
         localStorage.setItem("accountnumber", res.data.accountnumber);
         console.log(localStorage.getItem("user"));
-        setMessage("Login successful");
+        alert("Login successful");
         navigate("/checkBalance");
       })
       .catch(function (error) {
         console.log(error);
-        console.log(error.response.data[" errorMessage "]);
->>>>>>> 367e84396a135eff02f72e6271982218606c7993
-
-        setMessage(error.response.data[" errorMessage "]);
-
+        // console.log(error.response.data[" errorMessage "]);
+        setMessage("Something went wrong");
+        // setMessage(error.response.data[" errorMessage "]);
+        setTimeout(() => setMessage("   "), 2000);
         // setMessage("Invalid Username and Password");
       });
   }
@@ -119,16 +101,7 @@ function App() {
 
                 <div className="text-center">
                   <p>or login with:</p>
-                  <MDBBtn
-                    tag="a"
-                    color="none"
-                    className="mx-3"
-                    style={{ color: "#1266f1" }}
-                  >
-                    <MDBIcon fab icon="facebook-f" size="sm" />
-                  </MDBBtn>
-
-                  <p>or login with:</p>
+                  
                   {/* <div class="g-signin2" data-onsuccess="onSignIn">hi</div> */}
                   <MDBBtn
                     tag="a"

@@ -23,22 +23,28 @@ const Appbar = () => {
 
     return(
       <Navbar bg="dark" variant="dark">
-      <Container>
       {localStorage.getItem("username") ? 
-        <Navbar.Brand href="/checkBalance">{localStorage.getItem("username")}</Navbar.Brand> :
-        <Navbar.Brand href="/login">Online Banking Application</Navbar.Brand>  
-    }
-        
-        {/* <Navbar.Brand href="/checkBalance">Online Banking Application</Navbar.Brand> */}
-        <Navbar.Brand href="/openNewFD">Open New FD</Navbar.Brand>
+      
+      <Container>
+      
+        <Navbar.Brand href="/checkBalance">{localStorage.getItem("username")}</Navbar.Brand>
+         <Navbar.Brand href="/openNewFD">Open New FD</Navbar.Brand>
         <Navbar.Brand href="/fundTransfer">Fund Transfer</Navbar.Brand>
         <Navbar.Brand href="/checkBalance">Check Balance</Navbar.Brand>
         <Navbar.Brand href="/eventsAvailable">Events</Navbar.Brand>
         <Navbar.Brand href="/changePin">Change Pin</Navbar.Brand>
-
         <Button variant="dark" onClick={logout}>Logout</Button>
       </Container>
-    </Navbar>
+      
+        :
+        
+      <Container>
+        <Navbar.Brand href="/login">Online Banking Application</Navbar.Brand>
+        </Container>
+        
+    }
+     </Navbar>  
+       
       )
 }
 
