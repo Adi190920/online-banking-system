@@ -4,15 +4,18 @@ import {
   MDBBtn,
   MDBContainer,
   MDBRow,
+  MDBInput,
   MDBCol,
   MDBCard,
   MDBCardBody,
   MDBInputGroup,
 } from "mdb-react-ui-kit";
 import axios from "axios";
+import Form from 'react-bootstrap/Form';
+import { Button } from 'react-bootstrap';
 
 function OpenNewFD() {
-  const [accountnumber, setaccountnumber] = useState("");
+  const [accountnumber, setaccountnumber] = useState(localStorage.getItem("accountnumber"));
   const [amount, setamount] = useState("");
   const [product, setproduct] = useState("");
   const [period, setperiod] = useState("");
@@ -22,15 +25,11 @@ function OpenNewFD() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (accountnumber.length !== 11) {
-      setMessage("Account number should be 11 digits");
-      setTimeout(() => setMessage("   "), 4000);
-    } else if (amount < 1000) {
+    if (amount < 1000) {
       setMessage("Minimum FD amount is 1000");
-      setTimeout(() => setMessage("   "), 4000);
+      setTimeout(() => setMessage("   "), 2000);
     } else {
-      setSuccess("Fixed Deposit Created");
-      alert("Fixed Deposit Created");
+      
       axios
         .post(`http://localhost:8081/fixeddeposit`, {
           accountnumber,
@@ -41,7 +40,10 @@ function OpenNewFD() {
         .then((res) => {
           console.log(res);
           setMessage("Login successful");
-          navigate("/dashboard");
+          // navigate("/dashboard");
+          setSuccess("Fixed Deposit Created");
+          setTimeout(() => setSuccess("   "), 2000);
+          alert("Fixed Deposit Created");
         })
         .catch((err) => {
           console.log(err);
@@ -67,28 +69,22 @@ function OpenNewFD() {
                 <div className="text-success">
                   {success ? <p>{success}</p> : null}
                 </div>
-                <input
-                  type="text"
-                  id="defaultContactFormName"
-                  value={accountnumber}
-                  onChange={(e) => setaccountnumber(e.target.value)}
-                  class="form-control mb-4"
-                  placeholder="Account Number"
-                  required
-                />
-                <select
+                <MDBInput wrapperclassName='mb-4 w-100' value = {accountnumber}
+                placeholder='Account Number' id='formControlLg' 
+                type='text' size="lg" disabled/>
+                <br/>
+                <Form.Select
                   id="defaultContactFormName"
                   class="browser-default custom-select mb-4"
                   value={product}
                   onChange={(e) => setproduct(e.target.value)}
                 >
-                  <option value="" disabled selected>
-                    Select FD Product
-                  </option>
+                  <option value="" disabled selected>Select FD Product</option>
                   <option value="seniorcitizenFD">seniorcitizenFD </option>
                   <option value="normalFD">normalFD </option>
-                </select>
-                <select
+                </Form.Select>
+                <br/>
+                <Form.Select
                   id="defaultContactFormName"
                   class="browser-default custom-select mb-4"
                   value={period}
@@ -100,9 +96,9 @@ function OpenNewFD() {
                   <option value="1 year">1 year</option>
                   <option value="3 years">3 years</option>
                   <option value="5 years">5 years</option>
-                </select>
-
-                <input
+                </Form.Select>
+                <br/>
+                <MDBInput
                   type="number"
                   id="defaultContactFormName"
                   class="form-control mb-4"
@@ -125,13 +121,13 @@ function OpenNewFD() {
                     I have read and accepted the terms and conditions
                   </label>
                 </div>
-                <button
+                <Button
                   class="btn btn-info btn-block"
                   type="submit"
                   onClick={handleSubmit}
                 >
                   Create New FD
-                </button>
+                </Button>
               </form>
             </MDBCardBody>
           </MDBCard>

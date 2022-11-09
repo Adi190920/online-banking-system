@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Login from './pages/login'
 
 import Register from './pages/register'
-import DashBoard from './pages/dashboard'
 import useAuth from './hooks/auth'
 import NotAuthAppbar from './pages/NotAuthAppbar'
 import Appbar from './pages/AppBar'
@@ -21,7 +20,8 @@ function App() {
   return (
     <Router>
       <div className="App">
-      {auth.auth ? <Appbar/> : <NotAuthAppbar/>}
+      {/* {auth.auth ? <Appbar/> : <NotAuthAppbar/>} */}
+      <Appbar/>
         <div className="outer">
           <div className="inner">
             <Routes>
@@ -30,7 +30,6 @@ function App() {
               <Route path="/register" element={<Register />} />
 
               <Route element={<RequireAuth/>}>
-                <Route path="/dashboard" element={<DashBoard />} />
                 <Route path="/changePin" element={<Changepin />} />
                 <Route path="/checkBalance" element={<CheckBalance />} />
                 <Route path="/fundTransfer" element={<FundTransfer />} />

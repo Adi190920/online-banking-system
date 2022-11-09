@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import Select from 'react-select';
+import React, { useState, useEffect } from "react";
 import {
-  MDBBtn,
+  
   MDBContainer,
   MDBRow,
   MDBCol,
@@ -12,50 +13,69 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function FundTransfer() {
-  const [sourceaccnumber, setsourceaccnumber] = useState("");
+  const [sourceaccnumber, setsourceaccnumber] = useState(localStorage.getItem("accountnumber"));
   const [beneficiary, setBeneficiary] = useState("");
   const [destaccnumber, setdestaccnumber] = useState("");
   const [beneficiaryIFSC, setBeneficiaryIFSC] = useState("");
   const [destacctypeid, setdestacctypeid] = useState("");
   const [transferamount, settransferamount] = useState("");
-  const [Remarks, setRemarks] = useState("");
-  const [Check, setCheck] = useState("");
+  // const [Remarks, setRemarks] = useState("");
+  // const [Check, setCheck] = useState("");
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState("");
-
+  const [acctypelist, setAcctypelist] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    var config = {
+      method: 'get',
+      url: 'http://localhost:8081/acctype',
+      headers: { 
+        'Content-Type': 'application/json', 
+      }
+    };
+  
+    axios(config)
+    .then(function (res) {
+      console.log(JSON.stringify(res.data[0].acctypeid));
+      // setAcctypelist(res.data);
+      const data = res.data;
+      for(let i = 0; i < data.length; i++){
+        data[i].value  = data[i].acctypeid ;
+        data[i].label  = data[i].acctype ;
+        delete data[i].acctypeid;
+        delete data[i].acctype;
+      }
+      setAcctypelist(data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+  }, [])
+
+
 
   function handleSubmit(event) {
     console.log(sourceaccnumber, destaccnumber, destacctypeid, transferamount);
 
     event.preventDefault();
-    if (sourceaccnumber.length != 11) {
-      setMessage("Account number should be 11 digits");
-      setTimeout(() => setMessage("   "), 4000);
-    } else if (destaccnumber.length != 11) {
-      setMessage("Beneficiary Account number should be 11 digits");
-      setTimeout(() => setMessage("   "), 4000);
-    } else if (transferamount < 10 || transferamount > 1000000) {
-      setMessage(
-        "Transfer transferamount Should be between Rs. 10 and Rs. 10 Lakhs"
-      );
-      setTimeout(() => setMessage("   "), 4000);
-    }
     if (
       sourceaccnumber.length === 0 ||
-      beneficiary.length === 0 ||
       destaccnumber.length === 0 ||
-      beneficiaryIFSC.length === 0 ||
       destacctypeid.length === 0
     ) {
       setMessage("Fill all fields");
       setTimeout(() => setMessage("   "), 4000);
     }
-    //does not work
-    else if (Check.checked === false) {
-      setMessage("Accept the terms and condition");
+    else if (transferamount < 10 || transferamount > 1000000) {
+      setMessage(
+        "Transfer transferamount Should be between Rs. 10 and Rs. 10 Lakhs"
+      );
       setTimeout(() => setMessage("   "), 4000);
-    } else {
+    }
+    
+     else {
       axios
         .post(`http://localhost:8081/fundtransfer`, {
           sourceaccnumber,
@@ -65,25 +85,22 @@ function FundTransfer() {
         })
         .then((res) => {
           console.log(res);
-          navigate("/dashboard");
+          // navigate("/dashboard");
+          
+      setSuccess("Fund Transfer Completed Successfully");
+      setTimeout(() => setSuccess("   "), 4000);
+      alert("Fund Transfer Completed Successfully");
+      setdestaccnumber("");
+      settransferamount('');
         })
         .catch((err) => {
           console.log(err);
+          setMessage(err);
+          setTimeout(() => setMessage("   "), 4000);
         });
-      setSuccess("Fund Transfer Completed Successfully");
-      alert("Fund Transfer Completed Successfully");
     }
 
-    // axios
-    //   .post(`http://localhost:8081/login`, { username, password })
-    //   .then((res) => {
-    //     setMessage("Login successful");
-    //     navigate("/dashboard");
-    //     localStorage.setItem("username", res.data.user.username);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    
   }
 
   return (
@@ -104,27 +121,8 @@ function FundTransfer() {
                 <div className="text-success">
                   {success ? <p>{success}</p> : null}
                 </div>
-                <input
-                  type="text"
-                  id="defaultContactFormName"
-                  value={sourceaccnumber}
-                  onChange={(e) => setsourceaccnumber(e.target.value)}
-                  class="form-control mb-4"
-                  placeholder="Account Number"
-                  required
-                />
-                <select
-                  class="browser-default custom-select mb-4"
-                  value={beneficiary}
-                  onChange={(e) => setBeneficiary(e.target.value)}
-                >
-                  <option value="" disabled selected>
-                    Select Beneficiary
-                  </option>
-                  <option value="1">Beneficiary 1</option>
-                  <option value="2">Beneficiary 2</option>
-                  <option value="3">Beneficiary 3</option>
-                </select>
+                <p classNmae="text-left fw-bold">Account Number : {sourceaccnumber}</p>
+                
 
                 <input
                   type="number"
@@ -136,29 +134,15 @@ function FundTransfer() {
                   required
                 />
 
-                <input
-                  type="number"
-                  id="defaultContactFormName"
-                  class="form-control mb-4"
-                  placeholder="Beneficiary IFSC Code"
-                  value={beneficiaryIFSC}
-                  onChange={(e) => setBeneficiaryIFSC(e.target.value)}
-                  required
-                />
-
-                <select
-                  class="browser-default custom-select mb-4"
-                  value={destacctypeid}
-                  onChange={(e) => setdestacctypeid(e.target.value)}
-                  required
-                >
-                  <option value="" disabled selected>
-                    Select Beneficiary Account Type
-                  </option>
-                  <option value="1">Savings</option>
-                  <option value="2">Current</option>
-                  <option value="3">Retirement</option>
-                </select>
+                
+                  <Select options={acctypelist} 
+                      // value={acctype} 
+                      onChange={(e) => {
+                        setdestacctypeid(e.value);
+                        // console.log(acctype);
+                      }}
+                    />
+                    <br/>
                 <input
                   type="number"
                   id="defaultContactFormName"
@@ -169,17 +153,7 @@ function FundTransfer() {
                   required
                 />
 
-                <div class="form-group">
-                  <textarea
-                    class="form-control rounded-0"
-                    id="exampleFormControlTextarea2"
-                    rows="1"
-                    placeholder="Remarks"
-                    value={Remarks}
-                    onChange={(e) => setRemarks(e.target.value)}
-                    required
-                  ></textarea>
-                </div>
+                
 
                 <div class="custom-control custom-checkbox mb-4">
                   <input

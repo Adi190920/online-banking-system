@@ -49,6 +49,7 @@ function App() {
     .catch(function (error) {
       console.log(error);
       setMessage("Invalid Username and Password");
+      setTimeout(() => setMessage("   "), 4000);
     });
 
 

@@ -1,6 +1,6 @@
 import React, {useState }from 'react';
 import {
-    MDBBtn,
+    // MDBBtn,
     MDBContainer,
     MDBRow,
     MDBCol,
@@ -22,15 +22,15 @@ function changePin() {
     function validate(){
         if(newpin.length !== 4 || confirmnewpin.length !== 4 || oldpin.length!== 4){
             setMessage("Size of pin should be 4");
-            setTimeout(() => setMessage("   "), 4000);
+            setTimeout(() => setMessage("   "), 2000);
         }
         else if(newpin === oldpin){
             setMessage("New pin is same as old pin. Try again");
-            setTimeout(() => setMessage("   "), 4000);
+            setTimeout(() => setMessage("   "), 2000);
         }
         else if(newpin !== confirmnewpin){
            setMessage("Pins do not match. Type again");
-           setTimeout(() => setMessage("   "), 4000);
+           setTimeout(() => setMessage("   "), 2000);
         //   navigate("/");
         }
         else{
@@ -101,9 +101,7 @@ function changePin() {
                     <MDBInputGroup className='mb-4 w-100' value={confirmnewpin} onChange={(e) => setConfirmPin(e.target.value)}>
                     <input className='form-control' type='number' placeholder="Confirm New Pin" required/>
                     </MDBInputGroup>         
-                {/* <button onClick={handleSubmit}> Change Pin</button>
-                Misbehaving due to MDB Template bugs */}
-               <MDBBtn size='lg'onClick={handleSubmit}>Change Pin </MDBBtn>  
+                <Button onClick={handleSubmit}> Change Pin</Button>
         </MDBCardBody>
         </MDBCard>
         </MDBCol>

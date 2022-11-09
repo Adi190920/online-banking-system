@@ -101,10 +101,13 @@ function App() {
       console.log(JSON.stringify(res.data));
       localStorage.setItem("user", res.data);
       setMessage("Registration successful");
+      setTimeout(() => setMessage("   "), 4000);
       navigate("/login");
     })
     .catch(function (error) {
       console.log(error);
+      setMessage("Something went wrong");
+      setTimeout(() => setMessage("   "), 4000);
     });
   
   }
@@ -166,7 +169,7 @@ function App() {
                       // value={acctype} 
                       onChange={(e) => {
                         setAcctype(e.value);
-                        console.log(acctype);
+                        // console.log(acctype);
                       }}
                     />
                    
