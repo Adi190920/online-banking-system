@@ -31,7 +31,7 @@ public class AtmController {
 	public ResponseEntity<AtmPinChange> changePin(@RequestBody AtmPinChange customer) throws NotFoundException {
 
 		Optional<User> userOp = uservice.findUserByUsername(customer.getUsername());
-		
+
 		if(userOp.isEmpty())
 			throw new NotFoundException("Not found Username :" + customer.getUsername());
 		
