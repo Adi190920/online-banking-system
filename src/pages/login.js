@@ -88,7 +88,7 @@ function App() {
               <div className="text-center">
 
                 <p>or login with:</p>
-                <div class="g-signin2" data-onsuccess="onSignIn">hi</div>
+                {/* <div class="g-signin2" data-onsuccess="onSignIn">hi</div> */}
                 <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
                   <MDBIcon fab icon='facebook-f' size="sm"/>
                 </MDBBtn>

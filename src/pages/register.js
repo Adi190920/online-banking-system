@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import {
-  MDBBtn,
   MDBContainer,
   MDBRow,
   MDBCol,
@@ -14,6 +13,7 @@ import { Button } from 'react-bootstrap';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import axios from "axios";
+import Select from 'react-select';
 import {  useNavigate } from "react-router-dom";
 
 function App() {
@@ -27,18 +27,16 @@ function App() {
   const [mobno, setMmobno] = useState("");
   const [acctype, setAcctype] = useState("");
   const [message, setMessage] = useState("");
-
+  const [acctypelist, setAcctypelist] = useState([]);
   const navigate = useNavigate();
+
+  
 
   function validateForm(){
     if(mobno.length != 10 ){
       setMessage("Invalid Mobile Number");
       return false;
     }
-    // else if(accnumber.length != 11){
-    //   setMessage("Invalid Account Number");
-    //   return false;
-    // }
     return true;
   }
   useEffect(() => {
@@ -47,21 +45,27 @@ function App() {
       url: 'http://localhost:8081/acctype',
       headers: { 
         'Content-Type': 'application/json', 
-      // 'Cookie': 'JSESSIONID=BD47BA85535C131A6AE0A5A78DA1B3D4'
       }
     };
   
     axios(config)
     .then(function (res) {
-      console.log(JSON.stringify(res.data));
-      // localStorage.setItem("user", res.data);
-      // navigate("/login");
+      console.log(JSON.stringify(res.data[0].acctypeid));
+      // setAcctypelist(res.data);
+      const data = res.data;
+      for(let i = 0; i < data.length; i++){
+        data[i].value  = data[i].acctypeid ;
+        data[i].label  = data[i].acctype ;
+        delete data[i].acctypeid;
+        delete data[i].acctype;
+      }
+      setAcctypelist(data);
     })
     .catch(function (error) {
       console.log(error);
     });
 
-  },[])
+  }, [])
 
   function handleSubmit(event){
     event.preventDefault();
@@ -78,7 +82,8 @@ function App() {
       "securityanswers" : answer, 
       "mobilenumber" : mobno, 
       "accountnumber" : accnumber,
-      "acctypeid" : 1,
+      "acctypeid" : acctype,
+      "securityquestion":"what is your pet name?"
     });
     
     var config = {
@@ -95,7 +100,6 @@ function App() {
     .then(function (res) {
       console.log(JSON.stringify(res.data));
       localStorage.setItem("user", res.data);
-      // console.log(localStorage.getItem("user"));
       setMessage("Registration successful");
       navigate("/login");
     })
@@ -158,10 +162,14 @@ function App() {
                       Placeholder='What is your pet name?' id='form1' type='text'/>
                 </MDBCol>
                   <Form.Group as={Col} controlId="formGridState">
-                    <Form.Select defaultValue="Select Account Type...">
-                      <option>Select Account Type...</option>
-                      <option>...</option>
-                    </Form.Select>
+                    <Select options={acctypelist} 
+                      // value={acctype} 
+                      onChange={(e) => {
+                        setAcctype(e.value);
+                        console.log(acctype);
+                      }}
+                    />
+                   
                   </Form.Group>
               </MDBRow>
               <MDBRow>

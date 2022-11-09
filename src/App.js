@@ -15,6 +15,7 @@ import EventsAvailable from './pages/event'
 import FundTransfer from './pages/fundTransfer'
 import OpenNewFD from './pages/openNewFD'
 import CheckBalance from './pages/checkBalance'
+import RequireAuth from './pages/RequireAuth'
 function App() {
   const auth = useAuth();
   return (
@@ -27,11 +28,14 @@ function App() {
               <Route exact path="/" element={<Login />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/dashboard" element={<DashBoard />} />
-              <Route path="/changePin" element={<Changepin />} />
-              <Route path="/checkBalance" element={<CheckBalance />} />
-              <Route path="/fundTransfer" element={<FundTransfer />} />
-              <Route path="/openNewFD" element={<OpenNewFD />} />
+
+              <Route element={<RequireAuth/>}>
+                <Route path="/dashboard" element={<DashBoard />} />
+                <Route path="/changePin" element={<Changepin />} />
+                <Route path="/checkBalance" element={<CheckBalance />} />
+                <Route path="/fundTransfer" element={<FundTransfer />} />
+                <Route path="/openNewFD" element={<OpenNewFD />} />
+              </Route>
               <Route path="/EventsAvailable" element={<EventsAvailable />} />
               </Routes>
           </div>
