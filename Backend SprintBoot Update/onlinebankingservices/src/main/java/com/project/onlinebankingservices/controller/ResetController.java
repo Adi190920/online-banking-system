@@ -36,8 +36,7 @@ public class ResetController {
 			
 		User customer = user.get();
 
-		if (customer.getSecurityquestions().equals(rp.getSecurityquestions())
-				&& customer.getSecurityanswers().equals(rp.getSecurityanswers())) {
+		if (customer.getSecurityanswers().equals(rp.getSecurityanswers())) {
 
 			uservice.updateUserPassword(rp.getNewpassword(), customer.getAccountnumber());
 			

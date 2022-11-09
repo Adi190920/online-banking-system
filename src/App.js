@@ -12,6 +12,7 @@ import Appbar from './pages/AppBar'
 import Changepin from './pages/changePin'
 import EventsAvailable from './pages/event'
 import FundTransfer from './pages/fundTransfer'
+import ForgotPassword from './pages/ForgotPassword'
 import OpenNewFD from './pages/openNewFD'
 import CheckBalance from './pages/checkBalance'
 import RequireAuth from './pages/RequireAuth'
@@ -28,7 +29,7 @@ function App() {
               <Route exact path="/" element={<Login />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-
+              <Route path="/forgotpassword" element={<ForgotPassword />} />
               <Route element={<RequireAuth/>}>
                 <Route path="/changePin" element={<Changepin />} />
                 <Route path="/checkBalance" element={<CheckBalance />} />
