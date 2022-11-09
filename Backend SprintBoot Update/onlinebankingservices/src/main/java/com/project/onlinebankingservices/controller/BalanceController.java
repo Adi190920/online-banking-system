@@ -35,8 +35,8 @@ public class BalanceController {
 		System.out.println(requestBody);
 		Optional<Balance> balancelist = bservice.findByAccountnumber(Long.valueOf(requestBody.getAccountNumber()));
 		// System.out.println(transactionslist);
-		System.out.println(balancelist);
-		return new ResponseEntity(balancelist, HttpStatus.OK);
+
+		return new ResponseEntity(balancelist,HttpStatus.OK);
 
 	}
 }

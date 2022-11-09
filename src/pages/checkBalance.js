@@ -14,9 +14,9 @@ import {
     
 function checkBalance() {
   const auth = useAuth();
-  const [transactions,setTransactions] = useState([]);
   const [balance,setBalance] = useState("");
   const [name,setUsername] = useState("");
+  const [transactions,setTransactions] = useState([]);
   useEffect(() => {
     setUsername(localStorage.getItem("username"));
 
@@ -47,8 +47,6 @@ function checkBalance() {
     
 
   }, [])
-
-
 return(
 
 <div className="card">

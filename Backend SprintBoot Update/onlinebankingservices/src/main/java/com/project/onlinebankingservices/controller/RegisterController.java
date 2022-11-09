@@ -39,7 +39,7 @@ public class RegisterController {
 			throw new NotFoundException("Not found Account Id :" + user.getAcctypeid());
 
 		if (userService.findUser(user.getAccountnumber()).isPresent()) {
-			throw new AlreadyFoundException("Can't Create User. (Already exists)  Account Id :" + user.getAcctypeid());
+			throw new AlreadyFoundException("Can't Create User. (Already exists)  Account Number :" + user.getAccountnumber());
 		}
 		if (userService.findUserByUsername(user.getUsername()).isPresent()) {
 			throw new AlreadyFoundException("Can't Create User. (Already exists)  UserName :" + user.getUsername());

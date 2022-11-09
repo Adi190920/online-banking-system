@@ -32,18 +32,18 @@ public class AtmController {
 
 		Optional<User> userOp = uservice.findUserByUsername(customer.getUsername());
 
-		if(userOp.isEmpty())
+		if (userOp.isEmpty())
 			throw new NotFoundException("Not found Username :" + customer.getUsername());
-		
+
 		if (!(customer.getNewpin() == customer.getConformpin())) {
 			throw new NotFoundException("Incorrect Security Answers");
 		}
-		
+
 		User user = userOp.get();
 		if (aservice.findAtmDetails(user.getAccountnumber()).isPresent()) {
 
 			aservice.updateDetails(user.getAccountnumber(), customer.getNewpin());
-			return new ResponseEntity<AtmPinChange> (customer,HttpStatus.OK);
+			return new ResponseEntity<AtmPinChange>(customer, HttpStatus.OK);
 		}
 
 		else {
@@ -51,9 +51,9 @@ public class AtmController {
 			atm.setAccountnumber(user.getAccountnumber());
 			atm.setAtmpin(customer.getNewpin());
 			aservice.createPinDetails(atm);
-			return new ResponseEntity<AtmPinChange> (customer,HttpStatus.OK);
+			return new ResponseEntity<AtmPinChange>(customer, HttpStatus.OK);
 		}
-		
+
 	}
 
 }
