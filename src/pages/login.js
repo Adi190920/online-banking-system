@@ -24,6 +24,7 @@ function App() {
 
   function handleSubmit(event){
     event.preventDefault();
+
     var data = JSON.stringify({"username": username,"password": password});
 
     var config = {
@@ -52,9 +53,10 @@ function App() {
 
 
 
+
   }
   return (
-  
+    <div style={{ backgroundColor: ' #021946 ' }}>
     <MDBContainer fluid>
       {/* <script src="https://apis.google.com/js/platform.js" async defer> */}
       <MDBRow className='d-flex justify-content-center align-items-center h-80'>
@@ -104,7 +106,7 @@ function App() {
                 <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
                   <MDBIcon fab icon='github' size="sm"/>
                 </MDBBtn>
-
+                {/* <button class="btn btn-warning btn-lg" type="submit" onClick={handleSubmit} color='warning'>Transfer</button> */}
               </div>
 
             </MDBCardBody>
@@ -113,7 +115,7 @@ function App() {
         </MDBCol>
       </MDBRow>
     </MDBContainer>
-    
+    </div>
   );
 }
 

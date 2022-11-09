@@ -5,14 +5,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "balancedetails")
+@Table(name = "balanceDetails")
 public class Balance {
 
 	@Id
 	private int id;
 	private long accountNumber;
-	private int accTypeId;
-	private int amount;
+
+	private double balance;
 
 	public int getId() {
 		return id;
@@ -30,26 +30,16 @@ public class Balance {
 		this.accountNumber = accountNumber;
 	}
 
-	public int getAccTypeId() {
-		return accTypeId;
+	public double getBalance() {
+		return balance;
 	}
 
-	public void setAccTypeId(int accTypeId) {
-		this.accTypeId = accTypeId;
-	}
-
-	public int getAmount() {
-		return amount;
-	}
-
-	public void setAmount(int amount) {
-		this.amount = amount;
+	public void setBalance(double balance) {
+		this.balance = balance;
 	}
 
 	@Override
 	public String toString() {
-		return "Balancedetails [id=" + id + ", accountNumber=" + accountNumber + ", accTypeId=" + accTypeId
-				+ ", amount=" + amount + "]";
+		return "Balance details [id=" + id + ", accountNumber=" + accountNumber + ", balance=" + balance + "]";
 	}
-
 }

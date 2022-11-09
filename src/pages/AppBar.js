@@ -3,7 +3,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import axios from "axios";
 import useAuth from '../hooks/auth'
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Route} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
 
@@ -21,9 +21,6 @@ const Appbar = () => {
         //     navigate('/login');
         //     return;
         // })
-        localStorage.removeItem("username");
-        localStorage.removeItem("accountnumber");
-        
         
     }
   
@@ -33,6 +30,7 @@ const Appbar = () => {
       <Navbar bg="dark" variant="dark">
       <Container>
         <Navbar.Brand href="/checkBalance">{localStorage.getItem("username")}</Navbar.Brand>
+        <Navbar.Brand href="/checkBalance">Online Banking Application</Navbar.Brand>
         <Navbar.Brand href="/openNewFD">Open New FD</Navbar.Brand>
         <Navbar.Brand href="/fundTransfer">Fund Transfer</Navbar.Brand>
         <Navbar.Brand href="/checkBalance">Check Balance</Navbar.Brand>

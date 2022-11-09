@@ -79,7 +79,7 @@ function changePin() {
       
       }
     return(
-        // <div style={{ backgroundColor: '#D41C2C' }}>
+        <div style={{ backgroundColor: '#021946' }}>
         <MDBContainer fluid>
         <MDBRow className='d-flex justify-content-center align-items-center h-80'>
         
@@ -101,11 +101,9 @@ function changePin() {
                     <MDBInputGroup className='mb-4 w-100' value={confirmnewpin} onChange={(e) => setConfirmPin(e.target.value)}>
                     <input className='form-control' type='number' placeholder="Confirm New Pin" required/>
                     </MDBInputGroup>         
-                <Button size="lg" onClick={handleSubmit}> Change Pin</Button>
-                {/*  Misbehaving due to MDB Template bugs
-               <MDBBtn size='lg'
-                onClick={handleSubmit}
-    >Change Pin </MDBBtn>   */}
+                {/* <button onClick={handleSubmit}> Change Pin</button>
+                Misbehaving due to MDB Template bugs */}
+               <MDBBtn size='lg'onClick={handleSubmit}>Change Pin </MDBBtn>  
         </MDBCardBody>
         </MDBCard>
         </MDBCol>

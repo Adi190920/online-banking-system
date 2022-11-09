@@ -12,26 +12,29 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.onlinebankingservices.model.LoginUser;
 import com.project.onlinebankingservices.model.ReqquestBody;
-import com.project.onlinebankingservices.model.Transactions;
-import com.project.onlinebankingservices.service.TransactionsdtlsService;
+import com.project.onlinebankingservices.model.Balance;
+import com.project.onlinebankingservices.model.User;
+import com.project.onlinebankingservices.service.BalancedtlsService;
 import com.project.onlinebankingservices.service.UserdtlsService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 
-public class TransactionsController {
+public class BalanceController {
 
 	@Autowired
-	private TransactionsdtlsService tservice;
+	private BalancedtlsService bservice;
 
+	@PostMapping("/balance")
+	public Optional<Balance> balanceDisplay(@RequestBody ReqquestBody requestBody) {
+		// Fetch by Limit
+		System.out.println(requestBody);
+		Optional<Balance> balancelist = bservice.findByAccountnumber(Long.valueOf(requestBody.getAccountNumber()));
+		// System.out.println(transactionslist);
 
-	@PostMapping("/transactions")
-	public List<Transactions> transactionsDisplay(@RequestBody ReqquestBody requestBody) {
+		return balancelist;
 
-		List<Transactions> transactionslist = tservice.findByAccountnumber(Long.valueOf(requestBody.getAccountNumber()));
-
-
-		return transactionslist;
 	}
 }

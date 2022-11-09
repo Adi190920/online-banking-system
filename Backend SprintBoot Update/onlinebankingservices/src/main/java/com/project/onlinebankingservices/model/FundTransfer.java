@@ -1,12 +1,10 @@
 package com.project.onlinebankingservices.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 //@Data
 //@AllArgsConstructor
@@ -16,8 +14,9 @@ import lombok.NoArgsConstructor;
 public class FundTransfer {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int transferid;
-	private long soureaccnumber;
+	private long sourceaccnumber;
 	private long destaccnumber;
 	private int destacctypeid;
 	private double transferamount;
@@ -30,12 +29,12 @@ public class FundTransfer {
 		this.transferid = transferid;
 	}
 
-	public long getSoureaccnumber() {
-		return soureaccnumber;
+	public long getSourceaccnumber() {
+		return sourceaccnumber;
 	}
 
-	public void setSoureaccnumber(long soureaccnumber) {
-		this.soureaccnumber = soureaccnumber;
+	public void setSourceaccnumber(long sourceaccnumber) {
+		this.sourceaccnumber = sourceaccnumber;
 	}
 
 	public long getDestaccnumber() {
@@ -65,6 +64,12 @@ public class FundTransfer {
 	public FundTransfer() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String toString() {
+		return "FundTransfer [transferid=" + transferid + ", sourceaccnumber=" + sourceaccnumber + ", destaccnumber="
+				+ destaccnumber + ", destacctypeid=" + destacctypeid + ", transferamount=" + transferamount + "]";
 	}
 
 }

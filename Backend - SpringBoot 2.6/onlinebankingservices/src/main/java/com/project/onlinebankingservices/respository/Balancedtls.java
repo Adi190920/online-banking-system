@@ -10,6 +10,6 @@ import com.project.onlinebankingservices.model.Balance;
 public interface Balancedtls extends JpaRepository<Balance, Integer> {
 
 	@Modifying
-	@Query(value = "UPDATE balancedetails SET amount = :am WHERE accountnumber = :acc", nativeQuery = true)
+	@Query(value = "UPDATE balanceDetails SET amount = :am WHERE accountnumber = :acc", nativeQuery = true)
 	int updateBalance(@Param("am") Integer amount, @Param("acc") Long accountnumber);
 }

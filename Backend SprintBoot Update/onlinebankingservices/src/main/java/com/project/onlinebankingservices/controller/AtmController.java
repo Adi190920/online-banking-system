@@ -30,17 +30,14 @@ public class AtmController {
 	@PostMapping("/changepin")
 	public ResponseEntity<AtmPinChange> changePin(@RequestBody AtmPinChange customer) {
 
-//		LoginUser loginuser = new LoginUser();
 		Optional<User> userOp = uservice.findUserByUsername(customer.getUsername());
 		
 		if(userOp.isEmpty())
 			return new ResponseEntity<AtmPinChange> (HttpStatus.NOT_FOUND);
 		
-//		System.out.println(aservice.AtmDetailsByAcc(user.getAccountnumber()));
-
-//		if (!(customer.getNewpin() == customer.getConformpin())) {
-//			return new ResponseEntity<AtmPinChange> (HttpStatus.CONFLICT);
-//		}
+		if (!(customer.getNewpin() == customer.getConformpin())) {
+			return new ResponseEntity<AtmPinChange> (HttpStatus.CONFLICT);
+		}
 		
 		User user = userOp.get();
 		if (aservice.findAtmDetails(user.getAccountnumber()).isPresent()) {
@@ -56,8 +53,9 @@ public class AtmController {
 			atm.setAccountnumber(user.getAccountnumber());
 			atm.setAtmpin(customer.getNewpin());
 			aservice.createPinDetails(atm);
+			return new ResponseEntity<AtmPinChange> (customer,HttpStatus.OK);
 		}
-		return new ResponseEntity<AtmPinChange> (HttpStatus.OK);
+		return new ResponseEntity<AtmPinChange> (HttpStatus.CONFLICT);
 	}
 
 }

@@ -31,8 +31,7 @@ public class ResetController {
 
 		if (user.isPresent()) {
 			User customer = user.get();
-//			System.out.println(rp);
-//			System.out.println(customer);
+
 			if (customer.getSecurityquestions().equals(rp.getSecurityquestions())
 					&& customer.getSecurityanswers().equals(rp.getSecurityanswers())) {
 

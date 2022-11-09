@@ -110,7 +110,7 @@ function App() {
   }
 
   return (
-    
+    <div style={{ backgroundColor: ' #021946 ' }}>
         <MDBContainer fluid >
         <MDBRow className='d-flex justify-content-center align-items-center h-80'>
         <MDBCol md='6'>
@@ -189,7 +189,7 @@ function App() {
               
               <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Agree Terms & Conditions' />
                
-              <Button size="lg" onClick={handleSubmit} >Register</Button>
+                <Button size='lg'onClick={handleSubmit}>Register</Button>
 
             </MDBCardBody>
           </MDBCard>
@@ -199,7 +199,7 @@ function App() {
     </MDBRow>
 
     </MDBContainer>
-    
+    </div>
   );
 }
 

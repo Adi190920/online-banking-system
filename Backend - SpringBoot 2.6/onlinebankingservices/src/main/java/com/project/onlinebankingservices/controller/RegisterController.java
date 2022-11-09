@@ -26,7 +26,7 @@ public class RegisterController {
 		
 		 if (uservice.findUser(user.getAccountnumber()).isPresent())
 		 {
-			 return "user already exits";
+			 return "User already exists";
 		 }
 		
 		PasswordEncoder pe = new BCryptPasswordEncoder();

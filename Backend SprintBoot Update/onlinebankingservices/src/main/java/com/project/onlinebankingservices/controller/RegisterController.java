@@ -22,41 +22,44 @@ import com.project.onlinebankingservices.service.UserdtlsService;
 
 public class RegisterController {
 
-	
 	@Autowired
 	private UserdtlsService userService;
-	
+
 	@Autowired
 	private BalancedtlsService balanceService;
-	
+
 	@Autowired
 	private AccountsdtlsService accountService;
+
+
 	
 	@PostMapping("/register")
 	public ResponseEntity<User> register(@RequestBody User user) {
-		
-	if(accountService.findById(user.getAcctypeid()).isEmpty())
-		return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
-		
-	 if (userService.findUser(user.getAccountnumber()).isPresent())
-	 {
-		 return new ResponseEntity<User>(HttpStatus.ALREADY_REPORTED);
-	 }
+
+		if (accountService.findById(user.getAcctypeid()).isEmpty())
+			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+
+		if (userService.findUser(user.getAccountnumber()).isPresent()) {
+			return new ResponseEntity<User>(HttpStatus.ALREADY_REPORTED);
+		}
 		System.out.println(user);
-	 	Balance balance = new Balance();
-	 	
-//	 	System.out.println(balance.getBalanceid());
-	 	balance.setAccountnumber(user.getAccountnumber());
-	 	balance.setBalance(0);
-	 	balanceService.createBalanceDetails(balance);
-//	 	balanceService.createBalanceDetails(balance);
-//	 	Optional<Balance> b = balanceService.findByAccountnumber(user.getAccountnumber());
-		user.setBalanceid(balance.getBalanceid());
+		Balance balance = new Balance();
+		balance.setAccountnumber(user.getAccountnumber());
+
+
+//	 	Creating for Minimum account balance of Rs 10,000
+		balance.setBalance(10000);
+		balanceService.createBalanceDetails(balance);
+
+		Optional<Balance> bOps = balanceService.findByAccountnumber(user.getAccountnumber());
+		Balance b = bOps.get();
+		
+
+		user.setBalanceid(b.getBalanceid());
 		System.out.println(user);
-	 	userService.createUser(user);
+		userService.createUser(user);
 		return new ResponseEntity<User>(user, HttpStatus.OK);
-		
+
 	}
-	
 
 }
