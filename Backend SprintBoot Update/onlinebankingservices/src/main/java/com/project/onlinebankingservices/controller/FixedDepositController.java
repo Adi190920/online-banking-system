@@ -23,14 +23,14 @@ public class FixedDepositController {
 
 	@PostMapping("/fixeddeposit")
 	public ResponseEntity<Fixeddeposit> newFixedDeposit(@RequestBody Fixeddeposit user) {
-		System.out.println(user);
+//		System.out.println(user);
 		try {
 		fixedDepositService.createFixedDeposit(user);
 		return new ResponseEntity<Fixeddeposit>(user,HttpStatus.OK);
 		}
 		catch(Exception e)
 		{	
-			return new ResponseEntity<Fixeddeposit>(user,HttpStatus.OK);
+			return new ResponseEntity<Fixeddeposit>(user,HttpStatus.INTERNAL_SERVER_ERROR);
 				
 		}
 	}

@@ -28,7 +28,7 @@ public class FundTransferdtlsServiceImpl implements FundTransferdtlsService {
     private FundTransferdtls fundTransferRepo;
 
     @Override
-    public ResponseEntity<String> doFundTransfer(FundTransfer ft) {
+    public String doFundTransfer(FundTransfer ft) {
         try {
             //Access the details from ft first
             long srcAcc = ft.getSourceaccnumber();
@@ -72,17 +72,17 @@ public class FundTransferdtlsServiceImpl implements FundTransferdtlsService {
 
                             //Saving fund transfer object
                             fundTransferRepo.save(ft);
-                            return new ResponseEntity<>("Fund Transfer Successful!", HttpStatus.OK);
+                            return "Fund Transfer Successful!";
                         }
-                        return new ResponseEntity<>("Beneficiary Account Type is invalid", HttpStatus.BAD_REQUEST);
+                        return "Beneficiary Account Type is invalid";
                     }
-                    return new ResponseEntity<>("Beneficiary Account Not Found!", HttpStatus.BAD_REQUEST);
+                    return "Beneficiary Account Not Found!";
                 }
-                return new ResponseEntity<>("Insufficient Funds in your Account!", HttpStatus.BAD_REQUEST);
+                return "Insufficient Funds in your Account!";
             }
-            return new ResponseEntity<>("Invalid Source Account!", HttpStatus.BAD_REQUEST);
+            return "Invalid Source Account!";
         } catch (Exception e) {
-            return new ResponseEntity<>("Fund Transfer processing failed!", HttpStatus.BAD_REQUEST);
+            return "Fund Transfer processing failed!";
         }
     }
 
