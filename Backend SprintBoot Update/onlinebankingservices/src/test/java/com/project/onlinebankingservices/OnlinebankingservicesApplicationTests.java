@@ -186,9 +186,9 @@ class OnlinebankingservicesApplicationTests {
 		when(balanceRepo.save(destBalanceObj)).thenReturn(destBalanceObj);
 		when(fundTransferRepo.save(fundTransfer)).thenReturn(fundTransfer);
 
-		ResponseEntity<String> responseEntity = ftService.doFundTransfer(fundTransfer);
+		String ftResponse = ftService.doFundTransfer(fundTransfer);
 
-		assertEquals(responseEntity.getBody(), response);
+		assertEquals(ftResponse, response);
 	}
 
 	public static Stream<Arguments> getFundTransfer() {
