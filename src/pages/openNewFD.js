@@ -35,13 +35,14 @@ function OpenNewFD() {
         })
         .then((res) => {
           console.log(res);
-          setMessage("Fixed Deposit Created");
           setSuccess("Fixed Deposit Created");
           setTimeout(() => setSuccess("   "), 2000);
-          alert("Fixed Deposit Created");
+          // alert("Fixed Deposit Created");
         })
         .catch((err) => {
           console.log(err);
+          setMessage("Something went wrong");
+          setTimeout(() => setMessage("   "), 4000);
         });
     }
     console.log(accountnumber, amount, product, period);

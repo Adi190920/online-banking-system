@@ -47,8 +47,8 @@ function App() {
       .catch(function (error) {
         console.log(error);
         // console.log(error.response.data[" errorMessage "]);
-        setMessage("Something went wrong");
-        // setMessage(error.response.data[" errorMessage "]);
+        // setMessage("Something went wrong");
+        setMessage(error.response.data[" errorMessage "]);
         setTimeout(() => setMessage("   "), 2000);
         // setMessage("Invalid Username and Password");
       });

@@ -101,8 +101,8 @@ function App() {
     })
     .catch(function (error) {
       console.log(error);
-      setMessage("Something went wrong");
-      // setMessage(error.response.data[" errorMessage "]);
+      // setMessage("Something went wrong");
+      setMessage(error.response.data[" errorMessage "]);
       setTimeout(() => setMessage("   "), 2000);
     });
   

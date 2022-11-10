@@ -65,7 +65,12 @@ function FundTransfer() {
       );
       setTimeout(() => setMessage("   "), 4000);
     }
-    
+    else if (sourceaccnumber === destaccnumber) {
+      setMessage(
+        "Transfer can not happen between same account numbers"
+      );
+      setTimeout(() => setMessage("   "), 4000);
+    }
      else {
       axios
         .post(`http://localhost:8081/fundtransfer`, {
@@ -76,17 +81,18 @@ function FundTransfer() {
         })
         .then((res) => {
           console.log(res);
+          setSuccess("Fund Transfer Completed Successfully");
+          setTimeout(() => setSuccess("   "), 4000);
+          setdestaccnumber("");
+          settransferamount('');
           
-      setSuccess("Fund Transfer Completed Successfully");
-      setTimeout(() => setSuccess("   "), 4000);
-      alert("Fund Transfer Completed Successfully");
-      setdestaccnumber("");
-      settransferamount('');
         })
         .catch((err) => {
           console.log(err);
-          setMessage(err);
+          setMessage(err.response.data);
           setTimeout(() => setMessage("   "), 4000);
+          setdestaccnumber("");
+          settransferamount('');
         });
     }
 

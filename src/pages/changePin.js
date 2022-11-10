@@ -62,6 +62,7 @@ function changePin() {
           .then(function (res) {
             console.log(res.data);
             setSuccess("Pin is Changed");
+            setTimeout(() => setSuccess("   "), 2000);
             setNewPin("");
             setOldPin("");
             setConfirmPin("");
@@ -71,6 +72,7 @@ function changePin() {
           .catch(function (error) {
             console.log(error);
             setMessage("Something went wrong");
+            setTimeout(() => setMessage("   "), 2000);
           });
       
       
