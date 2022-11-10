@@ -42,6 +42,7 @@ function App() {
         localStorage.setItem("accountnumber", res.data.accountnumber);
         console.log(localStorage.getItem("user"));
         alert("Login successful");
+        // toast("Login Successful");
         navigate("/checkBalance");
       })
       .catch(function (error) {
@@ -50,6 +51,8 @@ function App() {
         // setMessage("Something went wrong");
         setMessage(error.response.data[" errorMessage "]);
         setTimeout(() => setMessage("   "), 2000);
+        setPassword("");
+        setUsername("");
         // setMessage("Invalid Username and Password");
       });
   }

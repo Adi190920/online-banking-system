@@ -71,8 +71,11 @@ function changePin() {
           })
           .catch(function (error) {
             console.log(error);
-            setMessage("Something went wrong");
+            setMessage(error.response.data[" errorMessage "]);
             setTimeout(() => setMessage("   "), 2000);
+            setNewPin("");
+            setOldPin("");
+            setConfirmPin("");
           });
       
       

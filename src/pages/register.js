@@ -104,6 +104,11 @@ function App() {
       // setMessage("Something went wrong");
       setMessage(error.response.data[" errorMessage "]);
       setTimeout(() => setMessage("   "), 2000);
+      setPassword("");
+      setUsername("");
+      setAccnumber("");
+      setAnswer("");
+      setMmobno("");
     });
   
   }

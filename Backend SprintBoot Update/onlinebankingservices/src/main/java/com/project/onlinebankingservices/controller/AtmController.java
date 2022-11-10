@@ -40,9 +40,21 @@ public class AtmController {
 		}
 
 		User user = userOp.get();
+		Optional<Atm> atmOptional = aservice.findAtmDetails(user.getAccountnumber());
+		if(atmOptional.isPresent()) {
+			if(atmOptional.get().getAtmpin() == customer.getOldpin()) {
+				 aservice.updateDetails(user.getAccountnumber(), customer.getNewpin());
+
+					return new ResponseEntity<AtmPinChange>(customer, HttpStatus.OK);
+			}
+			else {
+				throw new NotFoundException("Incorrect Old Pin");
+			}
+		}
 		if (aservice.findAtmDetails(user.getAccountnumber()).isPresent()) {
 
 			aservice.updateDetails(user.getAccountnumber(), customer.getNewpin());
+			
 			return new ResponseEntity<AtmPinChange>(customer, HttpStatus.OK);
 		}
 
@@ -51,7 +63,7 @@ public class AtmController {
 			atm.setAccountnumber(user.getAccountnumber());
 			atm.setAtmpin(customer.getNewpin());
 			aservice.createPinDetails(atm);
-			return new ResponseEntity<AtmPinChange>(customer, HttpStatus.OK);
+			return new ResponseEntity<AtmPinChange>( HttpStatus.OK);
 		}
 
 	}
