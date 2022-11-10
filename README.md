@@ -14,6 +14,7 @@
 
 ## 👨🏻‍💻 About The Project
 The Online Banking Application is a Browser based Application to keep track of Account details, Fund Transfer, Transaction details and other events. 
+The Frontend of the project is from the 'src' folder, the backend is in the 'Backend SprintBoot Update' folder. The schema of the database is in schema.sql file and data.sql file has data to populate the tables. 
 
 
 ## 🌟 Features
@@ -32,4 +33,4 @@ The Online Banking Application is a Browser based Application to keep track of A
 - [Anushri Eswaran](https://github.com/Anushri1206)
 - [Aiswarya S](https://github.com/aishsanal)
 - [Supriya Mallidi](https://github.com/supriyamallidi)
-- [Venkat Sai] 
+- [Venkat Sai](https://github.com/Venkatasai34)
