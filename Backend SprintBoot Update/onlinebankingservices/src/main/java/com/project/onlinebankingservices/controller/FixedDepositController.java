@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.onlinebankingservices.exceptions.NotFoundException;
 import com.project.onlinebankingservices.model.Fixeddeposit;
 import com.project.onlinebankingservices.service.FixeddepositsService;
 
@@ -22,17 +23,9 @@ public class FixedDepositController {
 	private FixeddepositsService fixedDepositService;
 
 	@PostMapping("/fixeddeposit")
-	public ResponseEntity<Fixeddeposit> newFixedDeposit(@RequestBody Fixeddeposit user) {
-		System.out.println(user);
-		try {
-		fixedDepositService.createFixedDeposit(user);
-		return new ResponseEntity<Fixeddeposit>(user,HttpStatus.OK);
-		}
-		catch(Exception e)
-		{	
-			return new ResponseEntity<Fixeddeposit>(user,HttpStatus.OK);
-				
-		}
+	public ResponseEntity<Fixeddeposit> newFixedDeposit(@RequestBody Fixeddeposit user) throws NotFoundException {
+		return fixedDepositService.createFixedDeposit(user);
+		
 	}
 	
 	@GetMapping("/allfd")

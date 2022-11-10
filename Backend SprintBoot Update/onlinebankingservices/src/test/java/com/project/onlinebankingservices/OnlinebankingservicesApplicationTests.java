@@ -1,19 +1,12 @@
 package com.project.onlinebankingservices;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-import java.util.ArrayList;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import com.project.onlinebankingservices.model.Balance;
-import com.project.onlinebankingservices.model.FundTransfer;
-import com.project.onlinebankingservices.respository.Balancedtls;
-import com.project.onlinebankingservices.respository.FundTransferdtls;
-import com.project.onlinebankingservices.service.FundTransferdtlsService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -25,8 +18,13 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.project.onlinebankingservices.model.Balance;
+import com.project.onlinebankingservices.model.FundTransfer;
 import com.project.onlinebankingservices.model.User;
+import com.project.onlinebankingservices.respository.Balancedtls;
+import com.project.onlinebankingservices.respository.FundTransferdtls;
 import com.project.onlinebankingservices.respository.Usersdtls;
+import com.project.onlinebankingservices.service.FundTransferdtlsService;
 import com.project.onlinebankingservices.service.UserdtlsService;
 
 @RunWith(SpringRunner.class)
