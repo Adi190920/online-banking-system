@@ -14,9 +14,6 @@ create table users(accountNumber bigint, name varchar(30), middleName varchar(30
 create table atmDetails (atmId int AUTO_INCREMENT, accountNumber bigint, atmPin int, primary key (atmId), 
 						foreign key (accountNumber) references users(accountNumber));
 
-create table checkBookDetails( checkBookId int AUTO_INCREMENT, accountNumber bigint, requestedDate date, issueDate date, 
-								priority int, primary key (checkBookId),
-                                foreign key (accountNumber) references users(accountNumber));
 create table fundTransfer(transferId int AUTO_INCREMENT, sourceAccNumber bigint, destAccNumber bigint, destAccTypeId int, 
 							transferAmount double, primary key (transferId) );
 
