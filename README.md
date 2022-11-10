@@ -11,8 +11,6 @@
   <a href="#developers">Developers</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 </p>
 
- {/* use our image */}
-<img alt="Layout" src="features-image.jpg">
 
 ## 👨🏻‍💻 About The Project
 The Online Banking Application is a Browser based Application to keep track of Account details, Fund Transfer, Transaction details and other events. 
@@ -32,5 +30,6 @@ The Online Banking Application is a Browser based Application to keep track of A
 - [Aditya Abhang](https://github.com/Adi190920)
 - [Amruth Chandra](https://github.com/amruthchandra)
 - [Anushri Eswaran](https://github.com/Anushri1206)
-- [Aiswarya S] (https://github.com/aishsanal)
-- [Supriya Mallidi] (https://github.com/supriyamallidi)
+- [Aiswarya S](https://github.com/aishsanal)
+- [Supriya Mallidi](https://github.com/supriyamallidi)
+- [Venkat Sai] 
