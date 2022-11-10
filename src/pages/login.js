@@ -104,11 +104,11 @@ function App() {
                   </p>
                 </div>
 
-                <div className="text-center">
-                  <p>or login with:</p>
+                {/* <div className="text-center">
+                  <p>or login with:</p> */}
                   
                   {/* <div class="g-signin2" data-onsuccess="onSignIn">hi</div> */}
-                  <MDBBtn
+                  {/* <MDBBtn
                     tag="a"
                     color="none"
                     className="mx-3"
@@ -133,9 +133,9 @@ function App() {
                     style={{ color: "#1266f1" }}
                   >
                     <MDBIcon fab icon="github" size="sm" />
-                  </MDBBtn>
+                  </MDBBtn> */}
                   {/* <button class="btn btn-warning btn-lg" type="submit" onClick={handleSubmit} color='warning'>Transfer</button> */}
-                </div>
+                {/* </div> */}
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
